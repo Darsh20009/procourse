@@ -1,9 +1,17 @@
-import type { Express } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import express from "express";
 import session from "express-session";
 import crypto from "crypto";
+import { User } from "../shared/schema";
+
+// Extend express-session types
+declare module "express-session" {
+  interface SessionData {
+    user?: User;
+  }
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Configure session middleware
@@ -21,7 +29,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   );
 
   // Auth routes
-  app.post("/api/auth/login", async (req, res) => {
+  app.post("/api/auth/login", async (req: Request, res: Response) => {
     const { email, userId } = req.body;
     
     console.log("Login attempt:", { email, userId });
@@ -36,7 +44,33 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       // Set user in session
-      (req.session as any).user = user;
+      req.session.user = user;
+      console.log("User set in session:", user);
+      
+      return res.status(200).json(user);
+    } catch (error) {
+      console.error("Login error:", error);
+      return res.status(500).json({ message: "Server error" });
+    }
+  });
+  
+  // Alias login - also support /api/login path
+  app.post("/api/login", async (req: Request, res: Response) => {
+    const { email, userId } = req.body;
+    
+    console.log("Login attempt (alternate endpoint):", { email, userId });
+
+    try {
+      const user = await storage.getUserByEmailAndId(email, userId);
+      console.log("Login user found:", user);
+      
+      if (!user) {
+        console.log("Login failed: Invalid credentials");
+        return res.status(401).json({ message: "Invalid credentials" });
+      }
+
+      // Set user in session
+      req.session.user = user;
       console.log("User set in session:", user);
       
       return res.status(200).json(user);
@@ -46,7 +80,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/auth/logout", (req, res) => {
+  app.post("/api/auth/logout", (req: Request, res: Response) => {
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ message: "Logout failed" });
+      }
+      res.clearCookie("connect.sid");
+      return res.status(200).json({ message: "Logged out successfully" });
+    });
+  });
+  
+  // Alias logout
+  app.post("/api/logout", (req: Request, res: Response) => {
     req.session.destroy((err) => {
       if (err) {
         return res.status(500).json({ message: "Logout failed" });
@@ -56,8 +101,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     });
   });
 
-  app.get("/api/auth/check", (req, res) => {
-    const user = (req.session as any).user;
+  app.get("/api/auth/check", (req: Request, res: Response) => {
+    const user = req.session.user;
     if (!user) {
       return res.status(401).json({ message: "Not authenticated" });
     }
@@ -65,8 +110,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Middleware to protect routes
-  const requireAuth = (req, res, next) => {
-    const user = (req.session as any).user;
+  const requireAuth = (req: Request, res: Response, next: NextFunction) => {
+    const user = req.session.user;
     if (!user) {
       return res.status(401).json({ message: "Authentication required" });
     }
@@ -74,7 +119,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   };
 
   // Exam routes
-  app.get("/api/exams/available", requireAuth, async (req, res) => {
+  app.get("/api/exams/available", requireAuth, async (req: Request, res: Response) => {
     try {
       const exams = await storage.getAvailableExams();
       return res.status(200).json(exams);
@@ -84,7 +129,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/exams/current", requireAuth, async (req, res) => {
+  app.get("/api/exams/current", requireAuth, async (req: Request, res: Response) => {
     try {
       // Get the first available exam for simplicity
       // In a real app, you might want to get a specific exam by ID
@@ -101,11 +146,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/exams/submit", requireAuth, async (req, res) => {
+  app.post("/api/exams/submit", requireAuth, async (req: Request, res: Response) => {
     const { examId, answers } = req.body;
-    const user = (req.session as any).user;
+    const user = req.session.user;
 
+    // User is guaranteed to be defined because of requireAuth middleware
     try {
+      if (!user) {
+        return res.status(401).json({ message: "Authentication required" });
+      }
+      
       const result = await storage.submitExam(user.id, examId, answers);
       
       // If exam is passed, generate a certificate
@@ -121,10 +171,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Certificate routes
-  app.get("/api/certificates", requireAuth, async (req, res) => {
-    const user = (req.session as any).user;
+  app.get("/api/certificates", requireAuth, async (req: Request, res: Response) => {
+    const user = req.session.user;
     
     try {
+      if (!user) {
+        return res.status(401).json({ message: "Authentication required" });
+      }
+      
       const certificates = await storage.getCertificatesByUserId(user.id);
       return res.status(200).json(certificates);
     } catch (error) {
@@ -133,7 +187,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/certificates/search", requireAuth, async (req, res) => {
+  app.get("/api/certificates/search", requireAuth, async (req: Request, res: Response) => {
     const { name, userId } = req.query;
     
     try {
@@ -149,10 +203,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // User stats route
-  app.get("/api/user/stats", requireAuth, async (req, res) => {
-    const user = (req.session as any).user;
+  app.get("/api/user/stats", requireAuth, async (req: Request, res: Response) => {
+    const user = req.session.user;
     
     try {
+      if (!user) {
+        return res.status(401).json({ message: "Authentication required" });
+      }
+      
       const stats = await storage.getUserStats(user.id);
       return res.status(200).json(stats);
     } catch (error) {

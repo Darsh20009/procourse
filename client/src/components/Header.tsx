@@ -1,20 +1,45 @@
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/App";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "wouter";
 
 export default function Header() {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, setUser } = useAuth();
   const { toast } = useToast();
   const [_, setLocation] = useLocation();
 
   const handleLogout = async () => {
-    await logout();
-    toast({
-      title: "Logged out",
-      description: "You have been successfully logged out.",
-    });
-    setLocation("/");
+    try {
+      const res = await fetch("/api/auth/logout", {
+        method: "POST",
+        credentials: "include"
+      });
+      
+      if (res.ok) {
+        // Clear user from context
+        setUser(null);
+        
+        toast({
+          title: "تم تسجيل الخروج",
+          description: "تم تسجيل خروجك بنجاح.",
+        });
+        
+        setLocation("/");
+      } else {
+        toast({
+          title: "فشل تسجيل الخروج",
+          description: "حدث خطأ أثناء تسجيل الخروج.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+      toast({
+        title: "خطأ في تسجيل الخروج",
+        description: "حدث خطأ أثناء تسجيل الخروج.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (

@@ -51,8 +51,12 @@ export const storage = {
   },
 
   async getUserByEmailAndId(email: string, userId: string): Promise<User | null> {
+    console.log("Looking for user with email and id:", { email, userId });
     const users = await this.getAllUsers();
-    return users.find(user => user.email === email && user.id === userId) || null;
+    console.log("Available users:", users);
+    const user = users.find(user => user.email === email && user.id === userId) || null;
+    console.log("Found user:", user);
+    return user;
   },
 
   async createUser(user: Omit<User, "id">): Promise<User> {

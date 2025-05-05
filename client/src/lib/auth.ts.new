@@ -59,9 +59,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser
   };
 
-  return (
-    <AuthContext.Provider value={authContextValue}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return React.createElement(AuthContext.Provider, {
+    value: authContextValue
+  }, children);
 };
