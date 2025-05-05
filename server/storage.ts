@@ -190,12 +190,18 @@ export const storage = {
       // Map preferredField to exam IDs
       const examMapping: { [key: string]: string[] } = {
         'oracle_apex': ['exam-001'],
-        'python': ['exam-python'],
         'java': ['exam-java'],
-        'javascript': ['exam-javascript'],
+        'javascript': ['exam-javascript'], 
+        'python': ['exam-python'],
         'php': ['exam-php'],
         'cpp': ['exam-cpp']
       };
+
+      // For legacy exams
+      if (user.preferredField === 'oracle_apex') {
+        const oracleExam = allExams.find(exam => exam.id === 'exam-001');
+        if (oracleExam) return [oracleExam];
+      }
 
       // Get allowed exams for user's preferred field
       const allowedExams = examMapping[user.preferredField || ''] || [];
