@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import { Route, Switch, useLocation } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/Header";
@@ -8,7 +8,25 @@ import Exam from "@/pages/Exam";
 import Certificates from "@/pages/Certificates";
 import Dashboard from "@/pages/dashboard";
 import NotFound from "@/pages/not-found";
-import { useAuth } from "./lib/auth";
+import { User } from "./lib/types";
+
+// Create context for authentication
+interface AuthContextType {
+  user: User | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  setUser: (user: User | null) => void;
+}
+
+const AuthContext = createContext<AuthContextType | null>(null);
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -57,16 +75,15 @@ function App() {
     }
   }, [isAuthenticated, location, setLocation, isLoading]);
 
-  // Create auth context value
-  const authContextValue: AuthContextType = {
-    user,
-    isAuthenticated,
-    isLoading,
-    setUser
-  };
-
   return (
-    <AuthContext.Provider value={authContextValue}>
+    <AuthContext.Provider 
+      value={{
+        user,
+        isAuthenticated,
+        isLoading,
+        setUser
+      }}
+    >
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="container mx-auto px-4 py-8 flex-grow">
