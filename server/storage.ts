@@ -77,12 +77,31 @@ export const storage = {
     return user;
   },
 
-  async createUser(userData: { name: string; email: string; preferredField?: string }): Promise<User> {
+  async getUserByEmail(email: string): Promise<User | null> {
     const users = await this.getAllUsers();
+    return users.find(user => user.email === email) || null;
+  },
+  
+  async validateUserCredentials(email: string, password: string): Promise<User | null> {
+    const users = await this.getAllUsers();
+    const user = users.find(user => user.email === email && user.password === password) || null;
+    return user;
+  },
+
+  async createUser(userData: { name: string; email: string; password: string; preferredField?: string }): Promise<User> {
+    const users = await this.getAllUsers();
+    
+    // Check if user with the same email already exists
+    const existingUser = users.find(user => user.email === userData.email);
+    if (existingUser) {
+      throw new Error("البريد الإلكتروني مسجل بالفعل");
+    }
+    
     const newUser: User = { 
       id: crypto.randomUUID(),
       name: userData.name,
       email: userData.email,
+      password: userData.password,
       preferredField: userData.preferredField
     };
     users.push(newUser);

@@ -11,6 +11,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
+  password: string;
   preferredField?: string; // Preferred certification field
 }
 

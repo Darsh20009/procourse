@@ -53,10 +53,28 @@ export default function Register() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!name || !email || !field) {
+    if (!name || !email || !password || !confirmPassword || !field) {
       toast({
         title: "حقول مطلوبة",
         description: "يرجى ملء جميع الحقول المطلوبة",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (password !== confirmPassword) {
+      toast({
+        title: "كلمات المرور غير متطابقة",
+        description: "يرجى التأكد من تطابق كلمة المرور وتأكيدها",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (password.length < 6) {
+      toast({
+        title: "كلمة المرور قصيرة",
+        description: "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
         variant: "destructive",
       });
       return;
@@ -72,6 +90,7 @@ export default function Register() {
         body: JSON.stringify({ 
           name, 
           email, 
+          password,
           preferredField: field 
         }),
         credentials: "include"
@@ -82,16 +101,16 @@ export default function Register() {
         
         toast({
           title: "تم التسجيل بنجاح",
-          description: `تم إنشاء حسابك برقم الهوية: ${userData.id}. احتفظ بهذا الرقم للدخول لاحقاً.`,
+          description: "تم إنشاء حسابك بنجاح، يمكنك الآن تسجيل الدخول",
         });
         
         // Auto-login the user
-        const loginRes = await fetch("/api/auth/login", {
+        const loginRes = await fetch("/api/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ 
             email, 
-            userId: userData.id 
+            password
           }),
           credentials: "include"
         });
@@ -153,6 +172,30 @@ export default function Register() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="yourname@example.com"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password">كلمة المرور</Label>
+              <Input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="أدخل كلمة المرور"
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword">تأكيد كلمة المرور</Label>
+              <Input
+                type="password"
+                id="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="أعد إدخال كلمة المرور"
                 required
               />
             </div>
