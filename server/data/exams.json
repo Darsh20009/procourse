@@ -371,41 +371,3331 @@
   },
   {
     "id": "exam-002",
-    "title": "Node.js Development",
-    "description": "Certification exam for Node.js application development",
-    "duration": 60,
-    "totalQuestions": 60,
-    "passingScore": 70,
-    "questions": []
-  },
-  {
-    "id": "exam-003",
-    "title": "React Framework",
-    "description": "Certification exam for React.js front-end development",
-    "duration": 60,
-    "totalQuestions": 60,
-    "passingScore": 70,
-    "questions": []
-  },
-  {
-    "id": "exam-custom",
-    "title": "Custom Development Exam",
-    "description": "Custom certification exam",
+    "title": "HTML & CSS",
+    "description": "Certification exam for HTML & CSS application development",
     "duration": 30,
     "totalQuestions": 30,
     "passingScore": 50,
     "questions": [
       {
         "id": 1,
-        "text": "What is your first question?",
+        "text": "Which HTML5 element is used for representing the result of a calculation?",
         "options": [
-          "Option 1",
-          "Option 2",
-          "Option 3",
-          "Option 4"
+          "<calc>",
+          "<result>",
+          "<output>",
+          "<math>"
+        ],
+        "correctAnswer": 2,
+        "category": "HTML5 Semantics"
+      },
+      {
+        "id": 2,
+        "text": "What does the CSS property 'contain: content;' do?",
+        "options": [
+          "Prevents element overflow",
+          "Creates a new stacking context",
+          "Limits browser style recalculations",
+          "Forces content to stay within borders"
+        ],
+        "correctAnswer": 2,
+        "category": "CSS Performance"
+      },
+      {
+        "id": 3,
+        "text": "Which attribute enables native form validation in HTML5?",
+        "options": [
+          "validate",
+          "novalidate",
+          "required",
+          "autovalidate"
+        ],
+        "correctAnswer": 2,
+        "category": "HTML5 Forms"
+      },
+      {
+        "id": 4,
+        "text": "What does 'aspect-ratio: 16/9;' in CSS control?",
+        "options": [
+          "Image compression ratio",
+          "Responsive element proportions",
+          "Media query breakpoints",
+          "Animation timing"
+        ],
+        "correctAnswer": 1,
+        "category": "CSS Layout"
+      },
+      {
+        "id": 5,
+        "text": "Which HTML element is most semantic for a standalone blog post?",
+        "options": [
+          "<div class='post'>",
+          "<section>",
+          "<article>",
+          "<blog>"
+        ],
+        "correctAnswer": 2,
+        "category": "HTML Semantics"
+      },
+      {
+        "id": 6,
+        "text": "What does 'scroll-behavior: smooth;' accomplish?",
+        "options": [
+          "Enables momentum scrolling",
+          "Creates animated scroll transitions",
+          "Prevents scroll jank",
+          "Enables touch scrolling"
+        ],
+        "correctAnswer": 1,
+        "category": "CSS UI/UX"
+      },
+      {
+        "id": 7,
+        "text": "Which HTML attribute enables a dialog element to be opened by default?",
+        "options": [
+          "open",
+          "visible",
+          "default",
+          "show"
         ],
         "correctAnswer": 0,
-        "category": "Custom Category"
+        "category": "HTML5 APIs"
+      },
+      {
+        "id": 8,
+        "text": "What does 'backdrop-filter: blur(5px);' do?",
+        "options": [
+          "Blurs child elements",
+          "Creates a frosted glass effect",
+          "Blurs only the background",
+          "Applies SVG filters"
+        ],
+        "correctAnswer": 1,
+        "category": "CSS Effects"
+      },
+      {
+        "id": 9,
+        "text": "Which meta tag is essential for responsive mobile layouts?",
+        "options": [
+          "<meta name='responsive' content='true'>",
+          "<meta name='viewport' content='width=device-width'>",
+          "<meta http-equiv='MobileOptimized'>",
+          "<meta name='flexible'>"
+        ],
+        "correctAnswer": 1,
+        "category": "Mobile HTML"
+      },
+      {
+        "id": 10,
+        "text": "Which CSS pseudo-element targets the highlighted portion of a document?",
+        "options": [
+          "::selection",
+          "::highlight",
+          "::target",
+          "::focus"
+        ],
+        "correctAnswer": 0,
+        "category": "CSS Selectors"
+      },
+      {
+        "id": 11,
+        "text": "What is the purpose of the <picture> element?",
+        "options": [
+          "Art direction for responsive images",
+          "Embedding Instagram photos",
+          "Creating image galleries",
+          "Displaying SVG graphics"
+        ],
+        "correctAnswer": 0,
+        "category": "HTML Media"
+      },
+      {
+        "id": 12,
+        "text": "Which CSS property creates space between inline-block elements?",
+        "options": [
+          "inline-spacing",
+          "white-space",
+          "gap",
+          "letter-spacing"
+        ],
+        "correctAnswer": 2,
+        "category": "CSS Layout"
+      },
+      {
+        "id": 13,
+        "text": "Which HTML attribute is used for lazy loading images?",
+        "options": [
+          "load='lazy'",
+          "loading='lazy'",
+          "defer",
+          "lazyload"
+        ],
+        "correctAnswer": 1,
+        "category": "Performance"
+      },
+      {
+        "id": 14,
+        "text": "What does 'accent-color: blue;' style?",
+        "options": [
+          "Text selection highlight",
+          "Form control accents",
+          "Link hover states",
+          "Syntax highlighting"
+        ],
+        "correctAnswer": 1,
+        "category": "CSS Forms"
+      },
+      {
+        "id": 15,
+        "text": "Which HTML element represents a caption for a <figure>?",
+        "options": [
+          "<caption>",
+          "<legend>",
+          "<figcaption>",
+          "<description>"
+        ],
+        "correctAnswer": 2,
+        "category": "HTML Semantics"
+      },
+      {
+        "id": 16,
+        "text": "What does 'overscroll-behavior: contain;' prevent?",
+        "options": [
+          "Scroll chaining",
+          "Smooth scrolling",
+          "Scroll snapping",
+          "Infinite scrolling"
+        ],
+        "correctAnswer": 0,
+        "category": "CSS Scroll"
+      },
+      {
+        "id": 17,
+        "text": "Which attribute makes SVG icons accessible?",
+        "options": [
+          "role='img'",
+          "aria-hidden='false'",
+          "alt='description'",
+          "title='icon-name'"
+        ],
+        "correctAnswer": 0,
+        "category": "Accessibility"
+      },
+      {
+        "id": 18,
+        "text": "Which CSS function creates color variations?",
+        "options": [
+          "color-mix()",
+          "hsl()",
+          "color()",
+          "contrast()"
+        ],
+        "correctAnswer": 0,
+        "category": "CSS Colors"
+      },
+      {
+        "id": 19,
+        "text": "What does <template> HTML element do?",
+        "options": [
+          "Defines server-side templates",
+          "Stores client-side reusable markup",
+          "Creates responsive layout templates",
+          "Links to external templates"
+        ],
+        "correctAnswer": 1,
+        "category": "HTML5 APIs"
+      },
+      {
+        "id": 20,
+        "text": "Which CSS property enables subgrid functionality?",
+        "options": [
+          "grid-type: subgrid",
+          "display: subgrid",
+          "grid-template: subgrid",
+          "grid: subgrid"
+        ],
+        "correctAnswer": 1,
+        "category": "CSS Grid"
+      },
+      {
+        "id": 21,
+        "text": "Which meta tag prevents clickjacking attacks?",
+        "options": [
+          "<meta name='security'>",
+          "<meta http-equiv='X-Frame-Options'>",
+          "<meta name='clickjack'>",
+          "<meta security='frame'>"
+        ],
+        "correctAnswer": 1,
+        "category": "Security"
+      },
+      {
+        "id": 22,
+        "text": "What does 'font-display: swap;' accomplish?",
+        "options": [
+          "Enables font fallback during load",
+          "Forces bold text rendering",
+          "Disables faux bold/italic",
+          "Optimizes font loading"
+        ],
+        "correctAnswer": 0,
+        "category": "CSS Fonts"
+      },
+      {
+        "id": 23,
+        "text": "Which HTML element is most semantic for a site-wide footer?",
+        "options": [
+          "<div id='footer'>",
+          "<footer>",
+          "<bottom>",
+          "<section class='footer'>"
+        ],
+        "correctAnswer": 1,
+        "category": "HTML Semantics"
+      },
+      {
+        "id": 24,
+        "text": "Which CSS pseudo-class targets visited links?",
+        "options": [
+          ":visited",
+          ":link",
+          ":hover",
+          ":active"
+        ],
+        "correctAnswer": 0,
+        "category": "CSS Selectors"
+      },
+      {
+        "id": 25,
+        "text": "What does 'content-visibility: auto;' optimize?",
+        "options": [
+          "Rendering performance",
+          "Content accessibility",
+          "SEO visibility",
+          "Print styles"
+        ],
+        "correctAnswer": 0,
+        "category": "CSS Performance"
+      },
+      {
+        "id": 26,
+        "text": "Which HTML attribute enables a custom element?",
+        "options": [
+          "is='custom-element'",
+          "custom-element",
+          "data-custom",
+          "element='custom'"
+        ],
+        "correctAnswer": 0,
+        "category": "Web Components"
+      },
+      {
+        "id": 27,
+        "text": "What does 'scroll-snap-type: y mandatory;' enforce?",
+        "options": [
+          "Horizontal scrolling",
+          "Vertical scroll snapping",
+          "Smooth scrolling",
+          "Infinite scrolling"
+        ],
+        "correctAnswer": 1,
+        "category": "CSS Scroll"
+      },
+      {
+        "id": 28,
+        "text": "Which HTML element is used for client-side storage templates?",
+        "options": [
+          "<storage>",
+          "<template>",
+          "<cache>",
+          "<script type='template'>"
+        ],
+        "correctAnswer": 1,
+        "category": "HTML5 APIs"
+      },
+      {
+        "id": 29,
+        "text": "Which CSS property creates smooth animations?",
+        "options": [
+          "animation-timing-function",
+          "transition-timing",
+          "easing",
+          "bezier-curve"
+        ],
+        "correctAnswer": 0,
+        "category": "CSS Animations"
+      },
+      {
+        "id": 30,
+        "text": "What does the 'integrity' attribute in script/link tags provide?",
+        "options": [
+          "Subresource Integrity",
+          "Code quality validation",
+          "Copyright protection",
+          "Performance optimization"
+        ],
+        "correctAnswer": 0,
+        "category": "Security"
+      }
+    ]
+  },
+  {
+    "id": "exam-003",
+    "title": "JavaScript Quiz",
+    "description": "Certification exam for JavaScript Quiz development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "What is the output of `console.log(typeof NaN)`?",
+        "options": [
+          "'number'",
+          "'NaN'",
+          "'undefined'",
+          "'string'"
+        ],
+        "correctAnswer": 0,
+        "category": "Data Types"
+      },
+      {
+        "id": 2,
+        "text": "Which method creates a new array with all sub-array elements concatenated?",
+        "options": [
+          "concat()",
+          "join()",
+          "flat()",
+          "merge()"
+        ],
+        "correctAnswer": 2,
+        "category": "Arrays"
+      },
+      {
+        "id": 3,
+        "text": "What does the 'this' keyword refer to in an arrow function?",
+        "options": [
+          "The function itself",
+          "The global object",
+          "The lexical context",
+          "Undefined"
+        ],
+        "correctAnswer": 2,
+        "category": "Functions"
+      },
+      {
+        "id": 4,
+        "text": "Which operator returns the remainder of a division?",
+        "options": [
+          "%",
+          "/",
+          "//",
+          "mod"
+        ],
+        "correctAnswer": 0,
+        "category": "Operators"
+      },
+      {
+        "id": 5,
+        "text": "What is the purpose of the 'use strict' directive?",
+        "options": [
+          "Enables strict mode",
+          "Optimizes performance",
+          "Enforces type checking",
+          "Prevents hoisting"
+        ],
+        "correctAnswer": 0,
+        "category": "Strict Mode"
+      },
+      {
+        "id": 6,
+        "text": "Which method is used to parse JSON strings?",
+        "options": [
+          "JSON.parse()",
+          "JSON.decode()",
+          "JSON.toObject()",
+          "JSON.stringify()"
+        ],
+        "correctAnswer": 0,
+        "category": "JSON"
+      },
+      {
+        "id": 7,
+        "text": "What is the output of `console.log(0.1 + 0.2 === 0.3)`?",
+        "options": [
+          "true",
+          "false",
+          "undefined",
+          "NaN"
+        ],
+        "correctAnswer": 1,
+        "category": "Numbers"
+      },
+      {
+        "id": 8,
+        "text": "Which symbol is used for private class fields?",
+        "options": [
+          "#",
+          "_",
+          "private",
+          "$"
+        ],
+        "correctAnswer": 0,
+        "category": "Classes"
+      },
+      {
+        "id": 9,
+        "text": "What does the 'finally' block do in try/catch?",
+        "options": [
+          "Runs only if there's no error",
+          "Runs regardless of errors",
+          "Runs only for specific errors",
+          "Prevents error propagation"
+        ],
+        "correctAnswer": 1,
+        "category": "Error Handling"
+      },
+      {
+        "id": 10,
+        "text": "Which method creates a new array with filtered elements?",
+        "options": [
+          "map()",
+          "filter()",
+          "reduce()",
+          "forEach()"
+        ],
+        "correctAnswer": 1,
+        "category": "Arrays"
+      },
+      {
+        "id": 11,
+        "text": "What is the purpose of the 'void' operator?",
+        "options": [
+          "Returns undefined",
+          "Deletes variables",
+          "Stops execution",
+          "Empties arrays"
+        ],
+        "correctAnswer": 0,
+        "category": "Operators"
+      },
+      {
+        "id": 12,
+        "text": "Which property gives the length of a function's parameters?",
+        "options": [
+          "arguments.count",
+          "parameters.length",
+          "arguments.length",
+          "params.count"
+        ],
+        "correctAnswer": 2,
+        "category": "Functions"
+      },
+      {
+        "id": 13,
+        "text": "What does the 'new' keyword do?",
+        "options": [
+          "Creates a new object",
+          "Allocates memory",
+          "Calls constructor function",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "OOP"
+      },
+      {
+        "id": 14,
+        "text": "Which method returns the first matching DOM element?",
+        "options": [
+          "document.querySelector()",
+          "document.getElements()",
+          "document.find()",
+          "document.getElement()"
+        ],
+        "correctAnswer": 0,
+        "category": "DOM"
+      },
+      {
+        "id": 15,
+        "text": "What is the output of `console.log([] == ![])`?",
+        "options": [
+          "true",
+          "false",
+          "undefined",
+          "Error"
+        ],
+        "correctAnswer": 0,
+        "category": "Type Coercion"
+      },
+      {
+        "id": 16,
+        "text": "Which symbol is used for the spread operator?",
+        "options": [
+          "...",
+          "=>",
+          "::",
+          "**"
+        ],
+        "correctAnswer": 0,
+        "category": "ES6+"
+      },
+      {
+        "id": 17,
+        "text": "What does the 'yield' keyword do?",
+        "options": [
+          "Pauses generator execution",
+          "Returns from function",
+          "Throws an error",
+          "Stops iteration"
+        ],
+        "correctAnswer": 0,
+        "category": "Generators"
+      },
+      {
+        "id": 18,
+        "text": "Which method converts an object to a primitive value?",
+        "options": [
+          "valueOf()",
+          "toPrimitive()",
+          "convert()",
+          "primitive()"
+        ],
+        "correctAnswer": 0,
+        "category": "Objects"
+      },
+      {
+        "id": 19,
+        "text": "What is the purpose of the 'Symbol' type?",
+        "options": [
+          "Creates unique identifiers",
+          "Represents currency",
+          "Defines constants",
+          "Marks private properties"
+        ],
+        "correctAnswer": 0,
+        "category": "ES6+"
+      },
+      {
+        "id": 20,
+        "text": "Which method returns a promise that resolves after all promises?",
+        "options": [
+          "Promise.all()",
+          "Promise.race()",
+          "Promise.resolve()",
+          "Promise.complete()"
+        ],
+        "correctAnswer": 0,
+        "category": "Async"
+      },
+      {
+        "id": 21,
+        "text": "What does the 'in' operator check?",
+        "options": [
+          "Value existence in array",
+          "Property existence in object",
+          "Type compatibility",
+          "Prototype chain"
+        ],
+        "correctAnswer": 1,
+        "category": "Operators"
+      },
+      {
+        "id": 22,
+        "text": "Which method creates a bound function?",
+        "options": [
+          "bind()",
+          "call()",
+          "apply()",
+          "attach()"
+        ],
+        "correctAnswer": 0,
+        "category": "Functions"
+      },
+      {
+        "id": 23,
+        "text": "What is the purpose of the 'Proxy' object?",
+        "options": [
+          "Creates object wrappers",
+          "Handles HTTP requests",
+          "Manages memory",
+          "Implements interfaces"
+        ],
+        "correctAnswer": 0,
+        "category": "Metaprogramming"
+      },
+      {
+        "id": 24,
+        "text": "Which property gives the prototype of an object?",
+        "options": [
+          "__proto__",
+          "prototype",
+          "constructor",
+          "Both 1 and 2"
+        ],
+        "correctAnswer": 3,
+        "category": "Prototypes"
+      },
+      {
+        "id": 25,
+        "text": "What does Object.freeze() do?",
+        "options": [
+          "Prevents property changes",
+          "Makes properties private",
+          "Deep copies objects",
+          "Seals inheritance"
+        ],
+        "correctAnswer": 0,
+        "category": "Objects"
+      },
+      {
+        "id": 26,
+        "text": "Which method is used for deep copying objects?",
+        "options": [
+          "Object.clone()",
+          "JSON.parse(JSON.stringify())",
+          "Object.copy()",
+          "structuredClone()"
+        ],
+        "correctAnswer": 3,
+        "category": "Objects"
+      },
+      {
+        "id": 27,
+        "text": "What is the purpose of the '??' operator?",
+        "options": [
+          "Nullish coalescing",
+          "Logical OR",
+          "Optional chaining",
+          "Ternary operator"
+        ],
+        "correctAnswer": 0,
+        "category": "Operators"
+      },
+      {
+        "id": 28,
+        "text": "Which method schedules a function to run after the stack is clear?",
+        "options": [
+          "setImmediate()",
+          "setTimeout(0)",
+          "queueMicrotask()",
+          "process.nextTick()"
+        ],
+        "correctAnswer": 2,
+        "category": "Event Loop"
+      },
+      {
+        "id": 29,
+        "text": "What does the 'import.meta' object contain?",
+        "options": [
+          "Module metadata",
+          "Import history",
+          "Dependency graph",
+          "Export list"
+        ],
+        "correctAnswer": 0,
+        "category": "Modules"
+      },
+      {
+        "id": 30,
+        "text": "Which API is used for shared memory between threads?",
+        "options": [
+          "SharedArrayBuffer",
+          "Web Workers",
+          "Atomics",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Concurrency"
+      }
+    ]
+  },
+  {
+    "id": "exam-004",
+    "title": "Java Quiz",
+    "description": "Certification exam for Java Quiz development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "Which keyword makes a variable constant in Java?",
+        "options": [
+          "const",
+          "final",
+          "static",
+          "immutable"
+        ],
+        "correctAnswer": 1,
+        "category": "Variables"
+      },
+      {
+        "id": 2,
+        "text": "What is the default value of a boolean variable?",
+        "options": [
+          "true",
+          "false",
+          "null",
+          "undefined"
+        ],
+        "correctAnswer": 1,
+        "category": "Data Types"
+      },
+      {
+        "id": 3,
+        "text": "Which method is called when an object is created?",
+        "options": [
+          "main()",
+          "new()",
+          "constructor()",
+          "init()"
+        ],
+        "correctAnswer": 2,
+        "category": "OOP"
+      },
+      {
+        "id": 4,
+        "text": "What is the parent class of all classes in Java?",
+        "options": [
+          "Object",
+          "Class",
+          "Root",
+          "Super"
+        ],
+        "correctAnswer": 0,
+        "category": "Inheritance"
+      },
+      {
+        "id": 5,
+        "text": "Which interface provides the 'compareTo' method?",
+        "options": [
+          "Serializable",
+          "Comparable",
+          "Comparator",
+          "Runnable"
+        ],
+        "correctAnswer": 1,
+        "category": "Interfaces"
+      },
+      {
+        "id": 6,
+        "text": "What is the size of a 'long' variable in Java?",
+        "options": [
+          "4 bytes",
+          "8 bytes",
+          "16 bytes",
+          "Platform dependent"
+        ],
+        "correctAnswer": 1,
+        "category": "Data Types"
+      },
+      {
+        "id": 7,
+        "text": "Which keyword is used for method overriding?",
+        "options": [
+          "@Override",
+          "override",
+          "overload",
+          "extends"
+        ],
+        "correctAnswer": 0,
+        "category": "OOP"
+      },
+      {
+        "id": 8,
+        "text": "What does the 'static' keyword indicate?",
+        "options": [
+          "Variable cannot change",
+          "Belongs to the class",
+          "Thread-safe",
+          "Synchronized"
+        ],
+        "correctAnswer": 1,
+        "category": "Modifiers"
+      },
+      {
+        "id": 9,
+        "text": "Which collection maintains insertion order?",
+        "options": [
+          "HashSet",
+          "TreeSet",
+          "LinkedHashSet",
+          "All of the above"
+        ],
+        "correctAnswer": 2,
+        "category": "Collections"
+      },
+      {
+        "id": 10,
+        "text": "What is the purpose of the 'finally' block?",
+        "options": [
+          "Cleanup resources",
+          "Handle exceptions",
+          "Both",
+          "Neither"
+        ],
+        "correctAnswer": 2,
+        "category": "Exception Handling"
+      },
+      {
+        "id": 11,
+        "text": "Which method can be overridden in a subclass?",
+        "options": [
+          "private",
+          "final",
+          "static",
+          "protected"
+        ],
+        "correctAnswer": 3,
+        "category": "Inheritance"
+      },
+      {
+        "id": 12,
+        "text": "What is the default access modifier?",
+        "options": [
+          "public",
+          "private",
+          "protected",
+          "package-private"
+        ],
+        "correctAnswer": 3,
+        "category": "Modifiers"
+      },
+      {
+        "id": 13,
+        "text": "Which is NOT a valid functional interface?",
+        "options": [
+          "Consumer",
+          "Supplier",
+          "Function",
+          "Static"
+        ],
+        "correctAnswer": 3,
+        "category": "Lambdas"
+      },
+      {
+        "id": 14,
+        "text": "What does the 'volatile' keyword ensure?",
+        "options": [
+          "Atomicity",
+          "Visibility",
+          "Both",
+          "Neither"
+        ],
+        "correctAnswer": 1,
+        "category": "Concurrency"
+      },
+      {
+        "id": 15,
+        "text": "Which stream operation is terminal?",
+        "options": [
+          "filter",
+          "map",
+          "collect",
+          "peek"
+        ],
+        "correctAnswer": 2,
+        "category": "Streams"
+      },
+      {
+        "id": 16,
+        "text": "What is autoboxing?",
+        "options": [
+          "Automatic GC",
+          "Primitive to wrapper conversion",
+          "Wrapper to primitive conversion",
+          "Object serialization"
+        ],
+        "correctAnswer": 1,
+        "category": "Types"
+      },
+      {
+        "id": 17,
+        "text": "Which annotation marks a deprecated method?",
+        "options": [
+          "@Deprecated",
+          "@Override",
+          "@SuppressWarnings",
+          "@SafeVarargs"
+        ],
+        "correctAnswer": 0,
+        "category": "Annotations"
+      },
+      {
+        "id": 18,
+        "text": "What is the diamond operator (<>) for?",
+        "options": [
+          "Type inference",
+          "Lambda expressions",
+          "Generics",
+          "Both 1 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Generics"
+      },
+      {
+        "id": 19,
+        "text": "Which is NOT a Java 8 feature?",
+        "options": [
+          "Lambdas",
+          "Modules",
+          "Streams",
+          "Optional"
+        ],
+        "correctAnswer": 1,
+        "category": "Java Versions"
+      },
+      {
+        "id": 20,
+        "text": "What does JIT stand for?",
+        "options": [
+          "Just In Time",
+          "Java Intermediate Translator",
+          "JVM Internal Timer",
+          "Java Integrated Toolkit"
+        ],
+        "correctAnswer": 0,
+        "category": "JVM"
+      },
+      {
+        "id": 21,
+        "text": "Which garbage collector is default in Java 11?",
+        "options": [
+          "Serial GC",
+          "Parallel GC",
+          "G1 GC",
+          "ZGC"
+        ],
+        "correctAnswer": 2,
+        "category": "Performance"
+      },
+      {
+        "id": 22,
+        "text": "What is the purpose of the 'var' keyword?",
+        "options": [
+          "Dynamic typing",
+          "Local variable type inference",
+          "Weak typing",
+          "Global variables"
+        ],
+        "correctAnswer": 1,
+        "category": "Java 10+"
+      },
+      {
+        "id": 23,
+        "text": "Which is NOT a valid module system feature?",
+        "options": [
+          "requires",
+          "exports",
+          "provides",
+          "inherits"
+        ],
+        "correctAnswer": 3,
+        "category": "Modules"
+      },
+      {
+        "id": 24,
+        "text": "What does the 'try-with-resources' statement ensure?",
+        "options": [
+          "Automatic resource closure",
+          "Exception suppression",
+          "Both",
+          "Neither"
+        ],
+        "correctAnswer": 2,
+        "category": "Exception Handling"
+      },
+      {
+        "id": 25,
+        "text": "Which method creates an immutable list?",
+        "options": [
+          "List.of()",
+          "Arrays.asList()",
+          "Collections.emptyList()",
+          "new ArrayList()"
+        ],
+        "correctAnswer": 0,
+        "category": "Collections"
+      },
+      {
+        "id": 26,
+        "text": "What is the purpose of the 'record' keyword?",
+        "options": [
+          "Database access",
+          "Immutable data carrier",
+          "Audio processing",
+          "Logging"
+        ],
+        "correctAnswer": 1,
+        "category": "Java 14+"
+      },
+      {
+        "id": 27,
+        "text": "Which is NOT a memory area in JVM?",
+        "options": [
+          "Heap",
+          "Stack",
+          "Register",
+          "Method area"
+        ],
+        "correctAnswer": 2,
+        "category": "JVM"
+      },
+      {
+        "id": 28,
+        "text": "What does the 'sealed' keyword restrict?",
+        "options": [
+          "Class inheritance",
+          "Method overriding",
+          "Interface implementation",
+          "Package access"
+        ],
+        "correctAnswer": 0,
+        "category": "Java 15+"
+      },
+      {
+        "id": 29,
+        "text": "Which is NOT a valid switch expression feature?",
+        "options": [
+          "Arrow syntax",
+          "Yield keyword",
+          "Pattern matching",
+          "Default fallthrough"
+        ],
+        "correctAnswer": 3,
+        "category": "Java 12+"
+      },
+      {
+        "id": 30,
+        "text": "What is the purpose of the 'var' keyword in lambdas?",
+        "options": [
+          "Type inference",
+          "Mutable variables",
+          "Global variables",
+          "Java doesn't allow this"
+        ],
+        "correctAnswer": 3,
+        "category": "Lambdas"
+      }
+    ]
+  },
+  {
+    "id": "exam-005",
+    "title": "C/C++",
+    "description": "Certification exam for C/C++ Quiz development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "What is the size of the 'int' type in C++ on a 32-bit system?",
+        "options": [
+          "2 bytes",
+          "4 bytes",
+          "8 bytes",
+          "Compiler dependent"
+        ],
+        "correctAnswer": 1,
+        "category": "Data Types"
+      },
+      {
+        "id": 2,
+        "text": "Which operator is used for dynamic memory allocation in C++?",
+        "options": [
+          "malloc",
+          "new",
+          "alloc",
+          "create"
+        ],
+        "correctAnswer": 1,
+        "category": "Memory Management"
+      },
+      {
+        "id": 3,
+        "text": "What does the 'volatile' keyword indicate in C?",
+        "options": [
+          "Variable cannot change",
+          "Variable can be changed unexpectedly",
+          "Variable is thread-safe",
+          "Variable is stored in register"
+        ],
+        "correctAnswer": 1,
+        "category": "Keywords"
+      },
+      {
+        "id": 4,
+        "text": "Which header file is required for smart pointers in C++?",
+        "options": [
+          "<pointer>",
+          "<smartptr>",
+          "<memory>",
+          "<utility>"
+        ],
+        "correctAnswer": 2,
+        "category": "Modern C++"
+      },
+      {
+        "id": 5,
+        "text": "What is the purpose of the 'constexpr' keyword in C++11?",
+        "options": [
+          "Defines compile-time constants",
+          "Makes variables constant",
+          "Optimizes loops",
+          "Creates constant pointers"
+        ],
+        "correctAnswer": 0,
+        "category": "C++11"
+      },
+      {
+        "id": 6,
+        "text": "Which STL container provides O(1) average complexity for insert/delete?",
+        "options": [
+          "vector",
+          "list",
+          "map",
+          "unordered_map"
+        ],
+        "correctAnswer": 3,
+        "category": "STL"
+      },
+      {
+        "id": 7,
+        "text": "What is the output of 'sizeof("Hello")' in C?",
+        "options": [
+          "5",
+          "6",
+          "8",
+          "Compiler dependent"
+        ],
+        "correctAnswer": 1,
+        "category": "Strings"
+      },
+      {
+        "id": 8,
+        "text": "Which C++ feature enables runtime polymorphism?",
+        "options": [
+          "Templates",
+          "Virtual functions",
+          "Function overloading",
+          "Namespaces"
+        ],
+        "correctAnswer": 1,
+        "category": "OOP"
+      },
+      {
+        "id": 9,
+        "text": "What does the 'restrict' keyword do in C?",
+        "options": [
+          "Optimizes pointer aliasing",
+          "Creates read-only pointers",
+          "Restricts memory access",
+          "Prevents pointer arithmetic"
+        ],
+        "correctAnswer": 0,
+        "category": "Optimization"
+      },
+      {
+        "id": 10,
+        "text": "Which is NOT a valid C++ cast?",
+        "options": [
+          "static_cast",
+          "dynamic_cast",
+          "reinterpret_cast",
+          "type_cast"
+        ],
+        "correctAnswer": 3,
+        "category": "Type Casting"
+      },
+      {
+        "id": 11,
+        "text": "What is the purpose of the 'explicit' keyword in C++?",
+        "options": [
+          "Prevents implicit conversions",
+          "Makes methods virtual",
+          "Enables template specialization",
+          "Exports symbols"
+        ],
+        "correctAnswer": 0,
+        "category": "Constructors"
+      },
+      {
+        "id": 12,
+        "text": "Which C++17 feature allows conditional variable declaration?",
+        "options": [
+          "if constexpr",
+          "structured bindings",
+          "if with initializer",
+          "constexpr if"
+        ],
+        "correctAnswer": 2,
+        "category": "C++17"
+      },
+      {
+        "id": 13,
+        "text": "What is the purpose of the 'alignas' specifier?",
+        "options": [
+          "Memory alignment",
+          "Type alignment",
+          "Stack alignment",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Memory"
+      },
+      {
+        "id": 14,
+        "text": "Which C++20 feature introduces coroutines?",
+        "options": [
+          "co_await",
+          "co_yield",
+          "co_return",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "C++20"
+      },
+      {
+        "id": 15,
+        "text": "What does RAII stand for in C++?",
+        "options": [
+          "Runtime Allocation and Initialization Instance",
+          "Resource Acquisition Is Initialization",
+          "Random Access Iterator Interface",
+          "Recursive Algorithm Invocation Instance"
+        ],
+        "correctAnswer": 1,
+        "category": "Patterns"
+      },
+      {
+        "id": 16,
+        "text": "Which C++ container provides FIFO ordering?",
+        "options": [
+          "stack",
+          "queue",
+          "deque",
+          "priority_queue"
+        ],
+        "correctAnswer": 1,
+        "category": "STL"
+      },
+      {
+        "id": 17,
+        "text": "What is the purpose of the 'mutable' keyword?",
+        "options": [
+          "Allows modification of const objects",
+          "Makes variables thread-safe",
+          "Enables move semantics",
+          "Marks methods as virtual"
+        ],
+        "correctAnswer": 0,
+        "category": "Keywords"
+      },
+      {
+        "id": 18,
+        "text": "Which C++11 feature enables move semantics?",
+        "options": [
+          "rvalue references",
+          "smart pointers",
+          "lambda expressions",
+          "variadic templates"
+        ],
+        "correctAnswer": 0,
+        "category": "C++11"
+      },
+      {
+        "id": 19,
+        "text": "What does the 'noexcept' specifier indicate?",
+        "options": [
+          "Function doesn't allocate memory",
+          "Function won't throw exceptions",
+          "Function has no side effects",
+          "Function is inline"
+        ],
+        "correctAnswer": 1,
+        "category": "Exception Handling"
+      },
+      {
+        "id": 20,
+        "text": "Which C++17 feature simplifies nested namespace syntax?",
+        "options": [
+          "namespace aliasing",
+          "inline namespaces",
+          "nested namespace definitions",
+          "namespace grouping"
+        ],
+        "correctAnswer": 2,
+        "category": "C++17"
+      },
+      {
+        "id": 21,
+        "text": "What is the purpose of CRTP in C++?",
+        "options": [
+          "Compile-time polymorphism",
+          "Runtime polymorphism",
+          "Memory management",
+          "Exception safety"
+        ],
+        "correctAnswer": 0,
+        "category": "Templates"
+      },
+      {
+        "id": 22,
+        "text": "Which C++20 feature introduces three-way comparison?",
+        "options": [
+          "operator<=>",
+          "operator==",
+          "operator<>",
+          "operator=<>"
+        ],
+        "correctAnswer": 0,
+        "category": "C++20"
+      },
+      {
+        "id": 23,
+        "text": "What does the 'thread_local' specifier do?",
+        "options": [
+          "Creates thread-safe variables",
+          "Makes variables per-thread",
+          "Synchronizes threads",
+          "Allocates thread stack"
+        ],
+        "correctAnswer": 1,
+        "category": "Concurrency"
+      },
+      {
+        "id": 24,
+        "text": "Which C++ feature allows compile-time if statements?",
+        "options": [
+          "if constexpr",
+          "const if",
+          "static_if",
+          "template if"
+        ],
+        "correctAnswer": 0,
+        "category": "C++17"
+      },
+      {
+        "id": 25,
+        "text": "What is the purpose of the 'final' keyword in C++11?",
+        "options": [
+          "Prevents inheritance",
+          "Marks virtual functions",
+          "Indicates constexpr",
+          "Terminates threads"
+        ],
+        "correctAnswer": 0,
+        "category": "C++11"
+      },
+      {
+        "id": 26,
+        "text": "Which C++20 feature introduces modules?",
+        "options": [
+          "import/export",
+          "module/export",
+          "use/export",
+          "include/export"
+        ],
+        "correctAnswer": 1,
+        "category": "C++20"
+      },
+      {
+        "id": 27,
+        "text": "What does SFINAE stand for in C++?",
+        "options": [
+          "Substitution Failure Is Not An Error",
+          "Standard Function Interface Not Applicable Exception",
+          "Static Function Inheritance And Extension",
+          "Syntax Failure In Name Argument Evaluation"
+        ],
+        "correctAnswer": 0,
+        "category": "Templates"
+      },
+      {
+        "id": 28,
+        "text": "Which C++17 feature allows auto deduction of template parameters?",
+        "options": [
+          "auto templates",
+          "template auto",
+          "class template argument deduction",
+          "generic lambdas"
+        ],
+        "correctAnswer": 2,
+        "category": "C++17"
+      },
+      {
+        "id": 29,
+        "text": "What is the purpose of the 'consteval' keyword in C++20?",
+        "options": [
+          "Immediate function evaluation",
+          "Constant expressions",
+          "Const correctness",
+          "Template evaluation"
+        ],
+        "correctAnswer": 0,
+        "category": "C++20"
+      },
+      {
+        "id": 30,
+        "text": "Which C++ container provides LIFO ordering?",
+        "options": [
+          "queue",
+          "deque",
+          "stack",
+          "vector"
+        ],
+        "correctAnswer": 2,
+        "category": "STL"
+      }
+    ]
+  },
+  {
+    "id": "exam-006",
+    "title": "C#",
+    "description": "Certification exam for C# Quiz development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "Which keyword is used for dynamic type checking in C#?",
+        "options": [
+          "var",
+          "dynamic",
+          "object",
+          "variant"
+        ],
+        "correctAnswer": 1,
+        "category": "Types"
+      },
+      {
+        "id": 2,
+        "text": "What is the root class of all classes in C#?",
+        "options": [
+          "System",
+          "Object",
+          "Base",
+          "Root"
+        ],
+        "correctAnswer": 1,
+        "category": "OOP"
+      },
+      {
+        "id": 3,
+        "text": "Which access modifier provides the most restrictive access?",
+        "options": [
+          "public",
+          "private",
+          "protected",
+          "internal"
+        ],
+        "correctAnswer": 1,
+        "category": "Modifiers"
+      },
+      {
+        "id": 4,
+        "text": "What does LINQ stand for?",
+        "options": [
+          "Language Integrated Query",
+          "Linked INtegrated Query",
+          "Language INterface Query",
+          "Local INstruction Queue"
+        ],
+        "correctAnswer": 0,
+        "category": "LINQ"
+      },
+      {
+        "id": 5,
+        "text": "Which collection provides thread-safe operations?",
+        "options": [
+          "List<T>",
+          "ArrayList",
+          "ConcurrentBag<T>",
+          "Dictionary<T>"
+        ],
+        "correctAnswer": 2,
+        "category": "Collections"
+      },
+      {
+        "id": 6,
+        "text": "What is the purpose of the 'using' statement?",
+        "options": [
+          "Namespace declaration",
+          "Resource cleanup",
+          "Type aliasing",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Resource Management"
+      },
+      {
+        "id": 7,
+        "text": "Which C# feature enables nullable reference types?",
+        "options": [
+          "#nullable enable",
+          "Nullable<T>",
+          "? operator",
+          "Option<T>"
+        ],
+        "correctAnswer": 0,
+        "category": "C# 8.0"
+      },
+      {
+        "id": 8,
+        "text": "What is the purpose of the 'async' keyword?",
+        "options": [
+          "Marks methods for parallel execution",
+          "Enables asynchronous methods",
+          "Creates background threads",
+          "Optimizes loops"
+        ],
+        "correctAnswer": 1,
+        "category": "Async"
+      },
+      {
+        "id": 9,
+        "text": "Which interface is required for foreach iteration?",
+        "options": [
+          "IEnumerable",
+          "IIterator",
+          "IEnumerator",
+          "ICollection"
+        ],
+        "correctAnswer": 0,
+        "category": "Collections"
+      },
+      {
+        "id": 10,
+        "text": "What does the 'volatile' keyword ensure in C#?",
+        "options": [
+          "Atomic operations",
+          "Thread visibility",
+          "Compiler optimizations",
+          "Memory barriers"
+        ],
+        "correctAnswer": 1,
+        "category": "Threading"
+      },
+      {
+        "id": 11,
+        "text": "Which C# feature enables pattern matching?",
+        "options": [
+          "switch expression",
+          "is operator",
+          "when clause",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "C# 7.0+"
+      },
+      {
+        "id": 12,
+        "text": "What is the purpose of the 'nameof' operator?",
+        "options": [
+          "Gets type name",
+          "Gets variable name as string",
+          "Creates aliases",
+          "Reflects on members"
+        ],
+        "correctAnswer": 1,
+        "category": "C# 6.0"
+      },
+      {
+        "id": 13,
+        "text": "Which attribute marks a method as obsolete?",
+        "options": [
+          "[Deprecated]",
+          "[Obsolete]",
+          "[Outdated]",
+          "[Removed]"
+        ],
+        "correctAnswer": 1,
+        "category": "Attributes"
+      },
+      {
+        "id": 14,
+        "text": "What is the purpose of the 'yield' keyword?",
+        "options": [
+          "Implements iterators",
+          "Creates coroutines",
+          "Pauses execution",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Iterators"
+      },
+      {
+        "id": 15,
+        "text": "Which C# feature enables default interface methods?",
+        "options": [
+          "C# 7.0",
+          "C# 8.0",
+          "C# 9.0",
+          "C# 10.0"
+        ],
+        "correctAnswer": 1,
+        "category": "Interfaces"
+      },
+      {
+        "id": 16,
+        "text": "What is the purpose of the 'Span<T>' struct?",
+        "options": [
+          "Memory-safe slicing",
+          "Stack allocation",
+          "Performance optimization",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Performance"
+      },
+      {
+        "id": 17,
+        "text": "Which C# feature introduces records?",
+        "options": [
+          "C# 8.0",
+          "C# 9.0",
+          "C# 10.0",
+          "C# 11.0"
+        ],
+        "correctAnswer": 1,
+        "category": "Types"
+      },
+      {
+        "id": 18,
+        "text": "What does the 'init' accessor do?",
+        "options": [
+          "Initializes readonly fields",
+          "Allows property initialization only during construction",
+          "Replaces private setters",
+          "Both 2 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "C# 9.0"
+      },
+      {
+        "id": 19,
+        "text": "Which compilation model does C# use?",
+        "options": [
+          "Interpreted",
+          "JIT compiled",
+          "AOT compiled",
+          "Both 2 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Compilation"
+      },
+      {
+        "id": 20,
+        "text": "What is the purpose of the 'global using' directive?",
+        "options": [
+          "Project-wide imports",
+          "Namespace aliasing",
+          "Dynamic loading",
+          "Conditional compilation"
+        ],
+        "correctAnswer": 0,
+        "category": "C# 10.0"
+      },
+      {
+        "id": 21,
+        "text": "Which C# feature enables top-level statements?",
+        "options": [
+          "C# 8.0",
+          "C# 9.0",
+          "C# 10.0",
+          "C# 11.0"
+        ],
+        "correctAnswer": 1,
+        "category": "Syntax"
+      },
+      {
+        "id": 22,
+        "text": "What is the purpose of the 'required' modifier?",
+        "options": [
+          "Makes properties mandatory",
+          "Enforces constructor initialization",
+          "Both",
+          "Neither"
+        ],
+        "correctAnswer": 2,
+        "category": "C# 11.0"
+      },
+      {
+        "id": 23,
+        "text": "Which C# feature introduces file-scoped namespaces?",
+        "options": [
+          "C# 8.0",
+          "C# 9.0",
+          "C# 10.0",
+          "C# 11.0"
+        ],
+        "correctAnswer": 2,
+        "category": "Syntax"
+      },
+      {
+        "id": 24,
+        "text": "What is the purpose of the 'Memory<T>' struct?",
+        "options": [
+          "Managed memory buffers",
+          "Unmanaged memory buffers",
+          "Both",
+          "Neither"
+        ],
+        "correctAnswer": 0,
+        "category": "Performance"
+      },
+      {
+        "id": 25,
+        "text": "Which C# feature enables raw string literals?",
+        "options": [
+          "C# 9.0",
+          "C# 10.0",
+          "C# 11.0",
+          "C# 12.0"
+        ],
+        "correctAnswer": 2,
+        "category": "Syntax"
+      },
+      {
+        "id": 26,
+        "text": "What does the 'unmanaged' constraint do?",
+        "options": [
+          "Restricts to unmanaged types",
+          "Enables unsafe code",
+          "Optimizes performance",
+          "Allows pointer operations"
+        ],
+        "correctAnswer": 0,
+        "category": "Generics"
+      },
+      {
+        "id": 27,
+        "text": "Which C# feature introduces static abstract members in interfaces?",
+        "options": [
+          "C# 9.0",
+          "C# 10.0",
+          "C# 11.0",
+          "C# 12.0"
+        ],
+        "correctAnswer": 2,
+        "category": "Interfaces"
+      },
+      {
+        "id": 28,
+        "text": "What is the purpose of the 'params' keyword?",
+        "options": [
+          "Method overloading",
+          "Variable number of arguments",
+          "Parameter validation",
+          "Named arguments"
+        ],
+        "correctAnswer": 1,
+        "category": "Methods"
+      },
+      {
+        "id": 29,
+        "text": "Which C# feature enables primary constructors?",
+        "options": [
+          "C# 10.0",
+          "C# 11.0",
+          "C# 12.0",
+          "Not yet implemented"
+        ],
+        "correctAnswer": 2,
+        "category": "Constructors"
+      },
+      {
+        "id": 30,
+        "text": "What is the purpose of the 'ref struct'?",
+        "options": [
+          "Stack-only allocation",
+          "Reference semantics",
+          "Performance optimization",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Types"
+      }
+    ]
+  },
+  {
+    "id": "exam-007",
+    "title": "PHP Quiz",
+    "description": "Certification exam for PHP Quiz development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "What does PHP stand for?",
+        "options": [
+          "Personal Home Page",
+          "PHP: Hypertext Preprocessor",
+          "Private Hosting Protocol",
+          "Both 1 and 2"
+        ],
+        "correctAnswer": 3,
+        "category": "PHP Basics"
+      },
+      {
+        "id": 2,
+        "text": "Which superglobal holds information about headers, paths, and script locations?",
+        "options": [
+          "$_GET",
+          "$_SERVER",
+          "$_ENV",
+          "$_GLOBALS"
+        ],
+        "correctAnswer": 1,
+        "category": "Superglobals"
+      },
+      {
+        "id": 3,
+        "text": "What is the correct way to start a session in PHP?",
+        "options": [
+          "session_start();",
+          "start_session();",
+          "session_begin();",
+          "init_session();"
+        ],
+        "correctAnswer": 0,
+        "category": "Sessions"
+      },
+      {
+        "id": 4,
+        "text": "Which operator is used for concatenation in PHP?",
+        "options": [
+          "+",
+          ".",
+          "&",
+          "||"
+        ],
+        "correctAnswer": 1,
+        "category": "Operators"
+      },
+      {
+        "id": 5,
+        "text": "What does PDO stand for in PHP?",
+        "options": [
+          "PHP Data Objects",
+          "Persistent Data Operations",
+          "Prepared Database Objects",
+          "Public Data Organization"
+        ],
+        "correctAnswer": 0,
+        "category": "Database"
+      },
+      {
+        "id": 6,
+        "text": "Which function converts a string to lowercase in PHP?",
+        "options": [
+          "strtolower()",
+          "strlower()",
+          "lowercase()",
+          "string_lower()"
+        ],
+        "correctAnswer": 0,
+        "category": "Strings"
+      },
+      {
+        "id": 7,
+        "text": "What is the correct way to include a file in PHP?",
+        "options": [
+          "#include 'file.php'",
+          "require 'file.php'",
+          "import 'file.php'",
+          "load 'file.php'"
+        ],
+        "correctAnswer": 1,
+        "category": "File Handling"
+      },
+      {
+        "id": 8,
+        "text": "Which magic method is called when creating an object?",
+        "options": [
+          "__construct()",
+          "__destruct()",
+          "__create()",
+          "__init()"
+        ],
+        "correctAnswer": 0,
+        "category": "OOP"
+      },
+      {
+        "id": 9,
+        "text": "What is the correct way to declare a constant in PHP?",
+        "options": [
+          "constant PI = 3.14;",
+          "define('PI', 3.14);",
+          "const PI = 3.14;",
+          "Both 2 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Constants"
+      },
+      {
+        "id": 10,
+        "text": "Which function returns the current date and time in PHP?",
+        "options": [
+          "now()",
+          "time()",
+          "date()",
+          "getdate()"
+        ],
+        "correctAnswer": 2,
+        "category": "Date/Time"
+      },
+      {
+        "id": 11,
+        "text": "What is the purpose of the 'use' keyword in PHP?",
+        "options": [
+          "To import namespaces",
+          "To include files",
+          "To create aliases",
+          "Both 1 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Namespaces"
+      },
+      {
+        "id": 12,
+        "text": "Which function converts an array to a JSON string?",
+        "options": [
+          "json_encode()",
+          "json_serialize()",
+          "array_to_json()",
+          "serialize()"
+        ],
+        "correctAnswer": 0,
+        "category": "JSON"
+      },
+      {
+        "id": 13,
+        "text": "What is the correct way to handle exceptions in PHP?",
+        "options": [
+          "try/catch",
+          "onerror",
+          "exception",
+          "handle"
+        ],
+        "correctAnswer": 0,
+        "category": "Error Handling"
+      },
+      {
+        "id": 14,
+        "text": "Which function removes whitespace from the beginning and end of a string?",
+        "options": [
+          "trim()",
+          "strip()",
+          "clean()",
+          "remove_whitespace()"
+        ],
+        "correctAnswer": 0,
+        "category": "Strings"
+      },
+      {
+        "id": 15,
+        "text": "What is the purpose of the 'static' keyword in PHP?",
+        "options": [
+          "To define class constants",
+          "To declare static methods/properties",
+          "To prevent inheritance",
+          "To make variables persistent"
+        ],
+        "correctAnswer": 1,
+        "category": "OOP"
+      },
+      {
+        "id": 16,
+        "text": "Which function counts all elements in an array?",
+        "options": [
+          "length()",
+          "count()",
+          "array_count()",
+          "sizeof()"
+        ],
+        "correctAnswer": 1,
+        "category": "Arrays"
+      },
+      {
+        "id": 17,
+        "text": "What is the correct way to redirect in PHP?",
+        "options": [
+          "redirect('page.php');",
+          "header('Location: page.php');",
+          "location('page.php');",
+          "forward('page.php');"
+        ],
+        "correctAnswer": 1,
+        "category": "Headers"
+      },
+      {
+        "id": 18,
+        "text": "Which operator is used for comparing both value and type?",
+        "options": [
+          "==",
+          "===",
+          "=",
+          "!=="
+        ],
+        "correctAnswer": 1,
+        "category": "Operators"
+      },
+      {
+        "id": 19,
+        "text": "What is the purpose of the 'final' keyword in PHP?",
+        "options": [
+          "To prevent method overriding",
+          "To make constants",
+          "To terminate execution",
+          "To mark the end of a class"
+        ],
+        "correctAnswer": 0,
+        "category": "OOP"
+      },
+      {
+        "id": 20,
+        "text": "Which function reads the contents of a file into a string?",
+        "options": [
+          "file_get_contents()",
+          "readfile()",
+          "fread()",
+          "file_read()"
+        ],
+        "correctAnswer": 0,
+        "category": "File Handling"
+      },
+      {
+        "id": 21,
+        "text": "What is the purpose of the 'yield' keyword in PHP?",
+        "options": [
+          "To pause function execution",
+          "To return a value from a generator",
+          "To implement coroutines",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Generators"
+      },
+      {
+        "id": 22,
+        "text": "Which function checks if a variable is an array?",
+        "options": [
+          "is_array()",
+          "is_type()",
+          "type()",
+          "array_check()"
+        ],
+        "correctAnswer": 0,
+        "category": "Arrays"
+      },
+      {
+        "id": 23,
+        "text": "What is the correct way to destroy a session in PHP?",
+        "options": [
+          "session_destroy();",
+          "destroy_session();",
+          "session_end();",
+          "unset_session();"
+        ],
+        "correctAnswer": 0,
+        "category": "Sessions"
+      },
+      {
+        "id": 24,
+        "text": "Which function converts special characters to HTML entities?",
+        "options": [
+          "htmlspecialchars()",
+          "htmlentities()",
+          "convert_entities()",
+          "encode_html()"
+        ],
+        "correctAnswer": 0,
+        "category": "Security"
+      },
+      {
+        "id": 25,
+        "text": "What is the purpose of the 'trait' keyword in PHP?",
+        "options": [
+          "To define interfaces",
+          "To implement multiple inheritance",
+          "To create abstract classes",
+          "To define namespaces"
+        ],
+        "correctAnswer": 1,
+        "category": "OOP"
+      },
+      {
+        "id": 26,
+        "text": "Which function returns the length of a string?",
+        "options": [
+          "len()",
+          "length()",
+          "strlen()",
+          "string_length()"
+        ],
+        "correctAnswer": 2,
+        "category": "Strings"
+      },
+      {
+        "id": 27,
+        "text": "What is the purpose of the 'declare(strict_types=1)' directive?",
+        "options": [
+          "To enable strict type checking",
+          "To declare variable types",
+          "To enforce parameter types",
+          "To enable strict mode"
+        ],
+        "correctAnswer": 0,
+        "category": "Types"
+      },
+      {
+        "id": 28,
+        "text": "Which function sorts an array in reverse order?",
+        "options": [
+          "rsort()",
+          "reverse_sort()",
+          "array_reverse()",
+          "sort_reverse()"
+        ],
+        "correctAnswer": 0,
+        "category": "Arrays"
+      },
+      {
+        "id": 29,
+        "text": "What is the purpose of the '??' operator in PHP?",
+        "options": [
+          "Null coalescing",
+          "Ternary operator",
+          "Spaceship operator",
+          "Comparison operator"
+        ],
+        "correctAnswer": 0,
+        "category": "Operators"
+      },
+      {
+        "id": 30,
+        "text": "Which function executes a prepared statement in PDO?",
+        "options": [
+          "execute()",
+          "query()",
+          "run()",
+          "exec()"
+        ],
+        "correctAnswer": 0,
+        "category": "Database"
+      }
+    ]
+  },
+  {
+    "id": "exam-008",
+    "title": "MATLAB Quiz",
+    "description": "Certification exam for MATLAB Quiz development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "What does MATLAB stand for?",
+        "options": [
+          "Matrix Laboratory",
+          "Math Analysis Toolbox",
+          "Mathematical Algorithm Library",
+          "Matrix Algorithm Tool"
+        ],
+        "correctAnswer": 0,
+        "category": "MATLAB Basics"
+      },
+      {
+        "id": 2,
+        "text": "Which command clears all variables from the workspace?",
+        "options": [
+          "clear",
+          "clc",
+          "delete",
+          "remove"
+        ],
+        "correctAnswer": 0,
+        "category": "Workspace"
+      },
+      {
+        "id": 3,
+        "text": "How do you create a row vector from 1 to 10 in MATLAB?",
+        "options": [
+          "1:10",
+          "[1 to 10]",
+          "linspace(1,10)",
+          "vector(1,10)"
+        ],
+        "correctAnswer": 0,
+        "category": "Vectors"
+      },
+      {
+        "id": 4,
+        "text": "Which operator performs element-wise multiplication?",
+        "options": [
+          "*",
+          ".*",
+          "×",
+          "&*"
+        ],
+        "correctAnswer": 1,
+        "category": "Operators"
+      },
+      {
+        "id": 5,
+        "text": "What is the correct way to define a function in MATLAB?",
+        "options": [
+          "function y = myfunc(x)",
+          "def myfunc(x):",
+          "func myfunc(x)",
+          "function = myfunc(x)"
+        ],
+        "correctAnswer": 0,
+        "category": "Functions"
+      },
+      {
+        "id": 6,
+        "text": "Which command plots a 2D line graph?",
+        "options": [
+          "plot()",
+          "line()",
+          "graph()",
+          "draw()"
+        ],
+        "correctAnswer": 0,
+        "category": "Plotting"
+      },
+      {
+        "id": 7,
+        "text": "How do you access the first element of an array in MATLAB?",
+        "options": [
+          "array(0)",
+          "array[1]",
+          "array(1)",
+          "array{1}"
+        ],
+        "correctAnswer": 2,
+        "category": "Arrays"
+      },
+      {
+        "id": 8,
+        "text": "Which function solves a system of linear equations?",
+        "options": [
+          "solve()",
+          "linsolve()",
+          "lineq()",
+          "equations()"
+        ],
+        "correctAnswer": 1,
+        "category": "Linear Algebra"
+      },
+      {
+        "id": 9,
+        "text": "What does the 'hold on' command do?",
+        "options": [
+          "Pauses execution",
+          "Retains current plot for new plots",
+          "Keeps variables in memory",
+          "Holds figure window open"
+        ],
+        "correctAnswer": 1,
+        "category": "Plotting"
+      },
+      {
+        "id": 10,
+        "text": "Which command displays help for a function?",
+        "options": [
+          "help",
+          "doc",
+          "?",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Help"
+      },
+      {
+        "id": 11,
+        "text": "How do you create a 3×3 identity matrix?",
+        "options": [
+          "eye(3)",
+          "identity(3)",
+          "ones(3)",
+          "matrix(3)"
+        ],
+        "correctAnswer": 0,
+        "category": "Matrices"
+      },
+      {
+        "id": 12,
+        "text": "Which function performs numerical integration?",
+        "options": [
+          "integrate()",
+          "quad()",
+          "diff()",
+          "int()"
+        ],
+        "correctAnswer": 1,
+        "category": "Numerical Methods"
+      },
+      {
+        "id": 13,
+        "text": "What is the correct syntax for a for loop?",
+        "options": [
+          "for i = 1:10 ... end",
+          "for (i=1:10) ... end",
+          "for i in 1:10 ... end",
+          "loop i from 1 to 10 ... end"
+        ],
+        "correctAnswer": 0,
+        "category": "Loops"
+      },
+      {
+        "id": 14,
+        "text": "Which function finds roots of polynomials?",
+        "options": [
+          "roots()",
+          "solve()",
+          "polyroot()",
+          "fzero()"
+        ],
+        "correctAnswer": 0,
+        "category": "Polynomials"
+      },
+      {
+        "id": 15,
+        "text": "How do you save workspace variables to a file?",
+        "options": [
+          "save('file.mat')",
+          "export('file.mat')",
+          "write('file.mat')",
+          "store('file.mat')"
+        ],
+        "correctAnswer": 0,
+        "category": "File I/O"
+      },
+      {
+        "id": 16,
+        "text": "Which function performs Fast Fourier Transform?",
+        "options": [
+          "fft()",
+          "fourier()",
+          "dft()",
+          "spectrum()"
+        ],
+        "correctAnswer": 0,
+        "category": "Signal Processing"
+      },
+      {
+        "id": 17,
+        "text": "What does the '~' operator do?",
+        "options": [
+          "Logical NOT",
+          "Suppress output",
+          "Bitwise NOT",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Operators"
+      },
+      {
+        "id": 18,
+        "text": "Which function creates a surface plot?",
+        "options": [
+          "surf()",
+          "surface()",
+          "mesh()",
+          "Both 1 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "3D Plotting"
+      },
+      {
+        "id": 19,
+        "text": "How do you comment multiple lines in MATLAB?",
+        "options": [
+          "/* ... */",
+          "%{ ... %}",
+          "# ... #",
+          "<!-- ... -->"
+        ],
+        "correctAnswer": 1,
+        "category": "Comments"
+      },
+      {
+        "id": 20,
+        "text": "Which function solves ordinary differential equations?",
+        "options": [
+          "ode45()",
+          "solveode()",
+          "diffeq()",
+          "odesolve()"
+        ],
+        "correctAnswer": 0,
+        "category": "Differential Equations"
+      },
+      {
+        "id": 21,
+        "text": "What is the correct way to define a string?",
+        "options": [
+          "'text'",
+          ""text"",
+          "`text`",
+          "Any of the above"
+        ],
+        "correctAnswer": 0,
+        "category": "Strings"
+      },
+      {
+        "id": 22,
+        "text": "Which function creates a histogram?",
+        "options": [
+          "hist()",
+          "histogram()",
+          "bar()",
+          "Both 1 and 2"
+        ],
+        "correctAnswer": 3,
+        "category": "Plotting"
+      },
+      {
+        "id": 23,
+        "text": "How do you access field 'name' in structure S?",
+        "options": [
+          "S.name",
+          "S('name')",
+          "S{'name'}",
+          "Both 1 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Structures"
+      },
+      {
+        "id": 24,
+        "text": "Which function performs symbolic integration?",
+        "options": [
+          "int()",
+          "integral()",
+          "symint()",
+          "symbolic()"
+        ],
+        "correctAnswer": 0,
+        "category": "Symbolic Math"
+      },
+      {
+        "id": 25,
+        "text": "What does the '...' at the end of a line indicate?",
+        "options": [
+          "Comment",
+          "Line continuation",
+          "Range specification",
+          "Ellipsis"
+        ],
+        "correctAnswer": 1,
+        "category": "Syntax"
+      },
+      {
+        "id": 26,
+        "text": "Which function creates a cell array?",
+        "options": [
+          "cell()",
+          "{}",
+          "cellarray()",
+          "Both 1 and 2"
+        ],
+        "correctAnswer": 3,
+        "category": "Cell Arrays"
+      },
+      {
+        "id": 27,
+        "text": "How do you find the index of a value in an array?",
+        "options": [
+          "index()",
+          "locate()",
+          "find()",
+          "where()"
+        ],
+        "correctAnswer": 2,
+        "category": "Arrays"
+      },
+      {
+        "id": 28,
+        "text": "Which function computes eigenvalues?",
+        "options": [
+          "eig()",
+          "eigen()",
+          "values()",
+          "spectrum()"
+        ],
+        "correctAnswer": 0,
+        "category": "Linear Algebra"
+      },
+      {
+        "id": 29,
+        "text": "What is the purpose of the 'global' keyword?",
+        "options": [
+          "Declare global variables",
+          "Make functions available everywhere",
+          "Create global workspace",
+          "Define universal constants"
+        ],
+        "correctAnswer": 0,
+        "category": "Variables"
+      },
+      {
+        "id": 30,
+        "text": "Which function creates a dialog box?",
+        "options": [
+          "dialog()",
+          "msgbox()",
+          "alert()",
+          "popup()"
+        ],
+        "correctAnswer": 1,
+        "category": "GUI"
+      }
+    ]
+  },
+  {
+    "id": "exam-009",
+    "title": "SQL Quiz",
+    "description": "Certification exam for SQL Quiz development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "Which SQL clause filters groups in a GROUP BY query?",
+        "options": [
+          "WHERE",
+          "HAVING",
+          "FILTER",
+          "GROUP BY"
+        ],
+        "correctAnswer": 1,
+        "category": "Grouping"
+      },
+      {
+        "id": 2,
+        "text": "What is the correct syntax for a LEFT JOIN?",
+        "options": [
+          "FROM A LEFT JOIN B ON A.id = B.id",
+          "FROM A LEFT B ON A.id = B.id",
+          "FROM A, B LEFT WHERE A.id = B.id",
+          "FROM A LEFT OUTER B ON A.id = B.id"
+        ],
+        "correctAnswer": 0,
+        "category": "Joins"
+      },
+      {
+        "id": 3,
+        "text": "Which function returns the current date?",
+        "options": [
+          "NOW()",
+          "CURRENT_DATE()",
+          "TODAY()",
+          "GETDATE()"
+        ],
+        "correctAnswer": 1,
+        "category": "Date/Time"
+      },
+      {
+        "id": 4,
+        "text": "What is the purpose of the INDEX in a database?",
+        "options": [
+          "To enforce referential integrity",
+          "To improve query performance",
+          "To store backup data",
+          "To create views"
+        ],
+        "correctAnswer": 1,
+        "category": "Performance"
+      },
+      {
+        "id": 5,
+        "text": "Which SQL statement removes all rows from a table?",
+        "options": [
+          "DELETE",
+          "REMOVE",
+          "TRUNCATE",
+          "Both 1 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "DML"
+      },
+      {
+        "id": 6,
+        "text": "What is the correct syntax for a subquery in the WHERE clause?",
+        "options": [
+          "WHERE column IN (SELECT...)",
+          "WHERE (SELECT...) IN column",
+          "WHERE column = [SELECT...]",
+          "WHERE column IN [SELECT...]"
+        ],
+        "correctAnswer": 0,
+        "category": "Subqueries"
+      },
+      {
+        "id": 7,
+        "text": "Which constraint ensures all values in a column are unique?",
+        "options": [
+          "PRIMARY KEY",
+          "UNIQUE",
+          "CHECK",
+          "Both 1 and 2"
+        ],
+        "correctAnswer": 3,
+        "category": "Constraints"
+      },
+      {
+        "id": 8,
+        "text": "What is the purpose of the COALESCE function?",
+        "options": [
+          "Returns the first non-null expression",
+          "Combines strings",
+          "Counts null values",
+          "Converts data types"
+        ],
+        "correctAnswer": 0,
+        "category": "Functions"
+      },
+      {
+        "id": 9,
+        "text": "Which statement creates a new table?",
+        "options": [
+          "CREATE TABLE",
+          "NEW TABLE",
+          "ADD TABLE",
+          "DEFINE TABLE"
+        ],
+        "correctAnswer": 0,
+        "category": "DDL"
+      },
+      {
+        "id": 10,
+        "text": "What does ACID stand for in database transactions?",
+        "options": [
+          "Atomicity, Consistency, Isolation, Durability",
+          "Accuracy, Consistency, Integrity, Durability",
+          "Atomicity, Concurrency, Isolation, Durability",
+          "Accuracy, Concurrency, Integrity, Durability"
+        ],
+        "correctAnswer": 0,
+        "category": "Transactions"
+      },
+      {
+        "id": 11,
+        "text": "Which join returns all rows when there is a match in either table?",
+        "options": [
+          "INNER JOIN",
+          "LEFT JOIN",
+          "FULL OUTER JOIN",
+          "CROSS JOIN"
+        ],
+        "correctAnswer": 2,
+        "category": "Joins"
+      },
+      {
+        "id": 12,
+        "text": "What is the purpose of the WITH clause?",
+        "options": [
+          "Creates a Common Table Expression (CTE)",
+          "Defines transaction boundaries",
+          "Specifies table aliases",
+          "Creates temporary tables"
+        ],
+        "correctAnswer": 0,
+        "category": "Advanced Queries"
+      },
+      {
+        "id": 13,
+        "text": "Which function converts a value to uppercase?",
+        "options": [
+          "TO_UPPER()",
+          "UPPER()",
+          "UCASE()",
+          "Both 2 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Functions"
+      },
+      {
+        "id": 14,
+        "text": "What is the purpose of the EXISTS operator?",
+        "options": [
+          "Tests for row existence in a subquery",
+          "Checks if a table exists",
+          "Validates data existence",
+          "All of the above"
+        ],
+        "correctAnswer": 0,
+        "category": "Subqueries"
+      },
+      {
+        "id": 15,
+        "text": "Which statement changes a table's structure?",
+        "options": [
+          "MODIFY TABLE",
+          "CHANGE TABLE",
+          "ALTER TABLE",
+          "UPDATE TABLE"
+        ],
+        "correctAnswer": 2,
+        "category": "DDL"
+      },
+      {
+        "id": 16,
+        "text": "What is the purpose of the CASE expression?",
+        "options": [
+          "Conditional logic in SQL",
+          "Define case-sensitive comparisons",
+          "Handle exceptions",
+          "Change letter case"
+        ],
+        "correctAnswer": 0,
+        "category": "Conditionals"
+      },
+      {
+        "id": 17,
+        "text": "Which constraint enforces referential integrity?",
+        "options": [
+          "PRIMARY KEY",
+          "FOREIGN KEY",
+          "UNIQUE",
+          "CHECK"
+        ],
+        "correctAnswer": 1,
+        "category": "Constraints"
+      },
+      {
+        "id": 18,
+        "text": "What is the purpose of the RANK() window function?",
+        "options": [
+          "Assigns unique sequential integers",
+          "Assigns rank with gaps",
+          "Counts rows in partitions",
+          "Calculates running totals"
+        ],
+        "correctAnswer": 1,
+        "category": "Window Functions"
+      },
+      {
+        "id": 19,
+        "text": "Which operator combines the results of two SELECT statements?",
+        "options": [
+          "JOIN",
+          "UNION",
+          "MERGE",
+          "COMBINE"
+        ],
+        "correctAnswer": 1,
+        "category": "Set Operations"
+      },
+      {
+        "id": 20,
+        "text": "What is the purpose of the NORMALIZATION process?",
+        "options": [
+          "Reduce data redundancy",
+          "Improve query performance",
+          "Organize data efficiently",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Database Design"
+      },
+      {
+        "id": 21,
+        "text": "Which function returns the length of a string?",
+        "options": [
+          "LEN()",
+          "LENGTH()",
+          "CHAR_LENGTH()",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Functions"
+      },
+      {
+        "id": 22,
+        "text": "What is the purpose of the ROLLBACK statement?",
+        "options": [
+          "Undoes transactions",
+          "Returns to previous savepoint",
+          "Both",
+          "Neither"
+        ],
+        "correctAnswer": 2,
+        "category": "Transactions"
+      },
+      {
+        "id": 23,
+        "text": "Which statement creates an auto-incrementing column?",
+        "options": [
+          "IDENTITY",
+          "AUTOINCREMENT",
+          "SEQUENCE",
+          "Both 1 and 2"
+        ],
+        "correctAnswer": 3,
+        "category": "DDL"
+      },
+      {
+        "id": 24,
+        "text": "What is the purpose of the HAVING clause?",
+        "options": [
+          "Filters rows before grouping",
+          "Filters groups after grouping",
+          "Specifies group conditions",
+          "Both 2 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Grouping"
+      },
+      {
+        "id": 25,
+        "text": "Which function extracts part of a date?",
+        "options": [
+          "EXTRACT()",
+          "DATEPART()",
+          "DATE_TRUNC()",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Date/Time"
+      },
+      {
+        "id": 26,
+        "text": "What is the purpose of the VIEW in SQL?",
+        "options": [
+          "Virtual table based on a query",
+          "Stored query result",
+          "Both",
+          "Neither"
+        ],
+        "correctAnswer": 2,
+        "category": "Views"
+      },
+      {
+        "id": 27,
+        "text": "Which operator checks for pattern matching?",
+        "options": [
+          "LIKE",
+          "MATCH",
+          "SIMILAR TO",
+          "Both 1 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Pattern Matching"
+      },
+      {
+        "id": 28,
+        "text": "What is the purpose of the CASCADE option?",
+        "options": [
+          "Propagates changes to dependent objects",
+          "Creates waterfall queries",
+          "Orders results hierarchically",
+          "Controls transaction flow"
+        ],
+        "correctAnswer": 0,
+        "category": "Constraints"
+      },
+      {
+        "id": 29,
+        "text": "Which function returns the current user?",
+        "options": [
+          "CURRENT_USER()",
+          "USER()",
+          "SESSION_USER()",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Functions"
+      },
+      {
+        "id": 30,
+        "text": "What is the purpose of the PIVOT operator?",
+        "options": [
+          "Rotates rows into columns",
+          "Creates cross-tab reports",
+          "Both",
+          "Neither"
+        ],
+        "correctAnswer": 2,
+        "category": "Advanced Queries"
+      }
+    ]
+  },
+  {
+    "id": "exam-010",
+    "title": " Python quiz",
+    "description": "Certification exam for  Python quiz front-end development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "What is the output of `print(3 * 'ab' + 'c')`?",
+        "options": [
+          "abababc",
+          "3ab+c",
+          "abcabcabc",
+          "Error"
+        ],
+        "correctAnswer": 0,
+        "category": "Basic Operations"
+      },
+      {
+        "id": 2,
+        "text": "Which method is used to get the list of all attributes and methods of an object?",
+        "options": [
+          "help()",
+          "info()",
+          "dir()",
+          "attributes()"
+        ],
+        "correctAnswer": 2,
+        "category": "Object Introspection"
+      },
+      {
+        "id": 3,
+        "text": "What does the `@staticmethod` decorator do?",
+        "options": [
+          "Converts a method to a static method",
+          "Makes a method private",
+          "Enables method overloading",
+          "Creates a singleton"
+        ],
+        "correctAnswer": 0,
+        "category": "OOP"
+      },
+      {
+        "id": 4,
+        "text": "How do you create a virtual environment in Python?",
+        "options": [
+          "python create venv",
+          "python -m venv myenv",
+          "pip install virtualenv",
+          "Both 2 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "Environment"
+      },
+      {
+        "id": 5,
+        "text": "What is the purpose of `__slots__` in a class?",
+        "options": [
+          "To declare class attributes",
+          "To restrict dynamic attribute creation",
+          "To enable multiple inheritance",
+          "To make attributes private"
+        ],
+        "correctAnswer": 1,
+        "category": "OOP"
+      },
+      {
+        "id": 6,
+        "text": "Which is faster for membership testing: list or set?",
+        "options": [
+          "List",
+          "Set",
+          "Same speed",
+          "Depends on the size"
+        ],
+        "correctAnswer": 1,
+        "category": "Data Structures"
+      },
+      {
+        "id": 7,
+        "text": "What does `sys.getsizeof()` return?",
+        "options": [
+          "Memory size in bytes",
+          "Length of an object",
+          "Number of attributes",
+          "Hash value"
+        ],
+        "correctAnswer": 0,
+        "category": "Memory Management"
+      },
+      {
+        "id": 8,
+        "text": "How do you make an attribute read-only?",
+        "options": [
+          "Prefix with underscore",
+          "Use @property",
+          "Use @readonly",
+          "Declare as final"
+        ],
+        "correctAnswer": 1,
+        "category": "OOP"
+      },
+      {
+        "id": 9,
+        "text": "What is the output of `bool('False')`?",
+        "options": [
+          "False",
+          "True",
+          "Error",
+          "None"
+        ],
+        "correctAnswer": 1,
+        "category": "Type Conversion"
+      },
+      {
+        "id": 10,
+        "text": "Which is used for dependency specification in Python projects?",
+        "options": [
+          "requirements.txt",
+          "pyproject.toml",
+          "setup.py",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Packaging"
+      },
+      {
+        "id": 11,
+        "text": "What does `a[::-1]` do to a list?",
+        "options": [
+          "Reverses it",
+          "Creates a copy",
+          "Deletes last element",
+          "Sorts in reverse"
+        ],
+        "correctAnswer": 0,
+        "category": "Slicing"
+      },
+      {
+        "id": 12,
+        "text": "How do you create an abstract base class?",
+        "options": [
+          "class Abstract(ABC)",
+          "@abstractclass",
+          "class Abstract(metaclass=ABCMeta)",
+          "Both 1 and 3"
+        ],
+        "correctAnswer": 3,
+        "category": "OOP"
+      },
+      {
+        "id": 13,
+        "text": "What is the purpose of `__enter__` and `__exit__` methods?",
+        "options": [
+          "Context management",
+          "Exception handling",
+          "Memory management",
+          "Object initialization"
+        ],
+        "correctAnswer": 0,
+        "category": "Context Managers"
+      },
+      {
+        "id": 14,
+        "text": "Which is NOT a valid NumPy array creation method?",
+        "options": [
+          "np.zeros()",
+          "np.empty()",
+          "np.array()",
+          "np.matrix()"
+        ],
+        "correctAnswer": 3,
+        "category": "NumPy"
+      },
+      {
+        "id": 15,
+        "text": "What does `yield from` do in a generator?",
+        "options": [
+          "Delegates to another generator",
+          "Returns a value",
+          "Raises an exception",
+          "Stops iteration"
+        ],
+        "correctAnswer": 0,
+        "category": "Generators"
+      },
+      {
+        "id": 16,
+        "text": "How do you check if an object is an instance of any class in a tuple?",
+        "options": [
+          "isinstance(obj, (A, B))",
+          "type(obj) in (A, B)",
+          "obj.class in (A, B)",
+          "isinstance(obj, A | B)"
+        ],
+        "correctAnswer": 0,
+        "category": "Type Checking"
+      },
+      {
+        "id": 17,
+        "text": "What is the purpose of `__call__` method?",
+        "options": [
+          "To make an object callable",
+          "For constructor chaining",
+          "For callback registration",
+          "For method overloading"
+        ],
+        "correctAnswer": 0,
+        "category": "Magic Methods"
+      },
+      {
+        "id": 18,
+        "text": "Which is the correct way to merge two dictionaries?",
+        "options": [
+          "dict1.update(dict2)",
+          "{**dict1, **dict2}",
+          "dict1 | dict2 (Python 3.9+)",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Dictionaries"
+      },
+      {
+        "id": 19,
+        "text": "What does `@functools.lru_cache` do?",
+        "options": [
+          "Memoizes function results",
+          "Caches to disk",
+          "Logs function calls",
+          "Limits recursion depth"
+        ],
+        "correctAnswer": 0,
+        "category": "Decorators"
+      },
+      {
+        "id": 20,
+        "text": "How do you create a coroutine function?",
+        "options": [
+          "async def",
+          "@coroutine",
+          "yield from",
+          "Both 1 and 3"
+        ],
+        "correctAnswer": 0,
+        "category": "Asyncio"
+      },
+      {
+        "id": 21,
+        "text": "What is the purpose of `__mro__` attribute?",
+        "options": [
+          "Method resolution order",
+          "Module reference object",
+          "Memory reference object",
+          "Multiple return options"
+        ],
+        "correctAnswer": 0,
+        "category": "Inheritance"
+      },
+      {
+        "id": 22,
+        "text": "Which is NOT a valid pandas DataFrame creation method?",
+        "options": [
+          "pd.DataFrame.from_dict()",
+          "pd.DataFrame.from_records()",
+          "pd.DataFrame.from_array()",
+          "pd.DataFrame()"
+        ],
+        "correctAnswer": 2,
+        "category": "Pandas"
+      },
+      {
+        "id": 23,
+        "text": "What does `sys.path` contain?",
+        "options": [
+          "Python search paths",
+          "System environment paths",
+          "Installed package paths",
+          "Module import history"
+        ],
+        "correctAnswer": 0,
+        "category": "Imports"
+      },
+      {
+        "id": 24,
+        "text": "How do you make a shallow copy of a list?",
+        "options": [
+          "list.copy()",
+          "list[:]",
+          "list(list)",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Copying"
+      },
+      {
+        "id": 25,
+        "text": "What is the purpose of `__getattr__`?",
+        "options": [
+          "Called when attribute is not found",
+          "Called for all attribute access",
+          "Prevents attribute access",
+          "Validates attribute values"
+        ],
+        "correctAnswer": 0,
+        "category": "Magic Methods"
+      },
+      {
+        "id": 26,
+        "text": "Which is the correct way to format strings (Python 3.6+)?",
+        "options": [
+          "f-strings",
+          "str.format()",
+          "% formatting",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "String Formatting"
+      },
+      {
+        "id": 27,
+        "text": "What does `collections.namedtuple` create?",
+        "options": [
+          "A tuple subclass with named fields",
+          "A dictionary with tuple keys",
+          "An ordered dictionary",
+          "A hashable dictionary"
+        ],
+        "correctAnswer": 0,
+        "category": "Collections"
+      },
+      {
+        "id": 28,
+        "text": "How do you make a package namespace package?",
+        "options": [
+          "Omit __init__.py",
+          "Add __namespace__ = True",
+          "Use -n flag in setup.py",
+          "Python doesn't support this"
+        ],
+        "correctAnswer": 0,
+        "category": "Packaging"
+      },
+      {
+        "id": 29,
+        "text": "What is the purpose of `__subclasses__()` method?",
+        "options": [
+          "Returns immediate subclasses",
+          "Checks subclass relationship",
+          "Creates subclasses dynamically",
+          "Disables inheritance"
+        ],
+        "correctAnswer": 0,
+        "category": "Introspection"
+      },
+      {
+        "id": 30,
+        "text": "Which is NOT a valid way to run Python code?",
+        "options": [
+          "python -c 'code'",
+          "python -m module",
+          "python <<< 'code'",
+          "python -e 'code'"
+        ],
+        "correctAnswer": 3,
+        "category": "Execution"
       }
     ]
   }
