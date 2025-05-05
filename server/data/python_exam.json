@@ -8,36 +8,36 @@
   "questions": [
     {
       "id": 1,
-      "text": "[سؤال 1] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "text": "[Question 1] What is the output of the following code and why?\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
       "options": [
-        "[1] ثم [1]",
-        "[1] ثم [1, 1]",
-        "[1] ثم Error",
-        "[1, 1] ثم [1, 1, 1]"
+        "[1] then [1]",
+        "[1] then [1, 1]",
+        "[1] then Error",
+        "[1, 1] then [1, 1, 1]"
       ],
       "correctAnswer": 1,
       "category": "Python Core"
     },
     {
       "id": 2,
-      "text": "[سؤال 2] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "text": "[Question 2] What type of exception will be raised by the following code?\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
       "options": [
         "ZeroDivisionError",
         "NameError",
         "TypeError",
-        "لا يحدث استثناء"
+        "No exception will be raised"
       ],
       "correctAnswer": 0,
       "category": "Python Core"
     },
     {
       "id": 3,
-      "text": "[سؤال 3] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "text": "[Question 3] What will be the output of the following code?\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
       "options": [
-        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
-        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
-        "[1, 2, 3, 4, 5] ثم Error",
-        "[4, 5] ثم [1, 2, 3]"
+        "[1, 2, 3, 4, 5] then [1, 2, 3]",
+        "[1, 2, 3, 4, 5] then [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] then Error",
+        "[4, 5] then [1, 2, 3]"
       ],
       "correctAnswer": 1,
       "category": "Python Core"

@@ -189,7 +189,9 @@ export default function Exam() {
           <div className="mb-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold">Question {currentQuestionIndex + 1} of {exam.totalQuestions}</h3>
-              <span className="text-sm text-gray-500">Category: {currentQuestion.category}</span>
+              <span className="text-sm text-gray-500">
+                {currentQuestion.category ? `Category: ${currentQuestion.category}` : 'Category: General'}
+              </span>
             </div>
             
             <div className="mb-6">

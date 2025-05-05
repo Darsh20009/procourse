@@ -71,5 +71,12 @@
     "email": "y@gmail.com",
     "password": "182009",
     "preferredField": "oracle_apex"
+  },
+  {
+    "id": "abd41f25-62df-4333-b536-7d7f6b6a9ef7",
+    "name": "cup to you",
+    "email": "m@gmail.com",
+    "password": "182009",
+    "preferredField": "python"
   }
 ]
