@@ -314,8 +314,8 @@ export default function CertificatesSearch() {
                 
                 {/* Certificate Title */}
                 <div className="relative z-10">
-                  <h1 className="text-5xl font-bold mb-2 text-blue-900" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)', fontFamily: 'serif' }}>شهادة اجتياز</h1>
-                  <h2 className="text-2xl text-blue-700 font-semibold mb-2">Professional Certification</h2>
+                  <h1 className="text-5xl font-bold mb-2 text-blue-900" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)', fontFamily: 'serif' }}>CERTIFICATE OF ACHIEVEMENT</h1>
+                  <h2 className="text-2xl text-blue-700 font-semibold mb-2">Professional Programming Certification</h2>
                   
                   {/* Decorative Separator */}
                   <div className="flex items-center justify-center my-6">
@@ -325,11 +325,11 @@ export default function CertificatesSearch() {
                 
                 {/* Certificate Text */}
                 <div className="mb-8 relative z-10">
-                  <p className="text-xl mb-4 text-blue-800">تشهد منصة Pro Course أن</p>
-                  <h3 className="text-4xl font-bold text-blue-950 mb-4" style={{ fontFamily: 'Arial, "Noto Sans Arabic", sans-serif', textShadow: '0.5px 0.5px 1px rgba(0,0,0,0.1)' }}>{selectedCert.userName}</h3>
+                  <p className="text-xl mb-4 text-blue-800">This is to certify that</p>
+                  <h3 className="text-4xl font-bold text-blue-950 mb-4" style={{ fontFamily: 'Arial, sans-serif', textShadow: '0.5px 0.5px 1px rgba(0,0,0,0.1)' }}>{selectedCert.userName}</h3>
                   <p className="text-xl mb-4 text-blue-800">
-                    قد اجتاز اختبار <span className="font-bold">{selectedCert.examTitle}</span> 
-                    <br />بكفاءة عالية وبنسبة نجاح{" "}
+                    has successfully completed the <span className="font-bold">{selectedCert.examTitle}</span> examination
+                    <br />with excellence and achieved a score of{" "}
                     <span className="font-bold text-blue-700 text-2xl">{selectedCert.score}%</span>
                   </p>
                 </div>
@@ -349,7 +349,7 @@ export default function CertificatesSearch() {
                         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                       </svg>
-                      <p className="text-blue-800 font-semibold text-sm">رقم الشهادة</p>
+                      <p className="text-blue-800 font-semibold text-sm">Certificate ID</p>
                     </div>
                     <p className="text-sm font-mono tracking-wider text-blue-900 bg-white/80 p-1 rounded-md">{selectedCert.certificateNumber}</p>
                   </div>
@@ -360,7 +360,7 @@ export default function CertificatesSearch() {
                         <circle cx="12" cy="12" r="10"></circle>
                         <polyline points="12 6 12 12 16 14"></polyline>
                       </svg>
-                      <p className="text-blue-800 font-semibold text-sm">تاريخ الإصدار</p>
+                      <p className="text-blue-800 font-semibold text-sm">Issue Date</p>
                     </div>
                     <p className="text-sm text-blue-900 bg-white/80 p-1 rounded-md">{formatDate(selectedCert.issueDate)}</p>
                   </div>
@@ -372,7 +372,7 @@ export default function CertificatesSearch() {
                         <circle cx="8.5" cy="7" r="4"></circle>
                         <polyline points="17 11 19 13 23 9"></polyline>
                       </svg>
-                      <p className="text-blue-800 font-semibold text-sm">معرف المستخدم</p>
+                      <p className="text-blue-800 font-semibold text-sm">User ID</p>
                     </div>
                     <p className="text-sm font-mono tracking-wider text-blue-900 bg-white/80 p-1 rounded-md">{selectedCert.userId.substring(0, 8)}...</p>
                   </div>
