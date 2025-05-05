@@ -80,6 +80,29 @@ export default function Certificates() {
       const xPosition = (210 - imgWidth) / 2;
       const yPosition = (210 - imgHeight) / 2;
       
+      // Add International Academy watermark first (appears behind certificate)
+      pdf.setTextColor(255, 255, 255); // White text
+      // jsPDF doesn't have setGlobalAlpha in its type definitions, but it actually works
+      // Using a workaround by casting to any
+      (pdf as any).setGlobalAlpha?.(0.12); // Very subtle transparency
+      pdf.setFontSize(22);
+      pdf.setFont("helvetica", "bold");
+      pdf.text("INTERNATIONAL ACADEMY", 105, 140, { align: "center" });
+      
+      // Add ISO Certification watermark (behind certificate)
+      (pdf as any).setGlobalAlpha?.(0.1);
+      pdf.setDrawColor(255, 255, 255);
+      pdf.setLineWidth(0.5);
+      pdf.circle(105, 85, 35); // x, y, radius
+      pdf.setFontSize(16);
+      pdf.text("ISO", 105, 80, { align: "center" });
+      pdf.setFontSize(10);
+      pdf.text("CERTIFIED", 105, 90, { align: "center" });
+      pdf.text("9001:2015", 105, 100, { align: "center" });
+      
+      // Reset transparency for the certificate image
+      (pdf as any).setGlobalAlpha?.(1);
+      
       // Add the certificate image
       pdf.addImage(imgData, "PNG", xPosition, yPosition, imgWidth, imgHeight);
       
@@ -186,6 +209,25 @@ export default function Certificates() {
                             </svg>
                           </div>
                           
+                          {/* ISO Watermark */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                            <div className="relative w-3/5 h-3/5 flex flex-col items-center justify-center">
+                              <svg viewBox="0 0 100 100" width="100%" height="100%" className="text-white">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" />
+                                <text x="50" y="40" fontSize="12" textAnchor="middle" fill="currentColor" fontWeight="bold">ISO</text>
+                                <text x="50" y="55" fontSize="8" textAnchor="middle" fill="currentColor" fontWeight="bold">CERTIFIED</text>
+                                <text x="50" y="65" fontSize="8" textAnchor="middle" fill="currentColor" fontWeight="bold">9001:2015</text>
+                              </svg>
+                            </div>
+                          </div>
+                          
+                          {/* International Academy Watermark */}
+                          <div className="absolute bottom-8 left-0 right-0 flex justify-center opacity-10">
+                            <div className="text-white text-xl font-bold tracking-widest">
+                              INTERNATIONAL ACADEMY
+                            </div>
+                          </div>
+                          
                           {/* Certificate Border */}
                           <div className="absolute inset-3 border border-blue-400/10 rounded"></div>
                           
@@ -198,28 +240,28 @@ export default function Certificates() {
                           </div>
                           
                           {/* CERTIFICATE Title */}
-                          <div className="relative z-10 text-blue-100 text-2xl font-bold mb-3 tracking-wider">شهادة اجتياز</div>
+                          <div className="relative z-10 text-blue-100 text-2xl font-bold mb-3 tracking-wider">CERTIFICATE</div>
                           
                           {/* Decorative Line */}
                           <div className="relative z-10 w-24 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent mb-3"></div>
                           
                           {/* Certificate Content */}
-                          <p className="relative z-10 text-blue-200 text-xs mb-2">تشهد منصة Pro Course أن</p>
+                          <p className="relative z-10 text-blue-200 text-xs mb-2">THIS IS TO CERTIFY THAT</p>
                           <div className="relative z-10 text-white text-xl font-bold mb-2" style={{ fontFamily: 'Arial, "Noto Sans Arabic", sans-serif' }}>{cert.userName}</div>
-                          <p className="relative z-10 text-blue-200 text-xs mb-1">قد أكمل بنجاح اختبار</p>
+                          <p className="relative z-10 text-blue-200 text-xs mb-1">HAS SUCCESSFULLY COMPLETED</p>
                           <div className="relative z-10 text-white text-lg font-bold mb-4">{cert.examTitle}</div>
-                          <div className="relative z-10 text-blue-300 text-xs mb-4">بنسبة نجاح {cert.score}%</div>
+                          <div className="relative z-10 text-blue-300 text-xs mb-4">WITH A SCORE OF {cert.score}%</div>
                           
                           {/* Certificate Details */}
                           <div className="relative z-10 flex justify-between w-full text-xs mt-1">
                             <div className="text-right">
-                              <div className="text-blue-300 text-[9px] mb-0.5">رقم الشهادة</div>
+                              <div className="text-blue-300 text-[9px] mb-0.5">CERTIFICATE ID</div>
                               <div className="text-blue-100 text-xs mb-1 font-medium tracking-wide">{cert.certificateNumber}</div>
-                              <div className="text-blue-300 text-[9px]">{new Date(cert.issueDate).toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                              <div className="text-blue-300 text-[9px]">{new Date(cert.issueDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
                             </div>
                             <div className="flex items-end">
                               <div className="flex flex-col items-center">
-                                <div className="text-[10px] mb-1 text-blue-300">معتمدة</div>
+                                <div className="text-[10px] mb-1 text-blue-300">VERIFIED</div>
                                 <div className="rounded-full border border-blue-400/30 p-1 text-[8px] text-blue-200">CERT-PRO</div>
                               </div>
                             </div>
@@ -227,7 +269,7 @@ export default function Certificates() {
                           
                           {/* Signature */}
                           <div className="relative z-10 mt-4 text-blue-200 text-xs">
-                            <div>مدير المنصة</div>
+                            <div>AUTHORIZED BY</div>
                             <svg width="70" height="20" viewBox="0 0 70 20" className="mx-auto my-1">
                               <path d="M5,10 C10,5 15,15 20,10 C25,5 30,15 35,10 C40,5 45,15 50,10 C55,5 60,15 65,10" stroke="rgb(147, 197, 253)" fill="none" strokeWidth="1" strokeLinecap="round" />
                             </svg>

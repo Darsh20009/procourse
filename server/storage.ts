@@ -167,13 +167,8 @@ export const storage = {
     // Get the standard exams
     const standardExams = await readJsonFile<Exam>(EXAMS_FILE);
     
-    // Only include Oracle APEX exam
-    const filteredStandardExams = standardExams.filter(exam => 
-      exam.title.toLowerCase().includes('oracle') || 
-      exam.title.toLowerCase().includes('apex')
-    );
-    
-    return filteredStandardExams;
+    // Return all exams, not filtering Oracle APEX specifically
+    return standardExams;
   },
 
   // This method gets all available exams based on the user ID and preferred field
