@@ -1,46 +1,10 @@
-import { useAuth } from "@/App";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "wouter";
 
 export default function Header() {
-  const { user, isAuthenticated, setUser } = useAuth();
   const { toast } = useToast();
   const [_, setLocation] = useLocation();
-
-  const handleLogout = async () => {
-    try {
-      const res = await fetch("/api/auth/logout", {
-        method: "POST",
-        credentials: "include"
-      });
-      
-      if (res.ok) {
-        // Clear user from context
-        setUser(null);
-        
-        toast({
-          title: "تم تسجيل الخروج",
-          description: "تم تسجيل خروجك بنجاح.",
-        });
-        
-        setLocation("/");
-      } else {
-        toast({
-          title: "فشل تسجيل الخروج",
-          description: "حدث خطأ أثناء تسجيل الخروج.",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      console.error("Logout error:", error);
-      toast({
-        title: "خطأ في تسجيل الخروج",
-        description: "حدث خطأ أثناء تسجيل الخروج.",
-        variant: "destructive",
-      });
-    }
-  };
 
   return (
     <header className="bg-primary shadow-md">
@@ -53,22 +17,6 @@ export default function Header() {
             <span>PRO COURSE</span>
           </div>
         </div>
-        
-        {isAuthenticated && user && (
-          <div className="flex items-center space-x-4">
-            <div className="text-white flex items-center">
-              <span className="mr-2">{user.name}</span>
-              <span className="text-xs bg-green-500 px-2 py-0.5 rounded-full">Online</span>
-            </div>
-            <Button 
-              variant="ghost"
-              className="text-white hover:text-gray-300 text-sm"
-              onClick={handleLogout}
-            >
-              <i className="fas fa-sign-out-alt mr-1"></i> Logout
-            </Button>
-          </div>
-        )}
       </div>
     </header>
   );

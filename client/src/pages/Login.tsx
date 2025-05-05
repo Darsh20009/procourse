@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { useAuth } from "../App";
+import { useAuth } from "@/lib/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -13,40 +13,23 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const [_, setLocation] = useLocation();
-
-  const { user, setUser } = useAuth();
+  const { login, user, isAuthenticated } = useAuth();
   
   // Redirect if already logged in
   useEffect(() => {
-    if (user) {
+    if (isAuthenticated && user) {
       setLocation("/dashboard");
     }
-  }, [user, setLocation]);
+  }, [isAuthenticated, user, setLocation]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    console.log("Login form submitted:", { email, userId });
-
     try {
-      console.log("Sending login request to /api/auth/login");
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, userId }),
-        credentials: "include"
-      });
+      const success = await login(email, userId);
       
-      console.log("Login response status:", res.status);
-      
-      if (res.ok) {
-        const userData = await res.json();
-        console.log("Login successful, user data:", userData);
-        
-        // Update auth context
-        setUser(userData);
-        
+      if (success) {
         toast({
           title: "تم تسجيل الدخول بنجاح",
           description: "مرحبًا بك في منصة Pro Course!",
@@ -54,9 +37,6 @@ export default function Login() {
         
         setLocation("/dashboard");
       } else {
-        const errorData = await res.text();
-        console.error("Login failed:", errorData);
-        
         toast({
           title: "فشل تسجيل الدخول",
           description: "بيانات الاعتماد غير صالحة. يرجى المحاولة مرة أخرى.",
