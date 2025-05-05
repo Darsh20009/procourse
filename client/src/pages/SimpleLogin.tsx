@@ -8,21 +8,31 @@ import { useToast } from "@/hooks/use-toast";
 
 export default function SimpleLogin() {
   const [email, setEmail] = useState("");
-  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const [_, setLocation] = useLocation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!email || !password) {
+      toast({
+        title: "حقول مطلوبة",
+        description: "يرجى إدخال البريد الإلكتروني وكلمة المرور",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
-      console.log("Attempting login with:", { email, userId });
-      const res = await fetch("/api/auth/login", {
+      console.log("Attempting login with:", { email, password });
+      const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, userId }),
+        body: JSON.stringify({ email, password }),
         credentials: "include"
       });
       
@@ -43,7 +53,7 @@ export default function SimpleLogin() {
         
         toast({
           title: "فشل تسجيل الدخول",
-          description: "بيانات الاعتماد غير صالحة. يرجى المحاولة مرة أخرى.",
+          description: "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.",
           variant: "destructive",
         });
       }
@@ -83,13 +93,13 @@ export default function SimpleLogin() {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="userId">رقم الهوية</Label>
+              <Label htmlFor="password">كلمة المرور</Label>
               <Input
-                type="text"
-                id="userId"
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
-                placeholder="أدخل رقم الهوية الخاص بك"
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="أدخل كلمة المرور الخاصة بك"
                 required
               />
             </div>
@@ -100,7 +110,7 @@ export default function SimpleLogin() {
 
             {/* Test credentials */}
             <div className="mt-4 text-center text-sm text-gray-500">
-              <p>للتجربة: yusuf@example.com / 2277131963</p>
+              <p>للتجربة: example@test.com / password123</p>
             </div>
             
             <div className="mt-4 text-center text-sm">
