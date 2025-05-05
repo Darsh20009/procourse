@@ -180,7 +180,7 @@ export default function SimpleDashboard() {
         )}
       </div>
       
-      <div>
+      <div className="mb-8">
         <h2 className="text-xl font-bold mb-4">Recent Achievements</h2>
         {userStats?.certificatesEarned ? (
           <Card>
@@ -203,6 +203,55 @@ export default function SimpleDashboard() {
             </CardContent>
           </Card>
         )}
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-xl font-bold mb-4">Quick Actions</h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <Button 
+            onClick={() => setLocation("/certificates")}
+            className="h-16 text-lg"
+          >
+            عرض شهاداتي
+          </Button>
+          
+          <Button 
+            onClick={() => setLocation("/certificate-search")}
+            className="h-16 text-lg"
+            variant="outline"
+          >
+            بحث عن الشهادات
+          </Button>
+          
+          <Button 
+            onClick={handleStartExam}
+            className="h-16 text-lg"
+            variant="secondary"
+          >
+            بدء اختبار جديد
+          </Button>
+          
+          <Button 
+            className="h-16 text-lg"
+            variant="destructive"
+            onClick={async () => {
+              try {
+                const res = await fetch("/api/auth/logout", {
+                  method: "POST",
+                  credentials: "include",
+                });
+                
+                if (res.ok) {
+                  setLocation("/");
+                }
+              } catch (error) {
+                console.error("Logout error:", error);
+              }
+            }}
+          >
+            تسجيل الخروج
+          </Button>
+        </div>
       </div>
     </div>
   );
