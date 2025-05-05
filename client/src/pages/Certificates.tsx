@@ -259,7 +259,7 @@ export default function Certificates() {
                         </div>
                         <div>
                           <h5 className="text-sm font-medium text-gray-700">الحالة</h5>
-                          <p className="text-gray-900">سارية (تنتهي في {new Date(cert.expiryDate).toLocaleDateString('ar-EG')})</p>
+                          <p className="text-gray-900">سارية بشكل دائم</p>
                         </div>
                       </div>
                       

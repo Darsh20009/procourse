@@ -76,7 +76,7 @@ export default function CertificatesSearch() {
     });
   };
 
-  // Download certificate as PDF
+  // Download certificate as PDF with improved capture
   const downloadCertificate = async () => {
     if (!selectedCert) return;
     
@@ -86,29 +86,62 @@ export default function CertificatesSearch() {
     try {
       toast({
         title: "جاري إنشاء الشهادة",
-        description: "يرجى الانتظار..."
+        description: "يرجى الانتظار... قد تستغرق هذه العملية بضع ثوان"
       });
       
+      // ننتظر لحظة للتأكد من أن الشهادة مرئية تمامًا 
+      await new Promise(resolve => setTimeout(resolve, 200));
+      
+      // إعدادات متقدمة لالتقاط الشهادة بالكامل
       const canvas = await html2canvas(certificateElement, {
-        scale: 2,
+        scale: 3, // دقة عالية
         logging: false,
         useCORS: true,
-        allowTaint: true
+        allowTaint: true,
+        backgroundColor: "#ffffff",
+        onclone: (clonedDoc) => {
+          // نعدل النسخة المستخدمة للتصوير لضمان ظهورها كاملة
+          const clonedElement = clonedDoc.getElementById('certificate-template');
+          if (clonedElement) {
+            clonedElement.style.transform = 'none';
+            clonedElement.style.position = 'static';
+            clonedElement.style.width = `${certificateElement.offsetWidth}px`;
+            clonedElement.style.height = `${certificateElement.offsetHeight}px`;
+            clonedElement.style.margin = '0';
+            clonedElement.style.padding = '20px';
+            clonedElement.style.boxSizing = 'content-box';
+          }
+        }
       });
       
-      const imgData = canvas.toDataURL('image/png');
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      
+      // ننشئ PDF بتنسيق مناسب للشهادة المستطيلة الجديدة
       const pdf = new jsPDF({
-        orientation: 'landscape',
+        orientation: 'portrait',
         unit: 'mm',
         format: 'a4'
       });
       
-      const imgProps= pdf.getImageProperties(imgData);
+      // حساب أبعاد الصفحة والصورة
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const imgProps = pdf.getImageProperties(imgData);
+      const imgWidth = pdfWidth - 20; // هامش 10مم من كل جانب
+      const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
       
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`certificate-${selectedCert.certificateNumber}.pdf`);
+      // حساب الإزاحة لوضع الصورة في وسط الصفحة
+      const xOffset = 10;
+      const yOffset = (pdfHeight - imgHeight) / 2;
+      
+      // إضافة الصورة إلى PDF مع ضبط الموضع
+      pdf.addImage(imgData, 'PNG', xOffset, yOffset, imgWidth, imgHeight);
+      
+      // حفظ الملف باسم ذي معنى يتضمن رقم الشهادة واسم الشخص
+      const safeUserName = selectedCert.userName.replace(/\s+/g, '_');
+      const fileName = `Pro_Course_Certificate_${selectedCert.certificateNumber}_${safeUserName}.pdf`;
+      
+      pdf.save(fileName);
       
       toast({
         title: "تم إنشاء الشهادة بنجاح",
