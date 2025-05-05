@@ -253,8 +253,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const result = await storage.submitExam(user.id, examId, answers);
       
-      // Update certificate with actual score
-      await storage.updateCertificateScore(user.id, examId, result.score);
+      // Generate new certificate with actual score
+      await storage.generateCertificate(user.id, examId, result.score);
       
       return res.status(200).json(result);
     } catch (error) {

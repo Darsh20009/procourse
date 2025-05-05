@@ -254,29 +254,37 @@ export const storage = {
     // Get exam based on ID
     let exam = null;
     
-    switch(examId) {
-      case 'exam-001':
-        exam = await readJsonObject<Exam>(ORACLE_EXAM_FILE);
-        break;
-      case 'exam-004':
-        exam = await readJsonObject<Exam>(JAVA_EXAM_FILE);
-        break;
-      case 'exam-003':
-        exam = await readJsonObject<Exam>(JAVASCRIPT_EXAM_FILE);
-        break;
-      case 'exam-010':
-        exam = await readJsonObject<Exam>(PYTHON_EXAM_FILE);
-        break;
-      case 'exam-007':
-        exam = await readJsonObject<Exam>(PHP_EXAM_FILE);
-        break;
-      case 'exam-005':
-        exam = await readJsonObject<Exam>(CPP_EXAM_FILE);
-        break;
-      default:
-        // Check standard exams
-        const exams = await this.getAllExams();
-        exam = exams.find(e => e.id === examId) || null;
+    // First try to get exam from specific file
+    const examFiles: { [key: string]: string } = {
+      'exam-001': ORACLE_EXAM_FILE,
+      'exam-004': JAVA_EXAM_FILE, 
+      'exam-003': JAVASCRIPT_EXAM_FILE,
+      'exam-010': PYTHON_EXAM_FILE,
+      'exam-007': PHP_EXAM_FILE,
+      'exam-005': CPP_EXAM_FILE
+    };
+
+    if (examId in examFiles) {
+      exam = await readJsonObject<Exam>(examFiles[examId]);
+    }
+
+    // If not found, check standard exams
+    if (!exam) {
+      const exams = await this.getAllExams();
+      exam = exams.find(e => e.id === examId) || null;
+    }
+
+    // Add default questions if none exist
+    if (exam && (!exam.questions || exam.questions.length === 0)) {
+      exam.questions = [
+        {
+          id: 1,
+          text: "سؤال اختبار",
+          options: ["خيار 1", "خيار 2", "خيار 3", "خيار 4"],
+          correctAnswer: 0,
+          category: "عام"
+        }
+      ];
     }
 
     if (!exam) {
