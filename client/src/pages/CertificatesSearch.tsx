@@ -23,9 +23,20 @@ export default function CertificatesSearch() {
     setIsLoading(true);
     
     try {
+      // Get current user from session
+      const authRes = await fetch('/api/auth/check', {
+        credentials: 'include'
+      });
+      const user = await authRes.json();
+      
       let queryParams = new URLSearchParams();
-      if (name) queryParams.append("name", name);
-      if (userId) queryParams.append("userId", userId);
+      // Use authenticated user's email if no search params provided
+      if (!name && !userId && user?.email) {
+        queryParams.append("email", user.email);
+      } else {
+        if (name) queryParams.append("name", name);
+        if (userId) queryParams.append("userId", userId);
+      }
       
       const res = await fetch(`/api/certificates/search?${queryParams.toString()}`, {
         credentials: "include"
