@@ -10,7 +10,6 @@ import Certificates from "@/pages/Certificates";
 import CertificatesSearch from "@/pages/CertificatesSearch";
 import SimpleDashboard from "@/pages/SimpleDashboard";
 import NotFound from "@/pages/not-found";
-import Home from "@/pages/Home";
 
 function App() {
   const [location, setLocation] = useLocation();
@@ -20,8 +19,7 @@ function App() {
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
         <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/auth" component={SimpleLogin} />
+          <Route path="/" component={SimpleLogin} />
           <Route path="/register" component={Register} />
           <Route path="/auth" component={SimpleLogin} />
           <Route path="/dashboard" component={SimpleDashboard} />
