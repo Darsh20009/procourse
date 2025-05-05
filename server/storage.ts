@@ -275,8 +275,6 @@ export const storage = {
     }
 
     if (!exam) {
-      return null;
-    }
       // Check special exams if not found
       if (examId === 'exam-java') {
         exam = await this.getJavaExam();
@@ -288,6 +286,10 @@ export const storage = {
         exam = await this.getPHPExam();
       } else if (examId === 'exam-cpp') {
         exam = await this.getCPPExam();
+      }
+      
+      if (!exam) {
+        return null;
       }
     }
 
