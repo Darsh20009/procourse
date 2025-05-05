@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Route, Switch, useLocation } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
@@ -19,11 +18,10 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/register" component={Register} />
-          <Route path="/auth" component={SimpleLogin} />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/register" component={Register} />
+        <Route path="/auth" component={SimpleLogin} />
           <Route path="/dashboard" component={SimpleDashboard} />
           <Route path="/exam" component={Exam} />
           <Route path="/certificates" component={Certificates} />
