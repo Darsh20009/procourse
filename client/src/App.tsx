@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SimpleLogin from "@/pages/SimpleLogin";
+import Register from "@/pages/Register";
 import Exam from "@/pages/Exam";
 import Certificates from "@/pages/Certificates";
 import SimpleDashboard from "@/pages/SimpleDashboard";
@@ -18,6 +19,8 @@ function App() {
       <main className="container mx-auto px-4 py-8 flex-grow">
         <Switch>
           <Route path="/" component={SimpleLogin} />
+          <Route path="/register" component={Register} />
+          <Route path="/auth" component={SimpleLogin} />
           <Route path="/dashboard" component={SimpleDashboard} />
           <Route path="/exam" component={Exam} />
           <Route path="/certificates" component={Certificates} />

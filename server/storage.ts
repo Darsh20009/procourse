@@ -77,9 +77,14 @@ export const storage = {
     return user;
   },
 
-  async createUser(user: Omit<User, "id">): Promise<User> {
+  async createUser(userData: { name: string; email: string; preferredField?: string }): Promise<User> {
     const users = await this.getAllUsers();
-    const newUser = { ...user, id: crypto.randomUUID() };
+    const newUser: User = { 
+      id: crypto.randomUUID(),
+      name: userData.name,
+      email: userData.email,
+      preferredField: userData.preferredField
+    };
     users.push(newUser);
     await writeJsonFile(USERS_FILE, users);
     return newUser;
@@ -112,12 +117,14 @@ export const storage = {
     return filteredStandardExams;
   },
 
-  // This method gets all available exams based on the user ID
+  // This method gets all available exams based on the user ID and preferred field
   async getAvailableExamsForUser(userId: string): Promise<Exam[]> {
+    // Get the user to check their preferred field
+    const user = await this.getUserById(userId);
     const allExams = await this.getAllExams();
     const result: Exam[] = [...allExams];
     
-    // Only for Yusuf (ID: 2277131963), also show programming language exams
+    // Special case for Yusuf (ID: 2277131963), show all programming language exams
     if (userId === '2277131963') {
       const javaExam = await this.getJavaExam();
       const javascriptExam = await this.getJavaScriptExam();
@@ -126,6 +133,27 @@ export const storage = {
       if (javaExam) result.push(javaExam);
       if (javascriptExam) result.push(javascriptExam);
       if (pythonExam) result.push(pythonExam);
+      
+      return result;
+    }
+    
+    // For other users, check their preferred field and add relevant exams
+    if (user && user.preferredField) {
+      switch (user.preferredField) {
+        case 'java':
+          const javaExam = await this.getJavaExam();
+          if (javaExam) result.push(javaExam);
+          break;
+        case 'javascript':
+          const javascriptExam = await this.getJavaScriptExam();
+          if (javascriptExam) result.push(javascriptExam);
+          break;
+        case 'python':
+          const pythonExam = await this.getPythonExam();
+          if (pythonExam) result.push(pythonExam);
+          break;
+        // Add more cases for other exam types if needed
+      }
     }
     
     return result;

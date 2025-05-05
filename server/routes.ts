@@ -126,11 +126,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Email already registered" });
       }
       
-      // Create new user
+      // Create new user with preferred field
       const newUser = await storage.createUser({
         name, 
         email,
-        preferredField // Store the user's preferred certification field
+        preferredField: preferredField
       });
       
       return res.status(201).json(newUser);
@@ -157,18 +157,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(401).json({ message: "Authentication required" });
       }
       
-      let exams;
+      // Get all available exams for the user based on their ID and preferred field
+      const fullExams = await storage.getAvailableExamsForUser(user.id);
       
-      // Get available exams based on user ID - will return different exams for Yusuf
-      if (user.id === '2277131963') { // Yusuf
-        // Get all available exams for Yusuf (including Java, JavaScript, Python)
-        const fullExams = await storage.getAvailableExamsForUser(user.id);
-        // Remove questions from the results
-        exams = fullExams.map(({ questions, ...examWithoutQuestions }) => examWithoutQuestions);
-      } else {
-        // Get only standard exams for other users
-        exams = await storage.getAvailableExams();
-      }
+      // Remove questions from the results
+      const exams = fullExams.map(({ questions, ...examWithoutQuestions }) => examWithoutQuestions);
       
       console.log(`Filtered exams for user ${user.id}:`, exams);
       return res.status(200).json(exams);
@@ -191,17 +184,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // If no specific exam ID provided, default to appropriate exam
       if (!targetExamId) {
-        // Get available exams
-        let availableExams;
-        
-        if (user.id === '2277131963') { // Yusuf
-          // All exams for Yusuf (including Java, JavaScript, Python)
-          const fullExams = await storage.getAvailableExamsForUser(user.id);
-          availableExams = fullExams.map(({ questions, ...rest }) => rest);
-        } else {
-          // Standard exams for other users
-          availableExams = await storage.getAvailableExams();
-        }
+        // Get available exams based on user's preferred field
+        const fullExams = await storage.getAvailableExamsForUser(user.id);
+        const availableExams = fullExams.map(({ questions, ...rest }) => rest);
         
         if (availableExams.length === 0) {
           return res.status(404).json({ message: "No exams available" });
