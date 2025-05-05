@@ -186,12 +186,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!user) {
         return res.status(401).json({ message: "Authentication required" });
       }
-      
-      // Generate certificate immediately when exam starts
-      const certificate = await storage.generateCertificate(user.id, examId || 'exam-001', 0);
 
       // Get exam ID from query parameters
       const { examId } = req.query;
+      
+      // Generate certificate immediately when exam starts
+      const certificate = await storage.generateCertificate(user.id, examId as string || 'exam-001', 0);
       let targetExamId = examId as string;
       
       // If no specific exam ID provided, default to appropriate exam

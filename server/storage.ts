@@ -190,11 +190,11 @@ export const storage = {
       // Map preferredField to exam IDs
       const examMapping: { [key: string]: string[] } = {
         'oracle_apex': ['exam-001'],
-        'java': ['exam-java'],
-        'javascript': ['exam-javascript'], 
-        'python': ['exam-python'],
-        'php': ['exam-php'],
-        'cpp': ['exam-cpp'],
+        'java': ['exam-004'],
+        'javascript': ['exam-003'], 
+        'python': ['exam-010'],
+        'php': ['exam-007'],
+        'cpp': ['exam-005'],
         'sql': ['exam-009'],
         'matlab': ['exam-008'],
         'csharp': ['exam-006'],
