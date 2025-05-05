@@ -56,7 +56,7 @@ export default function Certificates() {
         scale: 4, // Higher scale for better quality
         logging: false,
         useCORS: true,
-        backgroundColor: "#111827", // Match the certificate background color
+        backgroundColor: "#172554", // Match the blue certificate background color
         allowTaint: true,
         foreignObjectRendering: false,
       });
@@ -70,8 +70,8 @@ export default function Certificates() {
         format: [210, 210], // Square format exactly like the example
       });
       
-      // Add dark background to match the certificate style
-      pdf.setFillColor(17, 24, 39); // #111827
+      // Add blue background to match the certificate style
+      pdf.setFillColor(23, 37, 84); // #172554 (blue-950)
       pdf.rect(0, 0, 210, 210, 'F');
       
       // Calculate positioning to perfectly center the image
@@ -173,45 +173,70 @@ export default function Certificates() {
                   <div className="flex flex-col md:flex-row">
                     <div className="w-full md:w-1/3 p-4 flex justify-center items-center bg-primary-light">
                       <div id={`certificate-${cert.id}`} className="certificate rounded overflow-hidden shadow-lg max-w-xs">
-                        <div className="bg-[#111827] border border-gray-600 p-6 flex flex-col items-center justify-center text-center aspect-square">
+                        <div className="relative bg-gradient-to-br from-blue-900 to-blue-950 border border-blue-700/30 p-6 flex flex-col items-center justify-center text-center aspect-square">
+                          {/* Background Pattern */}
+                          <div className="absolute inset-0 opacity-5">
+                            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                              <defs>
+                                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" strokeWidth="0.5" />
+                                </pattern>
+                              </defs>
+                              <rect width="100%" height="100%" fill="url(#grid)" />
+                            </svg>
+                          </div>
+                          
+                          {/* Certificate Border */}
+                          <div className="absolute inset-3 border border-blue-400/10 rounded"></div>
+                          
                           {/* PRO COURSE Logo */}
-                          <div className="flex items-center mb-4">
-                            <div className="w-7 h-7 bg-gray-400 flex items-center justify-center mr-1">
-                              <span className="text-[#111827] text-sm font-bold">Q</span>
+                          <div className="relative z-10 flex items-center mb-4">
+                            <div className="w-8 h-8 bg-blue-300 flex items-center justify-center rounded-full mr-1">
+                              <span className="text-blue-900 text-sm font-bold">PRO</span>
                             </div>
-                            <div className="text-gray-400 text-sm font-bold tracking-wide">PRO COURSE</div>
+                            <div className="text-blue-300 text-sm font-bold tracking-wider">COURSE</div>
                           </div>
                           
                           {/* CERTIFICATE Title */}
-                          <div className="text-gray-300 text-3xl font-bold mb-5 tracking-wider">CERTIFICATE</div>
+                          <div className="relative z-10 text-blue-100 text-2xl font-bold mb-3 tracking-wider">شهادة اجتياز</div>
+                          
+                          {/* Decorative Line */}
+                          <div className="relative z-10 w-24 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent mb-3"></div>
                           
                           {/* Certificate Content */}
-                          <p className="text-gray-400 text-xs mb-2">This is to certify that</p>
-                          <div className="text-white text-2xl font-bold mb-2">{cert.userName}</div>
-                          <p className="text-gray-400 text-xs mb-1">has successfully completed the programming<br/>certification in</p>
-                          <div className="text-white text-2xl font-bold mb-6">{cert.examTitle}</div>
+                          <p className="relative z-10 text-blue-200 text-xs mb-2">تشهد منصة Pro Course أن</p>
+                          <div className="relative z-10 text-white text-xl font-bold mb-2" style={{ fontFamily: 'Arial, "Noto Sans Arabic", sans-serif' }}>{cert.userName}</div>
+                          <p className="relative z-10 text-blue-200 text-xs mb-1">قد أكمل بنجاح اختبار</p>
+                          <div className="relative z-10 text-white text-lg font-bold mb-4">{cert.examTitle}</div>
+                          <div className="relative z-10 text-blue-300 text-xs mb-4">بنسبة نجاح {cert.score}%</div>
                           
                           {/* Certificate Details */}
-                          <div className="flex justify-between w-full text-xs text-gray-500 mt-2">
-                            <div className="text-left">
-                              <div className="text-gray-400 text-[9px] mb-0.5">Certificate number</div>
-                              <div className="text-gray-300 text-xs mb-1 font-medium">{cert.certificateNumber}</div>
-                              <div className="text-gray-400 text-[9px]">{new Date(cert.issueDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                          <div className="relative z-10 flex justify-between w-full text-xs mt-1">
+                            <div className="text-right">
+                              <div className="text-blue-300 text-[9px] mb-0.5">رقم الشهادة</div>
+                              <div className="text-blue-100 text-xs mb-1 font-medium tracking-wide">{cert.certificateNumber}</div>
+                              <div className="text-blue-300 text-[9px]">{new Date(cert.issueDate).toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
                             </div>
                             <div className="flex items-end">
                               <div className="flex flex-col items-center">
-                                <div className="text-[10px] mb-1">Certified</div>
-                                <div className="rounded-full border border-gray-600 p-1 text-[8px] text-gray-300">ISO 9001:2015</div>
+                                <div className="text-[10px] mb-1 text-blue-300">معتمدة</div>
+                                <div className="rounded-full border border-blue-400/30 p-1 text-[8px] text-blue-200">CERT-PRO</div>
                               </div>
                             </div>
                           </div>
                           
                           {/* Signature */}
-                          <div className="mt-4 text-gray-400 text-xs">
-                            <div>Robert Smith</div>
-                            <hr className="w-24 mx-auto border-gray-600 my-1" />
-                            <div>Signature</div>
+                          <div className="relative z-10 mt-4 text-blue-200 text-xs">
+                            <div>مدير المنصة</div>
+                            <svg width="70" height="20" viewBox="0 0 70 20" className="mx-auto my-1">
+                              <path d="M5,10 C10,5 15,15 20,10 C25,5 30,15 35,10 C40,5 45,15 50,10 C55,5 60,15 65,10" stroke="rgb(147, 197, 253)" fill="none" strokeWidth="1" strokeLinecap="round" />
+                            </svg>
+                            <div>Pro Course Director</div>
                           </div>
+                          
+                          {/* Background Embellishments */}
+                          <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-blue-500/5 rounded-full blur-2xl"></div>
+                          <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-blue-300/5 rounded-full blur-xl"></div>
                         </div>
                       </div>
                     </div>
