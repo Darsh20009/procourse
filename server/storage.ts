@@ -188,10 +188,14 @@ export const storage = {
       const javaExam = await this.getJavaExam();
       const javascriptExam = await this.getJavaScriptExam();
       const pythonExam = await this.getPythonExam();
+      const phpExam = await this.getPHPExam();
+      const cppExam = await this.getCPPExam();
       
       if (javaExam) result.push(javaExam);
       if (javascriptExam) result.push(javascriptExam);
       if (pythonExam) result.push(pythonExam);
+      if (phpExam) result.push(phpExam);
+      if (cppExam) result.push(cppExam);
       
       return result;
     }
@@ -211,7 +215,14 @@ export const storage = {
           const pythonExam = await this.getPythonExam();
           if (pythonExam) result.push(pythonExam);
           break;
-        // Add more cases for other exam types if needed
+        case 'php':
+          const phpExam = await this.getPHPExam();
+          if (phpExam) result.push(phpExam);
+          break;
+        case 'cpp':
+          const cppExam = await this.getCPPExam();
+          if (cppExam) result.push(cppExam);
+          break;
       }
     }
     
@@ -266,6 +277,10 @@ export const storage = {
         exam = await this.getJavaScriptExam();
       } else if (examId === 'exam-python') {
         exam = await this.getPythonExam();
+      } else if (examId === 'exam-php') {
+        exam = await this.getPHPExam();
+      } else if (examId === 'exam-cpp') {
+        exam = await this.getCPPExam();
       }
     }
     
