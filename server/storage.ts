@@ -176,10 +176,14 @@ export const storage = {
     // Get the user to check their preferred field
     const user = await this.getUserById(userId);
     const allExams = await this.getAllExams();
-    const result: Exam[] = [...allExams];
+    let result: Exam[] = [];
     
     // Special case for Yusuf (ID: 2277131963), show all programming language exams
     if (userId === '2277131963') {
+      // Include all standard exams
+      result = [...allExams];
+      
+      // Include all specialized programming exams
       const javaExam = await this.getJavaExam();
       const javascriptExam = await this.getJavaScriptExam();
       const pythonExam = await this.getPythonExam();
@@ -195,30 +199,71 @@ export const storage = {
       return result;
     }
     
-    // For other users, check their preferred field and add relevant exams
+    // For other users, only show exams relevant to their preferred field
     if (user && user.preferredField) {
+      // Filter standard exams based on relevant technologies for the user's field
       switch (user.preferredField) {
         case 'java':
+          // Java developers might use Node.js for tooling but not React or APEX
+          result = allExams.filter(exam => 
+            exam.title.toLowerCase().includes('node') || 
+            !['oracle apex', 'react'].some(tech => exam.title.toLowerCase().includes(tech))
+          );
           const javaExam = await this.getJavaExam();
           if (javaExam) result.push(javaExam);
           break;
+          
         case 'javascript':
+          // JavaScript developers would use Node.js and React
+          result = allExams.filter(exam => 
+            exam.title.toLowerCase().includes('node') || 
+            exam.title.toLowerCase().includes('react') ||
+            !['oracle apex'].some(tech => exam.title.toLowerCase().includes(tech))
+          );
           const javascriptExam = await this.getJavaScriptExam();
           if (javascriptExam) result.push(javascriptExam);
           break;
+          
         case 'python':
+          // Python developers don't typically use React or APEX
+          result = allExams.filter(exam => 
+            !['oracle apex', 'react'].some(tech => exam.title.toLowerCase().includes(tech))
+          );
           const pythonExam = await this.getPythonExam();
           if (pythonExam) result.push(pythonExam);
           break;
+          
         case 'php':
+          // PHP developers might use Node.js for tooling but not APEX
+          result = allExams.filter(exam => 
+            !['oracle apex'].some(tech => exam.title.toLowerCase().includes(tech))
+          );
           const phpExam = await this.getPHPExam();
           if (phpExam) result.push(phpExam);
           break;
+          
         case 'cpp':
+          // C++ developers typically don't use web technologies
+          result = [];
           const cppExam = await this.getCPPExam();
           if (cppExam) result.push(cppExam);
           break;
+          
+        case 'oracle':
+          // Oracle developers only need APEX and related exams
+          result = allExams.filter(exam => 
+            exam.title.toLowerCase().includes('oracle') || 
+            exam.title.toLowerCase().includes('apex')
+          );
+          break;
+          
+        default:
+          // For other fields, include general programming exams but not specialized ones
+          result = allExams.filter(exam => !exam.title.toLowerCase().includes('oracle apex'));
       }
+    } else {
+      // If no preferred field is set, show general exams excluding specialized ones
+      result = allExams.filter(exam => !exam.title.toLowerCase().includes('oracle apex'));
     }
     
     return result;
