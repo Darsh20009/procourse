@@ -186,6 +186,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!user) {
         return res.status(401).json({ message: "Authentication required" });
       }
+      
+      // Generate certificate immediately when exam starts
+      const certificate = await storage.generateCertificate(user.id, examId || 'exam-001', 0);
 
       // Get exam ID from query parameters
       const { examId } = req.query;
@@ -250,10 +253,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const result = await storage.submitExam(user.id, examId, answers);
       
-      // If exam is passed, generate a certificate
-      if (result.passedExam) {
-        await storage.generateCertificate(user.id, examId);
-      }
+      // Update certificate with actual score
+      await storage.updateCertificateScore(user.id, examId, result.score);
       
       return res.status(200).json(result);
     } catch (error) {

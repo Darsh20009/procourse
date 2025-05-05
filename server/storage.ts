@@ -337,7 +337,7 @@ export const storage = {
     });
   },
 
-  async generateCertificate(userId: string, examId: string, score = 85): Promise<Certificate> {
+  async generateCertificate(userId: string, examId: string, score = 0): Promise<Certificate> {
     const user = await this.getUserById(userId);
     const exam = await this.getExamById(examId);
 
