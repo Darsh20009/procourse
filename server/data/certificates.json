@@ -1,0 +1,13 @@
+[
+  {
+    "id": "cert-001",
+    "userId": "2277131963",
+    "userName": "Yusuf Mohamed",
+    "examId": "exam-001",
+    "examTitle": "ORACLE APEX",
+    "certificateNumber": "PC-ORA-0525-001",
+    "issueDate": "2025-05-05T10:30:00.000Z",
+    "expiryDate": "2027-05-05T10:30:00.000Z",
+    "score": 86
+  }
+]

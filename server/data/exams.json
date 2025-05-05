@@ -1,0 +1,750 @@
+[
+  {
+    "id": "exam-001",
+    "title": "ORACLE APEX",
+    "description": "Certification exam for Oracle APEX application development",
+    "duration": 60,
+    "totalQuestions": 60,
+    "passingScore": 70,
+    "questions": [
+      {
+        "id": 1,
+        "text": "Which of the following is NOT a valid component type in Oracle APEX?",
+        "options": [
+          "Interactive Reports",
+          "Neural Networks",
+          "Forms",
+          "Charts"
+        ],
+        "correctAnswer": 1,
+        "category": "Database Design"
+      },
+      {
+        "id": 2,
+        "text": "In Oracle APEX, what is a workspace?",
+        "options": [
+          "A virtual private database",
+          "A shared work environment for multiple developers",
+          "A logical grouping of applications",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "APEX Architecture"
+      },
+      {
+        "id": 3,
+        "text": "Which statement about APEX interactive reports is true?",
+        "options": [
+          "They can only be created by administrators",
+          "They allow end-users to customize the report layout",
+          "They require JavaScript programming",
+          "They cannot be used with RESTful data sources"
+        ],
+        "correctAnswer": 1,
+        "category": "Reporting"
+      },
+      {
+        "id": 4,
+        "text": "What is the primary language used for server-side processing in Oracle APEX?",
+        "options": [
+          "JavaScript",
+          "PL/SQL",
+          "Java",
+          "Python"
+        ],
+        "correctAnswer": 1,
+        "category": "Programming"
+      },
+      {
+        "id": 5,
+        "text": "Which of the following best describes APEX's architecture?",
+        "options": [
+          "Client-server",
+          "Microservices",
+          "Monolithic",
+          "Event-driven"
+        ],
+        "correctAnswer": 0,
+        "category": "APEX Architecture"
+      },
+      {
+        "id": 6,
+        "text": "What is a 'page process' in Oracle APEX?",
+        "options": [
+          "A database stored procedure",
+          "A logic that executes when a page is rendered or submitted",
+          "A JavaScript function that runs in the browser",
+          "A report generation process"
+        ],
+        "correctAnswer": 1,
+        "category": "Page Processing"
+      },
+      {
+        "id": 7,
+        "text": "Which statement about APEX themes is correct?",
+        "options": [
+          "Themes cannot be customized once selected",
+          "Each application can only use one theme",
+          "Themes control the visual appearance and UI behavior",
+          "Themes require separate CSS files to be uploaded"
+        ],
+        "correctAnswer": 2,
+        "category": "UI Design"
+      },
+      {
+        "id": 8,
+        "text": "What is the purpose of an APEX authorization scheme?",
+        "options": [
+          "To validate user input",
+          "To control user access to application components",
+          "To encrypt sensitive data",
+          "To authenticate users against an LDAP directory"
+        ],
+        "correctAnswer": 1,
+        "category": "Security"
+      },
+      {
+        "id": 9,
+        "text": "Which of the following is NOT a valid page rendering component?",
+        "options": [
+          "Regions",
+          "Items",
+          "Computations",
+          "Databases"
+        ],
+        "correctAnswer": 3,
+        "category": "Page Rendering"
+      },
+      {
+        "id": 10,
+        "text": "In Oracle APEX, what is a 'Dynamic Action'?",
+        "options": [
+          "A PL/SQL procedure that runs on the database",
+          "A declarative way to define client-side interactivity",
+          "A special type of database trigger",
+          "A method to dynamically change the application theme"
+        ],
+        "correctAnswer": 1,
+        "category": "JavaScript & AJAX"
+      },
+      {
+        "id": 11,
+        "text": "Which of the following is true about APEX session state?",
+        "options": [
+          "It can only store numeric values",
+          "It persists across different browsers",
+          "It is automatically cleared when the user logs out",
+          "It cannot be manually manipulated"
+        ],
+        "correctAnswer": 2,
+        "category": "Session Management"
+      },
+      {
+        "id": 12,
+        "text": "What is the primary purpose of an APEX application item?",
+        "options": [
+          "To store application-level values accessible across pages",
+          "To create UI elements on a page",
+          "To validate user input",
+          "To create database connections"
+        ],
+        "correctAnswer": 0,
+        "category": "Application Items"
+      },
+      {
+        "id": 13,
+        "text": "Which of the following is NOT a benefit of using Oracle APEX?",
+        "options": [
+          "Rapid application development",
+          "Native mobile application generation",
+          "Integrated reporting capabilities",
+          "Low-code development approach"
+        ],
+        "correctAnswer": 1,
+        "category": "APEX Fundamentals"
+      },
+      {
+        "id": 14,
+        "text": "What is the primary storage mechanism for Oracle APEX applications?",
+        "options": [
+          "XML files",
+          "Database tables",
+          "JSON documents",
+          "File system directories"
+        ],
+        "correctAnswer": 1,
+        "category": "Storage"
+      },
+      {
+        "id": 15,
+        "text": "Which statement is true about the relationship between Oracle APEX and Oracle Database?",
+        "options": [
+          "APEX can run on any SQL database",
+          "APEX is independent of the Oracle Database",
+          "APEX is installed as a component within Oracle Database",
+          "APEX requires a separate server from the database"
+        ],
+        "correctAnswer": 2,
+        "category": "Architecture"
+      },
+      {
+        "id": 16,
+        "text": "What does APEX use to handle authentication by default?",
+        "options": [
+          "OAuth",
+          "Basic Authentication",
+          "Database Account Authentication",
+          "SAML"
+        ],
+        "correctAnswer": 2,
+        "category": "Security"
+      },
+      {
+        "id": 17,
+        "text": "What is an APEX 'Substitution String'?",
+        "options": [
+          "A way to replace placeholders with actual values",
+          "A method for string concatenation",
+          "A text encryption technique",
+          "A special PL/SQL variable type"
+        ],
+        "correctAnswer": 0,
+        "category": "PL/SQL"
+      },
+      {
+        "id": 18,
+        "text": "Which feature allows end users to save their own custom reports in APEX?",
+        "options": [
+          "Static Report",
+          "Interactive Report",
+          "Classic Report",
+          "Master-Detail Report"
+        ],
+        "correctAnswer": 1,
+        "category": "Reporting"
+      },
+      {
+        "id": 19,
+        "text": "What is the purpose of an APEX 'Branch'?",
+        "options": [
+          "To navigate to a different page or URL",
+          "To create application logic branching",
+          "To divide the application into modules",
+          "To branch database transactions"
+        ],
+        "correctAnswer": 0,
+        "category": "Navigation"
+      },
+      {
+        "id": 20,
+        "text": "Which of the following is NOT a valid APEX region type?",
+        "options": [
+          "Classic Report",
+          "Interactive Grid",
+          "Form",
+          "Database Schema"
+        ],
+        "correctAnswer": 3,
+        "category": "Page Components"
+      },
+      {
+        "id": 21,
+        "text": "What is the function of the APEX 'Shared Components'?",
+        "options": [
+          "Components that can be used in multiple pages",
+          "Components shared between multiple applications",
+          "Components that must be modified by multiple developers",
+          "Components accessible to all users regardless of privileges"
+        ],
+        "correctAnswer": 0,
+        "category": "Application Structure"
+      },
+      {
+        "id": 22,
+        "text": "Which of the following is NOT true about APEX plugins?",
+        "options": [
+          "They extend the functionality of APEX",
+          "They can be shared across applications",
+          "They require Java programming",
+          "They can include JavaScript, CSS, and PL/SQL"
+        ],
+        "correctAnswer": 2,
+        "category": "Extensions"
+      },
+      {
+        "id": 23,
+        "text": "What is APEX's 'Interactive Grid' used for?",
+        "options": [
+          "Displaying read-only tabular data",
+          "Creating spreadsheet-like interfaces with editing capabilities",
+          "Defining the layout grid for responsive design",
+          "Showing geographical data on a map"
+        ],
+        "correctAnswer": 1,
+        "category": "UI Components"
+      },
+      {
+        "id": 24,
+        "text": "What does an APEX 'Validation' primarily do?",
+        "options": [
+          "Verify user credentials",
+          "Check database connectivity",
+          "Ensure user input meets specific criteria",
+          "Validate the APEX installation"
+        ],
+        "correctAnswer": 2,
+        "category": "Data Validation"
+      },
+      {
+        "id": 25,
+        "text": "In Oracle APEX, what is 'ORDS'?",
+        "options": [
+          "Oracle Responsive Design System",
+          "Oracle REST Data Services",
+          "Oracle Rapid Development Suite",
+          "Oracle Remote Database Service"
+        ],
+        "correctAnswer": 1,
+        "category": "REST Services"
+      },
+      {
+        "id": 26,
+        "text": "Which statement about APEX page templates is true?",
+        "options": [
+          "They cannot be customized",
+          "They define the HTML structure of pages",
+          "They are limited to one per application",
+          "They require separate deployment"
+        ],
+        "correctAnswer": 1,
+        "category": "Templates"
+      },
+      {
+        "id": 27,
+        "text": "What is the purpose of the 'Application Builder' in APEX?",
+        "options": [
+          "To compile PL/SQL code",
+          "To create and modify applications",
+          "To build database tables",
+          "To manage server resources"
+        ],
+        "correctAnswer": 1,
+        "category": "Development Tools"
+      },
+      {
+        "id": 28,
+        "text": "Which of the following is a valid APEX debugging tool?",
+        "options": [
+          "Debug Mode",
+          "SQL Trace",
+          "PL/SQL Profiler",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Debugging"
+      },
+      {
+        "id": 29,
+        "text": "What is an APEX 'Collection'?",
+        "options": [
+          "A group of similar applications",
+          "A temporary data structure that can persist in a user session",
+          "A set of shared components",
+          "A collection of database tables"
+        ],
+        "correctAnswer": 1,
+        "category": "Session State"
+      },
+      {
+        "id": 30,
+        "text": "Which statement about APEX deployment is true?",
+        "options": [
+          "Applications can only be deployed manually",
+          "APEX applications can be exported as SQL scripts",
+          "Deployment requires third-party tools",
+          "Applications cannot be moved between environments"
+        ],
+        "correctAnswer": 1,
+        "category": "Deployment"
+      },
+      {
+        "id": 31,
+        "text": "Which of the following is NOT a component of the APEX architecture?",
+        "options": [
+          "HTTP Server",
+          "APEX Engine",
+          "Oracle Database",
+          "JVM Container"
+        ],
+        "correctAnswer": 3,
+        "category": "Architecture"
+      },
+      {
+        "id": 32,
+        "text": "What does 'Low Code' mean in the context of Oracle APEX?",
+        "options": [
+          "The application performance is lower than hand-coded applications",
+          "Development requires minimal hand-coding",
+          "The code generated has low complexity",
+          "It uses a simplified programming language"
+        ],
+        "correctAnswer": 1,
+        "category": "Development Paradigm"
+      },
+      {
+        "id": 33,
+        "text": "What is the function of APEX 'Computations'?",
+        "options": [
+          "To perform client-side calculations with JavaScript",
+          "To assign values to items based on calculations or database queries",
+          "To compute database statistics",
+          "To determine application performance metrics"
+        ],
+        "correctAnswer": 1,
+        "category": "Page Processing"
+      },
+      {
+        "id": 34,
+        "text": "Which of the following is TRUE about APEX and accessibility?",
+        "options": [
+          "APEX applications cannot be made accessible",
+          "APEX automatically ensures all applications meet WCAG standards",
+          "APEX provides features to help develop accessible applications",
+          "Accessibility is only available in premium versions"
+        ],
+        "correctAnswer": 2,
+        "category": "Accessibility"
+      },
+      {
+        "id": 35,
+        "text": "What is the primary purpose of APEX 'List of Values' (LOV)?",
+        "options": [
+          "To validate numeric inputs",
+          "To provide data for selection items like select lists and radio groups",
+          "To list all values in a table",
+          "To store application configuration values"
+        ],
+        "correctAnswer": 1,
+        "category": "Form Components"
+      },
+      {
+        "id": 36,
+        "text": "What is an APEX 'Region'?",
+        "options": [
+          "A geographical area in a map component",
+          "A specific area of a page that can contain content",
+          "A section of the database",
+          "A part of the application accessible to specific users"
+        ],
+        "correctAnswer": 1,
+        "category": "Page Structure"
+      },
+      {
+        "id": 37,
+        "text": "Which of the following best describes APEX 'Page Zero'?",
+        "options": [
+          "The default error page",
+          "A page that appears before the login page",
+          "A special page that can include elements displayed on all application pages",
+          "The application homepage"
+        ],
+        "correctAnswer": 2,
+        "category": "Global Page"
+      },
+      {
+        "id": 38,
+        "text": "What are APEX 'Application Settings' used for?",
+        "options": [
+          "To store user preferences",
+          "To configure browser settings",
+          "To define application-wide configuration values",
+          "To set database parameters"
+        ],
+        "correctAnswer": 2,
+        "category": "Configuration"
+      },
+      {
+        "id": 39,
+        "text": "Which statement about APEX security is TRUE?",
+        "options": [
+          "APEX has no built-in security features",
+          "APEX applications are automatically secured",
+          "APEX provides various security features that must be properly configured",
+          "APEX security can only be implemented through third-party tools"
+        ],
+        "correctAnswer": 2,
+        "category": "Security"
+      },
+      {
+        "id": 40,
+        "text": "What is the purpose of 'Conditional Rendering' in APEX?",
+        "options": [
+          "To improve rendering performance",
+          "To control whether page elements are displayed based on conditions",
+          "To render pages conditionally based on browser type",
+          "To apply special rendering effects"
+        ],
+        "correctAnswer": 1,
+        "category": "UI Logic"
+      },
+      {
+        "id": 41,
+        "text": "Which of the following is NOT a valid page template in APEX?",
+        "options": [
+          "Standard",
+          "Modal Dialog",
+          "Login",
+          "Database"
+        ],
+        "correctAnswer": 3,
+        "category": "Templates"
+      },
+      {
+        "id": 42,
+        "text": "What is the function of an APEX 'Process'?",
+        "options": [
+          "To render UI components",
+          "To execute logic at specified points during page processing",
+          "To process background jobs",
+          "To manage multi-threading"
+        ],
+        "correctAnswer": 1,
+        "category": "Page Processing"
+      },
+      {
+        "id": 43,
+        "text": "What is APEX 'Universal Theme'?",
+        "options": [
+          "A theme that works on all browsers",
+          "A modern, responsive UI theme included with APEX",
+          "A theme that supports all languages",
+          "A framework for creating custom themes"
+        ],
+        "correctAnswer": 1,
+        "category": "Theming"
+      },
+      {
+        "id": 44,
+        "text": "Which statement about APEX error handling is true?",
+        "options": [
+          "Errors can only be handled at the application level",
+          "APEX provides no error handling capabilities",
+          "Custom error handling can be implemented at various levels",
+          "All errors are automatically sent to end users"
+        ],
+        "correctAnswer": 2,
+        "category": "Error Handling"
+      },
+      {
+        "id": 45,
+        "text": "What is the purpose of an APEX 'Tab'?",
+        "options": [
+          "To organize content within a page",
+          "To provide navigation between different pages",
+          "To create tabular reports",
+          "To define database tab spaces"
+        ],
+        "correctAnswer": 1,
+        "category": "Navigation"
+      },
+      {
+        "id": 46,
+        "text": "Which of the following is NOT a valid APEX 'Item' type?",
+        "options": [
+          "Text Field",
+          "Select List",
+          "Date Picker",
+          "Database View"
+        ],
+        "correctAnswer": 3,
+        "category": "Form Items"
+      },
+      {
+        "id": 47,
+        "text": "What is an APEX 'Breadcrumb'?",
+        "options": [
+          "A navigation aid showing the user's path",
+          "A type of menu item",
+          "A method to track user navigation",
+          "A debugging tool"
+        ],
+        "correctAnswer": 0,
+        "category": "Navigation"
+      },
+      {
+        "id": 48,
+        "text": "Which statement about APEX 'Tabular Forms' is true?",
+        "options": [
+          "They are a legacy feature replaced by Interactive Grids",
+          "They can only display data without editing capabilities",
+          "They require JavaScript programming",
+          "They can only edit one row at a time"
+        ],
+        "correctAnswer": 0,
+        "category": "Forms"
+      },
+      {
+        "id": 49,
+        "text": "What is the primary use of APEX 'JavaScript File URLs'?",
+        "options": [
+          "To reference JavaScript libraries from CDNs",
+          "To include custom JavaScript files in the application",
+          "To redirect users to external JavaScript documentation",
+          "Both A and B"
+        ],
+        "correctAnswer": 3,
+        "category": "JavaScript Integration"
+      },
+      {
+        "id": 50,
+        "text": "Which of the following statements about APEX 'Global Notifications' is true?",
+        "options": [
+          "They can only display error messages",
+          "They appear on every page of the application",
+          "They require third-party notification services",
+          "They can only be configured by administrators"
+        ],
+        "correctAnswer": 1,
+        "category": "UI Components"
+      },
+      {
+        "id": 51,
+        "text": "What does APEX Application Express SQL Workshop allow developers to do?",
+        "options": [
+          "Only view table data",
+          "Create and manage database objects",
+          "Run PL/SQL blocks but not SQL queries",
+          "Import data from external sources only"
+        ],
+        "correctAnswer": 1,
+        "category": "Development Tools"
+      },
+      {
+        "id": 52,
+        "text": "In APEX, what is 'Session State Protection'?",
+        "options": [
+          "A feature to prevent session hijacking",
+          "A method to encrypt session data",
+          "A way to prevent URLs from being bookmarked",
+          "A mechanism to prevent tampering with session state values"
+        ],
+        "correctAnswer": 3,
+        "category": "Security"
+      },
+      {
+        "id": 53,
+        "text": "Which of the following is TRUE about APEX and REST web services?",
+        "options": [
+          "APEX cannot consume REST web services",
+          "APEX can consume but not create REST web services",
+          "APEX can both consume and create REST web services",
+          "REST services can only be used with premium licenses"
+        ],
+        "correctAnswer": 2,
+        "category": "Web Services"
+      },
+      {
+        "id": 54,
+        "text": "What is an APEX 'Build Option'?",
+        "options": [
+          "A compilation setting",
+          "A feature that can be conditionally included/excluded from an application",
+          "A deployment parameter",
+          "A database build script"
+        ],
+        "correctAnswer": 1,
+        "category": "Application Features"
+      },
+      {
+        "id": 55,
+        "text": "Which statement about the APEX 'Team Development' feature is TRUE?",
+        "options": [
+          "It provides version control",
+          "It allows tracking features, bugs, and to-dos",
+          "It enables real-time collaboration between developers",
+          "It requires a separate license"
+        ],
+        "correctAnswer": 1,
+        "category": "Development Process"
+      },
+      {
+        "id": 56,
+        "text": "In Oracle APEX, what is a 'Navigation Bar'?",
+        "options": [
+          "A type of breadcrumb",
+          "A horizontal list of links displayed on every page",
+          "A side menu for navigation",
+          "A toolbar for application administration"
+        ],
+        "correctAnswer": 1,
+        "category": "Navigation"
+      },
+      {
+        "id": 57,
+        "text": "Which of the following is NOT a type of APEX 'List'?",
+        "options": [
+          "Navigation Menu",
+          "Navigation Bar",
+          "Classic List",
+          "Database List"
+        ],
+        "correctAnswer": 3,
+        "category": "Navigation"
+      },
+      {
+        "id": 58,
+        "text": "What does the APEX 'Application Definition' primarily include?",
+        "options": [
+          "Database table definitions",
+          "Application properties like name, theme, and global settings",
+          "User authentication details",
+          "Page templates"
+        ],
+        "correctAnswer": 1,
+        "category": "Application Structure"
+      },
+      {
+        "id": 59,
+        "text": "Which statement about APEX 'Static Application Files' is true?",
+        "options": [
+          "They can only be image files",
+          "They are automatically compressed",
+          "They can include CSS, JavaScript, images, and other web assets",
+          "They cannot be referenced from application pages"
+        ],
+        "correctAnswer": 2,
+        "category": "Static Files"
+      },
+      {
+        "id": 60,
+        "text": "What is the primary purpose of APEX 'Virtual Private Database' (VPD) integration?",
+        "options": [
+          "To provide a private cloud environment",
+          "To create virtual database instances",
+          "To enforce row-level security",
+          "To virtualize database connections"
+        ],
+        "correctAnswer": 2,
+        "category": "Security"
+      }
+    ]
+  },
+  {
+    "id": "exam-002",
+    "title": "Node.js Development",
+    "description": "Certification exam for Node.js application development",
+    "duration": 60,
+    "totalQuestions": 60,
+    "passingScore": 70,
+    "questions": []
+  },
+  {
+    "id": "exam-003",
+    "title": "React Framework",
+    "description": "Certification exam for React.js front-end development",
+    "duration": 60,
+    "totalQuestions": 60,
+    "passingScore": 70,
+    "questions": []
+  }
+]
