@@ -5,7 +5,7 @@
     "description": "Certification exam for Oracle APEX application development",
     "duration": 30,
     "totalQuestions": 30,
-    "passingScore": 50,
+    "passingScore": 0,
     "questions": [
       {
         "id": 1,

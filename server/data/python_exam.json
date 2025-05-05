@@ -2,9 +2,9 @@
   "id": "exam-python",
   "title": "Python Programming",
   "description": "Certification exam for Python programming language",
-  "duration": 60,
-  "totalQuestions": 60,
-  "passingScore": 70,
+  "duration": 30,
+  "totalQuestions": 30,
+  "passingScore": 50,
   "questions": [
     {
       "id": 1,

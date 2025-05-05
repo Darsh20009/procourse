@@ -4,7 +4,7 @@
   "description": "Certification exam for JavaScript programming language",
   "duration": 60,
   "totalQuestions": 60,
-  "passingScore": 70,
+  "passingScore": 50,
   "questions": [
     {
       "id": 1,
