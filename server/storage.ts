@@ -136,19 +136,55 @@ export const storage = {
     return exams.map(({ questions, ...examWithoutQuestions }) => examWithoutQuestions);
   },
 
+  // Helper method to limit exam to 30 questions and duration to 30 minutes
+  limitExamQuestionsAndTime(exam: Exam): Exam {
+    if (!exam) return exam;
+    
+    // Create a copy of the exam to avoid modifying the original
+    const modifiedExam = { ...exam };
+    
+    // If more than 30 questions, select only 30 randomly
+    if (modifiedExam.questions && modifiedExam.questions.length > 30) {
+      // Shuffle questions using Fisher-Yates algorithm
+      const shuffledQuestions = [...modifiedExam.questions];
+      for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
+      }
+      
+      // Take only the first 30 questions
+      modifiedExam.questions = shuffledQuestions.slice(0, 30);
+      modifiedExam.totalQuestions = 30;
+    }
+    
+    // Set duration to 30 minutes
+    modifiedExam.duration = 30;
+    
+    return modifiedExam;
+  },
+
   async getExamById(examId: string): Promise<Exam | null> {
+    let exam = null;
+    
     // Check standard exams first
     const exams = await this.getAllExams();
     const standardExam = exams.find(exam => exam.id === examId);
-    if (standardExam) return standardExam;
+    if (standardExam) {
+      exam = standardExam;
+    } else {
+      // Check special exams if not found
+      if (examId === 'exam-java') {
+        exam = await this.getJavaExam();
+      } else if (examId === 'exam-javascript') {
+        exam = await this.getJavaScriptExam();
+      } else if (examId === 'exam-python') {
+        exam = await this.getPythonExam();
+      }
+    }
     
-    // Check special exams if not found
-    if (examId === 'exam-java') {
-      return await this.getJavaExam();
-    } else if (examId === 'exam-javascript') {
-      return await this.getJavaScriptExam();
-    } else if (examId === 'exam-python') {
-      return await this.getPythonExam();
+    // Apply 30 question/30 minute limit for all exams
+    if (exam) {
+      return this.limitExamQuestionsAndTime(exam);
     }
     
     return null;
@@ -181,7 +217,8 @@ export const storage = {
     });
 
     const score = Math.round((correctAnswers / exam.questions.length) * 100);
-    const passedExam = score >= exam.passingScore;
+    // Changed passing score to 50 as per client's request
+    const passedExam = score >= 50;
 
     const response: UserExamResponse = {
       examId,

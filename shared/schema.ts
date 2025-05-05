@@ -11,6 +11,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
+  preferredField?: string; // Preferred certification field
 }
 
 // Keep the database schema for compatibility, but we're using the JSON-based User interface above

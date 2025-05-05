@@ -109,6 +109,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
     return res.status(200).json(user);
   });
 
+  // User registration endpoint
+  app.post("/api/register", async (req: Request, res: Response) => {
+    const { name, email, preferredField } = req.body;
+    
+    if (!name || !email) {
+      return res.status(400).json({ message: "Name and email are required" });
+    }
+    
+    try {
+      // Check if user with this email already exists
+      const users = await storage.getAllUsers();
+      const existingUser = users.find(user => user.email === email);
+      
+      if (existingUser) {
+        return res.status(400).json({ message: "Email already registered" });
+      }
+      
+      // Create new user
+      const newUser = await storage.createUser({
+        name, 
+        email,
+        preferredField // Store the user's preferred certification field
+      });
+      
+      return res.status(201).json(newUser);
+    } catch (error) {
+      console.error("User registration error:", error);
+      return res.status(500).json({ message: "Server error during registration" });
+    }
+  });
+  
   // Middleware to protect routes
   const requireAuth = (req: Request, res: Response, next: NextFunction) => {
     const user = req.session.user;

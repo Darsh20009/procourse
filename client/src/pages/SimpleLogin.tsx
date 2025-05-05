@@ -102,6 +102,20 @@ export default function SimpleLogin() {
             <div className="mt-4 text-center text-sm text-gray-500">
               <p>للتجربة: yusuf@example.com / 2277131963</p>
             </div>
+            
+            <div className="mt-4 text-center text-sm">
+              <span className="text-gray-600">ليس لديك حساب؟</span>{" "}
+              <a 
+                href="/register"
+                className="text-accent hover:text-accent-dark font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation("/register");
+                }}
+              >
+                إنشاء حساب جديد
+              </a>
+            </div>
           </form>
         </CardContent>
       </Card>
