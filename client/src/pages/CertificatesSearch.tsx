@@ -208,111 +208,199 @@ export default function CertificatesSearch() {
           </CardHeader>
           <CardContent>
             <div className="bg-white p-4 rounded-lg shadow-inner">
-              <div id="certificate-template" className="relative bg-gradient-to-br from-white to-blue-50 border-8 border-double border-blue-700/20 p-8 mx-auto text-center" style={{ minHeight: '600px', maxWidth: '800px', backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 10%, transparent 10.5%), radial-gradient(circle at 70% 20%, rgba(14, 165, 233, 0.08) 8%, transparent 8.5%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.08) 15%, transparent 15.5%)' }}>
-                {/* Top Border Design */}
-                <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 opacity-90"></div>
+              <div id="certificate-template" className="relative bg-gradient-to-br from-blue-50 to-white border-[12px] border-double border-blue-700/40 p-10 mx-auto text-center" style={{ minHeight: '600px', maxWidth: '800px' }}>
+                {/* Background Pattern */}
+                <div className="absolute inset-0 z-0 opacity-10">
+                  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-900" />
+                      </pattern>
+                      <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <rect width="50" height="50" fill="url(#smallGrid)" />
+                        <path d="M 50 0 L 0 0 0 50" fill="none" stroke="currentColor" strokeWidth="1" className="text-blue-900" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" className="text-blue-900" />
+                  </svg>
+                </div>
+                
+                {/* Fancy Border */}
+                <div className="absolute inset-0 border-[3px] border-blue-700/20 m-3 pointer-events-none rounded-sm"></div>
+                <div className="absolute inset-0 border-[1px] border-blue-700/10 m-6 pointer-events-none rounded-sm"></div>
+                
+                {/* Top Banner */}
+                <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 opacity-90">
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute inset-0 opacity-20">
+                      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+                        <path d="M0,0 L100,0 L100,5 C80,15 70,20 50,30 C30,40 20,45 0,55 L0,0 Z" fill="white" />
+                        <path d="M0,55 C20,45 30,40 50,30 C70,20 80,15 100,5 L100,20 C80,30 70,35 50,45 C30,55 20,60 0,70 L0,50 Z" fill="white" opacity="0.3" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* QR Code (Decorative) */}
+                <div className="absolute top-28 right-8 w-20 h-20 bg-white border border-blue-200 shadow-sm rounded-lg overflow-hidden flex items-center justify-center">
+                  <div className="grid grid-cols-5 grid-rows-5 gap-0.5 w-16 h-16 opacity-80">
+                    {Array.from({ length: 25 }).map((_, i) => (
+                      <div key={i} className={`${Math.random() > 0.6 ? 'bg-blue-900' : 'bg-transparent'}`}></div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Hologram Effect (Left Side) */}
+                <div className="absolute top-32 left-8 w-16 h-16 opacity-70">
+                  <div className="w-full h-full relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-transparent to-purple-400 rounded-full blur-sm"></div>
+                    <div className="absolute inset-2 border border-white/20 rounded-full"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-white/70">
+                        <path d="M12 2L3 7l9 5l9-5l-9-5z" />
+                        <path d="M3 17l9 5l9-5M3 12l9 5l9-5" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
                 
                 {/* Certificate Header Logo */}
-                <div className="relative z-10 pt-10 mb-8">
-                  <div className="bg-white border-4 border-blue-700 shadow-xl rounded-full w-28 h-28 mx-auto flex items-center justify-center">
-                    <div className="bg-blue-700 text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-bold relative overflow-hidden">
+                <div className="relative z-10 pt-16 mb-6">
+                  <div className="bg-gradient-to-b from-blue-100 to-white border-4 border-blue-800 shadow-xl rounded-full w-32 h-32 mx-auto flex items-center justify-center overflow-hidden">
+                    <div className="bg-blue-800 text-white rounded-full w-24 h-24 flex items-center justify-center text-3xl font-bold relative">
                       <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8),transparent_70%)]"></div>
-                      PRC
+                      <div className="relative z-10 flex flex-col items-center">
+                        <span className="text-sm font-normal tracking-widest">PRO</span>
+                        <span className="text-xl">COURSE</span>
+                        <div className="w-12 h-0.5 bg-blue-200 my-0.5"></div>
+                        <span className="text-xs font-light">EST. 2023</span>
+                      </div>
                     </div>
                   </div>
                 </div>
                 
                 {/* Certificate Title */}
                 <div className="relative z-10">
-                  <h1 className="text-4xl font-bold mb-2 text-blue-800" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>شهادة اجتياز</h1>
-                  <h2 className="text-2xl text-blue-600 font-semibold mb-2">Pro Course Certification</h2>
+                  <h1 className="text-5xl font-bold mb-2 text-blue-900" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)', fontFamily: 'serif' }}>شهادة اجتياز</h1>
+                  <h2 className="text-2xl text-blue-700 font-semibold mb-2">Professional Certification</h2>
                   
                   {/* Decorative Separator */}
                   <div className="flex items-center justify-center my-6">
-                    <div className="h-px bg-blue-300 w-20"></div>
-                    <div className="mx-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
-                        <path d="M12 2L20 7L12 12L4 7L12 2Z"></path>
-                        <path d="M20 17L12 22L4 17"></path>
-                        <path d="M20 12L12 17L4 12"></path>
-                      </svg>
-                    </div>
-                    <div className="h-px bg-blue-300 w-20"></div>
+                    <div className="h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent w-60"></div>
                   </div>
                 </div>
                 
                 {/* Certificate Text */}
-                <div className="mb-10 relative z-10">
-                  <p className="text-xl mb-5">تشهد منصة Pro Course أن</p>
-                  <h3 className="text-4xl font-bold text-blue-900 mb-4" style={{ fontFamily: 'Arial, "Noto Sans Arabic", sans-serif' }}>{selectedCert.userName}</h3>
-                  <p className="text-xl mb-6">
-                    قد أكمل بنجاح اختبار <span className="font-bold text-blue-700">{selectedCert.examTitle}</span> بنسبة نجاح{" "}
-                    <span className="font-bold text-blue-700">{selectedCert.score}%</span>
+                <div className="mb-8 relative z-10">
+                  <p className="text-xl mb-4 text-blue-800">تشهد منصة Pro Course أن</p>
+                  <h3 className="text-4xl font-bold text-blue-950 mb-4" style={{ fontFamily: 'Arial, "Noto Sans Arabic", sans-serif', textShadow: '0.5px 0.5px 1px rgba(0,0,0,0.1)' }}>{selectedCert.userName}</h3>
+                  <p className="text-xl mb-4 text-blue-800">
+                    قد اجتاز اختبار <span className="font-bold">{selectedCert.examTitle}</span> 
+                    <br />بكفاءة عالية وبنسبة نجاح{" "}
+                    <span className="font-bold text-blue-700 text-2xl">{selectedCert.score}%</span>
                   </p>
                 </div>
                 
+                {/* Security Elements */}
+                <div className="flex items-center justify-center relative z-10 mb-8">
+                  <div className="px-8 py-2 bg-blue-50 border border-blue-200 rounded-lg shadow-sm text-xs text-blue-800 font-mono tracking-wider">
+                    ⬤ CERTIFICATE ID: {selectedCert.certificateNumber} ⬤ AUTHENTICATED ⬤ 
+                  </div>
+                </div>
+                
                 {/* Certificate Details in styled boxes */}
-                <div className="grid grid-cols-2 gap-6 mb-12 mx-auto max-w-2xl relative z-10">
-                  <div className="bg-white bg-opacity-60 border border-blue-200 rounded-lg p-4 shadow-sm">
-                    <p className="text-blue-800 font-semibold mb-1 text-sm">رقم الشهادة</p>
-                    <p className="text-lg font-mono tracking-wider text-blue-900">{selectedCert.certificateNumber}</p>
+                <div className="grid grid-cols-3 gap-4 mx-auto max-w-3xl relative z-10 mb-12">
+                  <div className="bg-gradient-to-b from-white to-blue-50 border border-blue-200 rounded-lg p-3 shadow-sm">
+                    <div className="flex items-center justify-center mb-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600 mr-1">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                      </svg>
+                      <p className="text-blue-800 font-semibold text-sm">رقم الشهادة</p>
+                    </div>
+                    <p className="text-sm font-mono tracking-wider text-blue-900 bg-white/80 p-1 rounded-md">{selectedCert.certificateNumber}</p>
                   </div>
-                  <div className="bg-white bg-opacity-60 border border-blue-200 rounded-lg p-4 shadow-sm">
-                    <p className="text-blue-800 font-semibold mb-1 text-sm">تاريخ الإصدار</p>
-                    <p className="text-lg text-blue-900">{formatDate(selectedCert.issueDate)}</p>
+                  
+                  <div className="bg-gradient-to-b from-white to-blue-50 border border-blue-200 rounded-lg p-3 shadow-sm">
+                    <div className="flex items-center justify-center mb-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600 mr-1">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <p className="text-blue-800 font-semibold text-sm">تاريخ الإصدار</p>
+                    </div>
+                    <p className="text-sm text-blue-900 bg-white/80 p-1 rounded-md">{formatDate(selectedCert.issueDate)}</p>
                   </div>
-                  <div className="bg-white bg-opacity-60 border border-blue-200 rounded-lg p-4 shadow-sm">
-                    <p className="text-blue-800 font-semibold mb-1 text-sm">تاريخ الانتهاء</p>
-                    <p className="text-lg text-blue-900">{formatDate(selectedCert.expiryDate)}</p>
-                  </div>
-                  <div className="bg-white bg-opacity-60 border border-blue-200 rounded-lg p-4 shadow-sm">
-                    <p className="text-blue-800 font-semibold mb-1 text-sm">معرف المستخدم</p>
-                    <p className="text-lg font-mono tracking-wider text-blue-900">{selectedCert.userId.substring(0, 10)}...</p>
+                  
+                  <div className="bg-gradient-to-b from-white to-blue-50 border border-blue-200 rounded-lg p-3 shadow-sm">
+                    <div className="flex items-center justify-center mb-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600 mr-1">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <polyline points="17 11 19 13 23 9"></polyline>
+                      </svg>
+                      <p className="text-blue-800 font-semibold text-sm">معرف المستخدم</p>
+                    </div>
+                    <p className="text-sm font-mono tracking-wider text-blue-900 bg-white/80 p-1 rounded-md">{selectedCert.userId.substring(0, 8)}...</p>
                   </div>
                 </div>
                 
                 {/* Signature Area */}
-                <div className="flex justify-end mb-8 relative z-10 pt-6 border-t border-blue-200">
+                <div className="grid grid-cols-2 gap-8 mb-4 relative z-10 pt-4">
                   <div className="text-center">
                     <div className="mb-2">
-                      <svg width="120" height="40" viewBox="0 0 120 40" className="mx-auto">
-                        <path d="M10,20 C20,10 30,30 40,20 C50,10 60,30 70,20 C80,10 90,30 100,20" stroke="#1e40af" fill="none" strokeWidth="2" strokeLinecap="round" />
-                      </svg>
+                      <img src="data:image/png;base64,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" alt="Signature" className="mx-auto h-14" />
                     </div>
-                    <p className="font-semibold text-blue-900">مدير المنصة</p>
-                    <p className="text-sm text-blue-600">Pro Course Director</p>
+                    <p className="font-semibold text-blue-900 text-sm">المدير التنفيذي</p>
+                    <p className="text-xs text-blue-600">Chief Executive Officer</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="mb-2">
+                      <img src="data:image/png;base64,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" alt="Signature" className="mx-auto h-14" />
+                    </div>
+                    <p className="font-semibold text-blue-900 text-sm">مدير البرامج التعليمية</p>
+                    <p className="text-xs text-blue-600">Educational Programs Director</p>
                   </div>
                 </div>
                 
-                {/* Certificate Footer */}
-                <div className="absolute bottom-6 left-4 right-4 text-center">
-                  <p className="text-blue-700 text-sm font-medium">هذه الشهادة صالحة لمدة سنتين من تاريخ الإصدار</p>
-                  <p className="text-blue-500 text-xs mt-1">للتحقق من صحة هذه الشهادة، يرجى زيارة موقعنا واستخدام رقم الشهادة</p>
+                {/* Legal Text */}
+                <div className="text-center text-xs text-blue-700 bg-blue-50 border border-blue-100 rounded-lg p-2 max-w-xl mx-auto relative z-10">
+                  هذه الشهادة رسمية وتعتبر دليلًا على اجتياز الاختبار في المجال المحدد. تتوافق هذه الشهادة مع معايير Pro Course العالمية للتأهيل المهني
+                  <br/><span className="font-mono text-[8px] tracking-widest mt-1 inline-block opacity-70">SER-AUTH-PRO-CERT-ISO9001-2023-V2</span>
                 </div>
                 
-                {/* Certificate Stamp/Seal */}
-                <div className="absolute bottom-24 right-10 rotate-12">
-                  <div className="w-32 h-32 relative">
-                    <div className="absolute inset-0 rounded-full border-2 border-blue-700 opacity-30"></div>
-                    <div className="absolute inset-2 rounded-full border border-blue-600 opacity-20"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-blue-800 opacity-40 font-semibold text-lg rotate-[-12deg]">
-                        PRO COURSE
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-blue-800 opacity-30 text-xs rotate-[-12deg] mt-8">
-                        OFFICIAL SEAL
+                {/* Certificate Gold Seal */}
+                <div className="absolute bottom-14 right-10 w-36 h-36">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-28 h-28 rounded-full bg-gradient-to-br from-yellow-200 via-yellow-400 to-yellow-600 opacity-80 flex items-center justify-center shadow-inner relative overflow-hidden">
+                      <div className="absolute inset-2 rounded-full border-2 border-yellow-200 opacity-40"></div>
+                      <div className="absolute inset-0 bg-yellow-300 opacity-20"></div>
+                      
+                      {/* Gold Seal Content */}
+                      <div className="text-center relative z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 mx-auto text-yellow-800 opacity-70 mb-1">
+                          <path d="M12 2a10 10 0 0 0-6.88 17.28L11 13l5.83 2.8A10 10 0 0 0 12 2z"></path>
+                          <path d="M15.83 15.8 11 13l-7 6.95c1.91 1.31 4.22 2.05 6.64 2.05 4.31 0 8.08-2.28 10.19-5.67z"></path>
+                          <path d="m14 13 4.74-4.74A10 10 0 0 0 12 2v11h2z"></path>
+                        </svg>
+                        <div className="text-yellow-900 font-bold text-xs leading-tight">PRO COURSE</div>
+                        <div className="text-yellow-900 text-[10px] font-medium">VERIFIED</div>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                {/* Decorative Corner Elements */}
-                <div className="absolute top-20 left-8 w-16 h-16 border-l-2 border-t-2 border-blue-300 opacity-60"></div>
-                <div className="absolute top-20 right-8 w-16 h-16 border-r-2 border-t-2 border-blue-300 opacity-60"></div>
-                <div className="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-blue-300 opacity-60"></div>
-                <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-blue-300 opacity-60"></div>
+                {/* Border Corners - More Decorative */}
+                <div className="absolute top-3 left-3 w-20 h-20 border-l-4 border-t-4 border-blue-700/40 rounded-tl-lg pointer-events-none"></div>
+                <div className="absolute top-3 right-3 w-20 h-20 border-r-4 border-t-4 border-blue-700/40 rounded-tr-lg pointer-events-none"></div>
+                <div className="absolute bottom-3 left-3 w-20 h-20 border-l-4 border-b-4 border-blue-700/40 rounded-bl-lg pointer-events-none"></div>
+                <div className="absolute bottom-3 right-3 w-20 h-20 border-r-4 border-b-4 border-blue-700/40 rounded-br-lg pointer-events-none"></div>
+                
+                {/* Watermark */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="text-blue-100 text-[150px] font-serif opacity-5 select-none transform -rotate-12">Pro</div>
+                </div>
               </div>
             </div>
             

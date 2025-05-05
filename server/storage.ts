@@ -323,7 +323,7 @@ export const storage = {
     
     const certificateNumber = `PRC-${examCode}-${month}${year}-${userDigits}${sequentialNum}`;
     
-    // Create a new certificate
+    // Create a new certificate - No expiry date as requested
     const newCertificate: Certificate = {
       id: crypto.randomUUID(),
       userId: user.id,
@@ -332,7 +332,6 @@ export const storage = {
       examTitle: exam.title,
       certificateNumber,
       issueDate: new Date().toISOString(),
-      expiryDate: new Date(date.setFullYear(date.getFullYear() + 2)).toISOString(), // Valid for 2 years
       score: score, // Use the provided score or default to 85
     };
     

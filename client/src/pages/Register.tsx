@@ -35,7 +35,17 @@ export default function Register() {
     { id: "web", name: "HTML/CSS/Web Development" },
     { id: "php", name: "PHP" },
     { id: "sql", name: "SQL" },
-    { id: "r_matlab", name: "R & MATLAB" }
+    { id: "r_matlab", name: "R & MATLAB" },
+    { id: "ai_ml", name: "Artificial Intelligence & Machine Learning" },
+    { id: "data_science", name: "Data Science & Analytics" },
+    { id: "blockchain", name: "Blockchain Development" },
+    { id: "mobile_dev", name: "Mobile App Development" },
+    { id: "cyber_security", name: "Cyber Security" },
+    { id: "devops", name: "DevOps & Cloud" },
+    { id: "ui_ux", name: "UI/UX Design" },
+    { id: "game_dev", name: "Game Development" },
+    { id: "iot", name: "Internet of Things (IoT)" },
+    { id: "qa_testing", name: "Quality Assurance & Testing" }
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {

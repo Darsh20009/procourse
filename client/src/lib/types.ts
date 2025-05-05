@@ -40,6 +40,6 @@ export interface Certificate {
   examTitle: string;
   certificateNumber: string;
   issueDate: string;
-  expiryDate: string;
+  expiryDate?: string; // Made optional for backward compatibility
   score: number;
 }
