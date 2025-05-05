@@ -384,22 +384,22 @@ export default function CertificatesSearch() {
                     <div className="mb-2">
                       <img src="data:image/png;base64,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" alt="Signature" className="mx-auto h-14" />
                     </div>
-                    <p className="font-semibold text-blue-900 text-sm">المدير التنفيذي</p>
-                    <p className="text-xs text-blue-600">Chief Executive Officer</p>
+                    <p className="font-semibold text-blue-900 text-sm">Chief Executive Officer</p>
+                    <p className="text-xs text-blue-600">Pro Course</p>
                   </div>
                   
                   <div className="text-center">
                     <div className="mb-2">
                       <img src="data:image/png;base64,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" alt="Signature" className="mx-auto h-14" />
                     </div>
-                    <p className="font-semibold text-blue-900 text-sm">مدير البرامج التعليمية</p>
-                    <p className="text-xs text-blue-600">Educational Programs Director</p>
+                    <p className="font-semibold text-blue-900 text-sm">Educational Programs Director</p>
+                    <p className="text-xs text-blue-600">Pro Course</p>
                   </div>
                 </div>
                 
                 {/* Legal Text */}
                 <div className="text-center text-xs text-blue-700 bg-blue-50 border border-blue-100 rounded-lg p-2 max-w-xl mx-auto relative z-10">
-                  هذه الشهادة رسمية وتعتبر دليلًا على اجتياز الاختبار في المجال المحدد. تتوافق هذه الشهادة مع معايير Pro Course العالمية للتأهيل المهني
+                  This is an official certificate that serves as proof of passing the specified examination. This certificate complies with Pro Course global standards for professional qualification.
                   <br/><span className="font-mono text-[8px] tracking-widest mt-1 inline-block opacity-70">SER-AUTH-PRO-CERT-ISO9001-2023-V2</span>
                 </div>
                 
@@ -439,7 +439,7 @@ export default function CertificatesSearch() {
             
             <div className="flex justify-center mt-6">
               <Button onClick={downloadCertificate}>
-                تحميل الشهادة (PDF)
+                Download Certificate (PDF)
               </Button>
             </div>
           </CardContent>
