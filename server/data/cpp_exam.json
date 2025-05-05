@@ -1,0 +1,370 @@
+{
+  "id": "exam-cpp",
+  "title": "C++ Programming",
+  "description": "Certification exam for C++ programming language",
+  "duration": 60,
+  "totalQuestions": 60,
+  "passingScore": 70,
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is the output of the following C++ code?\n#include <iostream>\nusing namespace std;\nint main() {\n    int x = 5;\n    cout << x++ << \" \" << ++x;\n    return 0;\n}",
+      "options": [
+        "5 6",
+        "5 7",
+        "6 6",
+        "6 7"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ Core"
+    },
+    {
+      "id": 2,
+      "text": "Which operator is used for dynamic memory allocation in C++?",
+      "options": [
+        "new",
+        "malloc",
+        "create",
+        "alloc"
+      ],
+      "correctAnswer": 0,
+      "category": "C++ Memory Management"
+    },
+    {
+      "id": 3,
+      "text": "What is the correct way to declare a reference variable in C++?",
+      "options": [
+        "int &ref = var;",
+        "int *ref = var;",
+        "ref int = var;",
+        "reference int = var;"
+      ],
+      "correctAnswer": 0,
+      "category": "C++ Core"
+    },
+    {
+      "id": 4,
+      "text": "Which of the following is not a storage class specifier in C++?",
+      "options": [
+        "auto",
+        "register",
+        "stable",
+        "static"
+      ],
+      "correctAnswer": 2,
+      "category": "C++ Core"
+    },
+    {
+      "id": 5,
+      "text": "What is the size of int data type in C++ (in bytes)?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "Depends on the compiler and system"
+      ],
+      "correctAnswer": 3,
+      "category": "C++ Data Types"
+    },
+    {
+      "id": 6,
+      "text": "Which of the following is used to include the standard input/output library in C++?",
+      "options": [
+        "#include <stdio.h>",
+        "#include <iostream>",
+        "#include <stdlib.h>",
+        "#include <io.h>"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ Libraries"
+    },
+    {
+      "id": 7,
+      "text": "Which of the following is used to define a constant in C++?",
+      "options": [
+        "#define",
+        "const",
+        "final",
+        "Both A and B"
+      ],
+      "correctAnswer": 3,
+      "category": "C++ Core"
+    },
+    {
+      "id": 8,
+      "text": "What is a virtual function in C++?",
+      "options": [
+        "A function with no body",
+        "A function that can be overridden in derived classes",
+        "A function that is not visible outside its class",
+        "A function that is automatically inlined"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ OOP"
+    },
+    {
+      "id": 9,
+      "text": "What is the correct way to declare a constant pointer to a constant integer in C++?",
+      "options": [
+        "const int* const ptr;",
+        "int const* const ptr;",
+        "const int* ptr const;",
+        "Both A and B"
+      ],
+      "correctAnswer": 3,
+      "category": "C++ Pointers"
+    },
+    {
+      "id": 10,
+      "text": "What does STL stand for in C++?",
+      "options": [
+        "Standard Template Library",
+        "Standard Type Library",
+        "System Template Library",
+        "Simple Template Library"
+      ],
+      "correctAnswer": 0,
+      "category": "C++ STL"
+    },
+    {
+      "id": 11,
+      "text": "Which of the following is a container in C++ STL?",
+      "options": [
+        "Vector",
+        "String",
+        "Array",
+        "All of the above"
+      ],
+      "correctAnswer": 3,
+      "category": "C++ STL"
+    },
+    {
+      "id": 12,
+      "text": "What is the purpose of 'namespace' in C++?",
+      "options": [
+        "To avoid name conflicts",
+        "To organize code into logical groups",
+        "To create a scope for identifiers",
+        "All of the above"
+      ],
+      "correctAnswer": 3,
+      "category": "C++ Core"
+    },
+    {
+      "id": 13,
+      "text": "What is the output of the following C++ code?\n#include <iostream>\nusing namespace std;\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    cout << *(arr+2) << \" \";\n    return 0;\n}",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ Arrays"
+    },
+    {
+      "id": 14,
+      "text": "What is the purpose of 'this' pointer in C++?",
+      "options": [
+        "To point to the base class",
+        "To point to the current object",
+        "To point to a static member",
+        "To point to a friend function"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ OOP"
+    },
+    {
+      "id": 15,
+      "text": "Which of the following is not a valid access specifier in C++?",
+      "options": [
+        "public",
+        "private",
+        "protected",
+        "restricted"
+      ],
+      "correctAnswer": 3,
+      "category": "C++ OOP"
+    },
+    {
+      "id": 16,
+      "text": "What is the output of the following C++ code?\n#include <iostream>\nusing namespace std;\nint main() {\n    int x = 10;\n    int &y = x;\n    y++;\n    cout << x << \" \" << y;\n    return 0;\n}",
+      "options": [
+        "10 11",
+        "11 10",
+        "11 11",
+        "10 10"
+      ],
+      "correctAnswer": 2,
+      "category": "C++ Core"
+    },
+    {
+      "id": 17,
+      "text": "What is a destructor in C++?",
+      "options": [
+        "A special member function that is called when an object is created",
+        "A special member function that is called when an object is destroyed",
+        "A special member function that is called when an object is copied",
+        "A special member function that is called when an object is moved"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ OOP"
+    },
+    {
+      "id": 18,
+      "text": "Which of the following is used to prevent multiple inclusion of header files in C++?",
+      "options": [
+        "pragma once",
+        "include guards",
+        "precompiled headers",
+        "Both A and B"
+      ],
+      "correctAnswer": 3,
+      "category": "C++ Compilation"
+    },
+    {
+      "id": 19,
+      "text": "What is a smart pointer in C++?",
+      "options": [
+        "A pointer that is automatically initialized to nullptr",
+        "A pointer that automatically manages the memory of the object it points to",
+        "A pointer that can only point to objects of the same type",
+        "A pointer that can be used to access private members of a class"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ Memory Management"
+    },
+    {
+      "id": 20,
+      "text": "Which of the following is used to convert a string to an integer in C++?",
+      "options": [
+        "atoi()",
+        "stoi()",
+        "to_int()",
+        "Both A and B"
+      ],
+      "correctAnswer": 3,
+      "category": "C++ Strings"
+    },
+    {
+      "id": 21,
+      "text": "What is the purpose of 'auto' keyword in C++11?",
+      "options": [
+        "To specify a variable with automatic storage duration",
+        "To specify a variable that is automatically initialized to zero",
+        "To automatically deduce the type of a variable from its initializer",
+        "To specify a variable that is automatically deleted when out of scope"
+      ],
+      "correctAnswer": 2,
+      "category": "C++ Modern Features"
+    },
+    {
+      "id": 22,
+      "text": "What is a lambda expression in C++?",
+      "options": [
+        "An anonymous function",
+        "A function that is automatically inlined",
+        "A function that can only be called once",
+        "A function that returns a pointer to itself"
+      ],
+      "correctAnswer": 0,
+      "category": "C++ Modern Features"
+    },
+    {
+      "id": 23,
+      "text": "What is the output of the following C++ code?\n#include <iostream>\nusing namespace std;\nint main() {\n    int a = 5, b = 10;\n    cout << (a > b ? a : b);\n    return 0;\n}",
+      "options": [
+        "5",
+        "10",
+        "true",
+        "false"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ Core"
+    },
+    {
+      "id": 24,
+      "text": "Which operator is used to access a member of a class through a pointer in C++?",
+      "options": [
+        ".",
+        "->",
+        "::",
+        ":"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ OOP"
+    },
+    {
+      "id": 25,
+      "text": "What is the default access specifier for members of a class in C++?",
+      "options": [
+        "public",
+        "private",
+        "protected",
+        "None of the above"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ OOP"
+    },
+    {
+      "id": 26,
+      "text": "What is the output of the following C++ code?\n#include <iostream>\nusing namespace std;\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    int *ptr = arr;\n    cout << *ptr++ << \" \" << *ptr;\n    return 0;\n}",
+      "options": [
+        "10 10",
+        "10 20",
+        "20 20",
+        "20 30"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ Pointers"
+    },
+    {
+      "id": 27,
+      "text": "Which of the following is used to create a new thread in C++11?",
+      "options": [
+        "thread",
+        "create_thread",
+        "new_thread",
+        "spawn_thread"
+      ],
+      "correctAnswer": 0,
+      "category": "C++ Concurrency"
+    },
+    {
+      "id": 28,
+      "text": "What is a constexpr function in C++?",
+      "options": [
+        "A function that can be evaluated at compile time",
+        "A function that is automatically inlined",
+        "A function that is defined with const keyword",
+        "A function that can only be called in a const context"
+      ],
+      "correctAnswer": 0,
+      "category": "C++ Modern Features"
+    },
+    {
+      "id": 29,
+      "text": "What is the purpose of std::move in C++?",
+      "options": [
+        "To move a file from one location to another",
+        "To move an element from one container to another",
+        "To convert an lvalue to an rvalue reference",
+        "To move a thread from one state to another"
+      ],
+      "correctAnswer": 2,
+      "category": "C++ Modern Features"
+    },
+    {
+      "id": 30,
+      "text": "What is a template in C++?",
+      "options": [
+        "A predefined class",
+        "A blueprint for creating generic classes or functions",
+        "A design pattern",
+        "A type of container in STL"
+      ],
+      "correctAnswer": 1,
+      "category": "C++ Templates"
+    }
+  ]
+}

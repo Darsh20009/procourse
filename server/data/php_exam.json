@@ -1,0 +1,370 @@
+{
+  "id": "exam-php",
+  "title": "PHP Programming",
+  "description": "Certification exam for PHP programming language",
+  "duration": 60,
+  "totalQuestions": 60,
+  "passingScore": 70,
+  "questions": [
+    {
+      "id": 1,
+      "text": "What will be the output of the following PHP code? \n<?php\n$x = 5;\necho $x++ + ++$x;\n?>",
+      "options": [
+        "11",
+        "12",
+        "10",
+        "Error"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Core"
+    },
+    {
+      "id": 2,
+      "text": "Which of the following function is used to find files in PHP?",
+      "options": [
+        "file()",
+        "fold()",
+        "glob()",
+        "None of the above"
+      ],
+      "correctAnswer": 2,
+      "category": "PHP File System"
+    },
+    {
+      "id": 3,
+      "text": "Which of the following is used to declare a constant in PHP?",
+      "options": [
+        "const",
+        "define()",
+        "Both A and B",
+        "constant"
+      ],
+      "correctAnswer": 2,
+      "category": "PHP Core"
+    },
+    {
+      "id": 4,
+      "text": "Which of the following is used to delete a file in PHP?",
+      "options": [
+        "unlink()",
+        "delete()",
+        "remove()",
+        "unset()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP File System"
+    },
+    {
+      "id": 5,
+      "text": "What is the correct way to create a function in PHP?",
+      "options": [
+        "function functionName()",
+        "new_function functionName()",
+        "create functionName()",
+        "def functionName()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Core"
+    },
+    {
+      "id": 6,
+      "text": "What is the correct way to open a file in PHP?",
+      "options": [
+        "open('file.txt', 'r')",
+        "fopen('file.txt', 'r')",
+        "openfile('file.txt', 'r')",
+        "file_open('file.txt', 'r')"
+      ],
+      "correctAnswer": 1,
+      "category": "PHP File System"
+    },
+    {
+      "id": 7,
+      "text": "Which of the following is used to get the length of a string in PHP?",
+      "options": [
+        "strlen()",
+        "length()",
+        "count()",
+        "len()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Core"
+    },
+    {
+      "id": 8,
+      "text": "Which function is used to connect to a MySQL database in PHP?",
+      "options": [
+        "mysql_connect()",
+        "mysqli_connect()",
+        "connect_mysql()",
+        "Both A and B"
+      ],
+      "correctAnswer": 3,
+      "category": "PHP Database"
+    },
+    {
+      "id": 9,
+      "text": "Which of the following is used to destroy a session in PHP?",
+      "options": [
+        "session_destroy()",
+        "destroy_session()",
+        "unset(session)",
+        "remove_session()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Sessions"
+    },
+    {
+      "id": 10,
+      "text": "What does PHP stand for?",
+      "options": [
+        "Personal Home Page",
+        "PHP: Hypertext Preprocessor",
+        "Private Home Page",
+        "Program Home Page"
+      ],
+      "correctAnswer": 1,
+      "category": "PHP Basics"
+    },
+    {
+      "id": 11,
+      "text": "Which of the following is used to encrypt a password in PHP?",
+      "options": [
+        "md5()",
+        "password_hash()",
+        "sha1()",
+        "All of the above"
+      ],
+      "correctAnswer": 3,
+      "category": "PHP Security"
+    },
+    {
+      "id": 12,
+      "text": "Which of the following is not a valid PHP data type?",
+      "options": [
+        "String",
+        "Integer",
+        "Float",
+        "Character"
+      ],
+      "correctAnswer": 3,
+      "category": "PHP Core"
+    },
+    {
+      "id": 13,
+      "text": "Which of the following is not a valid PHP variable name?",
+      "options": [
+        "$variable",
+        "$var1",
+        "$9var",
+        "$_var"
+      ],
+      "correctAnswer": 2,
+      "category": "PHP Core"
+    },
+    {
+      "id": 14,
+      "text": "Which of the following is used to add an element to the end of an array in PHP?",
+      "options": [
+        "array_push()",
+        "array_pop()",
+        "array_add()",
+        "array_append()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Arrays"
+    },
+    {
+      "id": 15,
+      "text": "Which of the following is used to sort an array in ascending order in PHP?",
+      "options": [
+        "sort()",
+        "asort()",
+        "ksort()",
+        "rsort()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Arrays"
+    },
+    {
+      "id": 16,
+      "text": "What is the correct way to create an associative array in PHP?",
+      "options": [
+        "$arr = array('name' => 'John', 'age' => 25);",
+        "$arr = array['name' => 'John', 'age' => 25];",
+        "$arr = array('name', 'John', 'age', 25);",
+        "$arr = array['name', 'John', 'age', 25];"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Arrays"
+    },
+    {
+      "id": 17,
+      "text": "Which of the following is used to check if a variable is an array in PHP?",
+      "options": [
+        "is_array()",
+        "check_array()",
+        "isarray()",
+        "array_check()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Arrays"
+    },
+    {
+      "id": 18,
+      "text": "Which of the following is used to include a file in PHP?",
+      "options": [
+        "include()",
+        "require()",
+        "import()",
+        "Both A and B"
+      ],
+      "correctAnswer": 3,
+      "category": "PHP Core"
+    },
+    {
+      "id": 19,
+      "text": "What is the correct way to start a PHP session?",
+      "options": [
+        "session_start()",
+        "start_session()",
+        "begin_session()",
+        "session_begin()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Sessions"
+    },
+    {
+      "id": 20,
+      "text": "Which of the following is used to redirect to another page in PHP?",
+      "options": [
+        "redirect()",
+        "header()",
+        "location()",
+        "goto()"
+      ],
+      "correctAnswer": 1,
+      "category": "PHP Core"
+    },
+    {
+      "id": 21,
+      "text": "Which of the following is used to get the PHP version?",
+      "options": [
+        "php_version()",
+        "version()",
+        "phpversion()",
+        "php_info()"
+      ],
+      "correctAnswer": 2,
+      "category": "PHP Core"
+    },
+    {
+      "id": 22,
+      "text": "Which of the following is used to get the current date and time in PHP?",
+      "options": [
+        "date()",
+        "time()",
+        "now()",
+        "datetime()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Date and Time"
+    },
+    {
+      "id": 23,
+      "text": "Which of the following is used to get the PHP configuration information?",
+      "options": [
+        "php_info()",
+        "phpinfo()",
+        "php_configuration()",
+        "config_info()"
+      ],
+      "correctAnswer": 1,
+      "category": "PHP Core"
+    },
+    {
+      "id": 24,
+      "text": "Which of the following is used to check if a variable is set in PHP?",
+      "options": [
+        "isset()",
+        "defined()",
+        "check()",
+        "is_set()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Core"
+    },
+    {
+      "id": 25,
+      "text": "What is the output of the following PHP code? \n<?php\n$x = 5;\n$y = 10;\necho $x + $y;\n?>",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "Error"
+      ],
+      "correctAnswer": 2,
+      "category": "PHP Core"
+    },
+    {
+      "id": 26,
+      "text": "Which of the following is used to check if a file exists in PHP?",
+      "options": [
+        "file_exists()",
+        "is_file()",
+        "exists()",
+        "file_check()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP File System"
+    },
+    {
+      "id": 27,
+      "text": "Which of the following is used to get the number of elements in an array in PHP?",
+      "options": [
+        "count()",
+        "sizeof()",
+        "length()",
+        "Both A and B"
+      ],
+      "correctAnswer": 3,
+      "category": "PHP Arrays"
+    },
+    {
+      "id": 28,
+      "text": "Which of the following is used to replace text within a string in PHP?",
+      "options": [
+        "replace()",
+        "str_replace()",
+        "string_replace()",
+        "replace_string()"
+      ],
+      "correctAnswer": 1,
+      "category": "PHP Strings"
+    },
+    {
+      "id": 29,
+      "text": "Which of the following is used to convert a string to uppercase in PHP?",
+      "options": [
+        "strtoupper()",
+        "uppercase()",
+        "strtoucase()",
+        "stringupper()"
+      ],
+      "correctAnswer": 0,
+      "category": "PHP Strings"
+    },
+    {
+      "id": 30,
+      "text": "What does PHP filter_var() function do?",
+      "options": [
+        "Filters a variable with a specified filter",
+        "Validates a variable",
+        "Sanitizes a variable",
+        "All of the above"
+      ],
+      "correctAnswer": 3,
+      "category": "PHP Security"
+    }
+  ]
+}

@@ -48,5 +48,12 @@
     "email": "example@test.com",
     "password": "password123",
     "preferredField": "python"
+  },
+  {
+    "id": "52f56c1c-4526-46d4-80f7-8b14fb48932e",
+    "name": "بسلا",
+    "email": "youssefdarwish@gmail.com",
+    "password": "182009",
+    "preferredField": "javascript"
   }
 ]

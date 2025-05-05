@@ -13,6 +13,8 @@ const CERTIFICATES_FILE = path.join(DATA_DIR, "certificates.json");
 const JAVA_EXAM_FILE = path.join(DATA_DIR, "java_exam.json");
 const JAVASCRIPT_EXAM_FILE = path.join(DATA_DIR, "javascript_exam.json");
 const PYTHON_EXAM_FILE = path.join(DATA_DIR, "python_exam.json");
+const PHP_EXAM_FILE = path.join(DATA_DIR, "php_exam.json");
+const CPP_EXAM_FILE = path.join(DATA_DIR, "cpp_exam.json");
 
 // Ensure data directory exists
 async function ensureDataDirExists() {
@@ -150,6 +152,14 @@ export const storage = {
 
   async getPythonExam(): Promise<Exam | null> {
     return await readJsonObject<Exam>(PYTHON_EXAM_FILE);
+  },
+  
+  async getPHPExam(): Promise<Exam | null> {
+    return await readJsonObject<Exam>(PHP_EXAM_FILE);
+  },
+  
+  async getCPPExam(): Promise<Exam | null> {
+    return await readJsonObject<Exam>(CPP_EXAM_FILE);
   },
 
   // Exam methods
