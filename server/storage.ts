@@ -190,26 +190,24 @@ export const storage = {
       // Map preferredField to exam IDs
       const examMapping: { [key: string]: string[] } = {
         'oracle_apex': ['exam-001'],
-        'java': ['exam-004'],
-        'javascript': ['exam-003'], 
-        'python': ['exam-010'],
-        'php': ['exam-007'],
-        'cpp': ['exam-005'],
-        'sql': ['exam-009'],
-        'matlab': ['exam-008'],
-        'csharp': ['exam-006'],
-        'html_css': ['exam-002']
+        'java': ['exam-java'],
+        'javascript': ['exam-javascript'], 
+        'python': ['exam-python'],
+        'php': ['exam-php'],
+        'cpp': ['exam-cpp'],
+        'sql': ['exam-sql'],
+        'matlab': ['exam-matlab'],
+        'csharp': ['exam-csharp'],
+        'html_css': ['exam-html']
       };
 
-      // For legacy exams
-      if (user.preferredField === 'oracle_apex') {
-        const oracleExam = allExams.find(exam => exam.id === 'exam-001');
-        if (oracleExam) return [oracleExam];
+      if (!user.preferredField) {
+        return [];
       }
 
-      // Get allowed exams for user's preferred field
-      const allowedExams = examMapping[user.preferredField || ''] || [];
-      return allowedExams.includes(exam.id);
+      // Get allowed exam IDs for user's preferred field
+      const allowedExamIds = examMapping[user.preferredField] || [];
+      return allExams.filter(exam => allowedExamIds.includes(exam.id));
     });
   },
 
@@ -247,10 +245,11 @@ export const storage = {
 
   async getExamById(examId: string): Promise<Exam | null> {
     let exam = null;
+    console.log("Looking for exam:", examId);
 
     // Check standard exams first
     const exams = await this.getAllExams();
-    const standardExam = exams.find(exam => exam.id === examId);
+    const standardExam = exams.find(e => e.id === examId);
     if (standardExam) {
       exam = standardExam;
     } else {
