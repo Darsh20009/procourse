@@ -12,6 +12,8 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
+  console.log(`API Request - ${method} ${url}`, data);
+
   const res = await fetch(url, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
@@ -19,8 +21,15 @@ export async function apiRequest(
     credentials: "include",
   });
 
-  await throwIfResNotOk(res);
-  return res;
+  console.log(`API Response - ${method} ${url}`, { status: res.status, statusText: res.statusText });
+
+  try {
+    await throwIfResNotOk(res);
+    return res;
+  } catch (error) {
+    console.error(`API Error - ${method} ${url}`, error);
+    throw error;
+  }
 }
 
 type UnauthorizedBehavior = "returnNull" | "throw";
