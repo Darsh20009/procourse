@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import TabNavigation from "@/components/TabNavigation";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "../App";
 import { useLocation } from "wouter";
 import { CalendarClock, CheckCircle, Award, BookOpen } from "lucide-react";
 
