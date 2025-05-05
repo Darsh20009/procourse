@@ -181,25 +181,25 @@ export const storage = {
     const allExams = await this.getAllExams();
 
     // Filter exams based on user's preferredField
-    // This can be customized based on your needs
     return allExams.filter(exam => {
       // If user has a specific exam assignment, only show that
       if (user.assignedExamId) {
         return exam.id === user.assignedExamId;
       }
 
-      // Otherwise show exams matching their preferred field
-      if (user.preferredField) {
-        if (user.preferredField === 'oracle_apex' && exam.id === 'exam-001') {
-          return true;
-        }
-        if (user.preferredField === 'python' && exam.id === 'exam-python') {
-          return true;
-        }
-        // Add more conditions for other exam types
-      }
+      // Map preferredField to exam IDs
+      const examMapping: { [key: string]: string[] } = {
+        'oracle_apex': ['exam-001'],
+        'python': ['exam-python'],
+        'java': ['exam-java'],
+        'javascript': ['exam-javascript'],
+        'php': ['exam-php'],
+        'cpp': ['exam-cpp']
+      };
 
-      return false;
+      // Get allowed exams for user's preferred field
+      const allowedExams = examMapping[user.preferredField || ''] || [];
+      return allowedExams.includes(exam.id);
     });
   },
 
@@ -390,6 +390,21 @@ export const storage = {
   },
 
   // User stats
+  async assignExamToUser(userId: string, examId: string): Promise<User | null> {
+    const users = await this.getAllUsers();
+    const userIndex = users.findIndex(u => u.id === userId);
+    
+    if (userIndex === -1) return null;
+    
+    users[userIndex] = {
+      ...users[userIndex],
+      assignedExamId: examId
+    };
+    
+    await writeJsonFile(USERS_FILE, users);
+    return users[userIndex];
+  },
+
   async getUserStats(userId: string): Promise<{
     examsCompleted: number;
     certificatesEarned: number;
