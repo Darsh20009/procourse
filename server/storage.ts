@@ -9,6 +9,11 @@ const USERS_FILE = path.join(DATA_DIR, "users.json");
 const EXAMS_FILE = path.join(DATA_DIR, "exams.json");
 const CERTIFICATES_FILE = path.join(DATA_DIR, "certificates.json");
 
+// Paths to special exam files
+const JAVA_EXAM_FILE = path.join(DATA_DIR, "java_exam.json");
+const JAVASCRIPT_EXAM_FILE = path.join(DATA_DIR, "javascript_exam.json");
+const PYTHON_EXAM_FILE = path.join(DATA_DIR, "python_exam.json");
+
 // Ensure data directory exists
 async function ensureDataDirExists() {
   try {
@@ -18,7 +23,7 @@ async function ensureDataDirExists() {
   }
 }
 
-// Read data from JSON file
+// Read data from JSON file (for arrays)
 async function readJsonFile<T>(filePath: string): Promise<T[]> {
   try {
     const data = await fs.readFile(filePath, "utf-8");
@@ -28,6 +33,19 @@ async function readJsonFile<T>(filePath: string): Promise<T[]> {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       await fs.writeFile(filePath, JSON.stringify([]), "utf-8");
       return [];
+    }
+    throw error;
+  }
+}
+
+// Read a single object from JSON file
+async function readJsonObject<T>(filePath: string): Promise<T | null> {
+  try {
+    const data = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(data) as T;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      return null;
     }
     throw error;
   }
@@ -67,9 +85,50 @@ export const storage = {
     return newUser;
   },
 
+  // Special exam readers
+  async getJavaExam(): Promise<Exam | null> {
+    return await readJsonObject<Exam>(JAVA_EXAM_FILE);
+  },
+
+  async getJavaScriptExam(): Promise<Exam | null> {
+    return await readJsonObject<Exam>(JAVASCRIPT_EXAM_FILE);
+  },
+
+  async getPythonExam(): Promise<Exam | null> {
+    return await readJsonObject<Exam>(PYTHON_EXAM_FILE);
+  },
+
   // Exam methods
   async getAllExams(): Promise<Exam[]> {
-    return await readJsonFile<Exam>(EXAMS_FILE);
+    // Get the standard exams
+    const standardExams = await readJsonFile<Exam>(EXAMS_FILE);
+    
+    // Only include Oracle APEX exam
+    const filteredStandardExams = standardExams.filter(exam => 
+      exam.title.toLowerCase().includes('oracle') || 
+      exam.title.toLowerCase().includes('apex')
+    );
+    
+    return filteredStandardExams;
+  },
+
+  // This method gets all available exams based on the user ID
+  async getAvailableExamsForUser(userId: string): Promise<Exam[]> {
+    const allExams = await this.getAllExams();
+    const result: Exam[] = [...allExams];
+    
+    // Only for Yusuf (ID: 2277131963), also show programming language exams
+    if (userId === '2277131963') {
+      const javaExam = await this.getJavaExam();
+      const javascriptExam = await this.getJavaScriptExam();
+      const pythonExam = await this.getPythonExam();
+      
+      if (javaExam) result.push(javaExam);
+      if (javascriptExam) result.push(javascriptExam);
+      if (pythonExam) result.push(pythonExam);
+    }
+    
+    return result;
   },
 
   async getAvailableExams(): Promise<Omit<Exam, "questions">[]> {
@@ -78,8 +137,21 @@ export const storage = {
   },
 
   async getExamById(examId: string): Promise<Exam | null> {
+    // Check standard exams first
     const exams = await this.getAllExams();
-    return exams.find(exam => exam.id === examId) || null;
+    const standardExam = exams.find(exam => exam.id === examId);
+    if (standardExam) return standardExam;
+    
+    // Check special exams if not found
+    if (examId === 'exam-java') {
+      return await this.getJavaExam();
+    } else if (examId === 'exam-javascript') {
+      return await this.getJavaScriptExam();
+    } else if (examId === 'exam-python') {
+      return await this.getPythonExam();
+    }
+    
+    return null;
   },
 
   async createExam(exam: Omit<Exam, "id">): Promise<Exam> {

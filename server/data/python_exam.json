@@ -1,0 +1,730 @@
+{
+  "id": "exam-python",
+  "title": "Python Programming",
+  "description": "Certification exam for Python programming language",
+  "duration": 60,
+  "totalQuestions": 60,
+  "passingScore": 70,
+  "questions": [
+    {
+      "id": 1,
+      "text": "[سؤال 1] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 2,
+      "text": "[سؤال 2] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 3,
+      "text": "[سؤال 3] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 4,
+      "text": "[سؤال 4] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 5,
+      "text": "[سؤال 5] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 6,
+      "text": "[سؤال 6] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 7,
+      "text": "[سؤال 7] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 8,
+      "text": "[سؤال 8] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 9,
+      "text": "[سؤال 9] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 10,
+      "text": "[سؤال 10] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 11,
+      "text": "[سؤال 11] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 12,
+      "text": "[سؤال 12] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 13,
+      "text": "[سؤال 13] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 14,
+      "text": "[سؤال 14] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 15,
+      "text": "[سؤال 15] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 16,
+      "text": "[سؤال 16] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 17,
+      "text": "[سؤال 17] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 18,
+      "text": "[سؤال 18] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 19,
+      "text": "[سؤال 19] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 20,
+      "text": "[سؤال 20] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 21,
+      "text": "[سؤال 21] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 22,
+      "text": "[سؤال 22] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 23,
+      "text": "[سؤال 23] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 24,
+      "text": "[سؤال 24] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 25,
+      "text": "[سؤال 25] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 26,
+      "text": "[سؤال 26] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 27,
+      "text": "[سؤال 27] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 28,
+      "text": "[سؤال 28] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 29,
+      "text": "[سؤال 29] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 30,
+      "text": "[سؤال 30] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 31,
+      "text": "[سؤال 31] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 32,
+      "text": "[سؤال 32] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 33,
+      "text": "[سؤال 33] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 34,
+      "text": "[سؤال 34] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 35,
+      "text": "[سؤال 35] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 36,
+      "text": "[سؤال 36] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 37,
+      "text": "[سؤال 37] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 38,
+      "text": "[سؤال 38] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 39,
+      "text": "[سؤال 39] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 40,
+      "text": "[سؤال 40] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 41,
+      "text": "[سؤال 41] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 42,
+      "text": "[سؤال 42] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 43,
+      "text": "[سؤال 43] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 44,
+      "text": "[سؤال 44] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 45,
+      "text": "[سؤال 45] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 46,
+      "text": "[سؤال 46] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 47,
+      "text": "[سؤال 47] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 48,
+      "text": "[سؤال 48] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 49,
+      "text": "[سؤال 49] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 50,
+      "text": "[سؤال 50] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 51,
+      "text": "[سؤال 51] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 52,
+      "text": "[سؤال 52] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 53,
+      "text": "[سؤال 53] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 54,
+      "text": "[سؤال 54] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 55,
+      "text": "[سؤال 55] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 56,
+      "text": "[سؤال 56] ما ناتج الكود التالي ولماذا؟\n\ndef func(x=[]):\n    x.append(1)\n    return x\n\nprint(func())\nprint(func())",
+      "options": [
+        "[1] ثم [1]",
+        "[1] ثم [1, 1]",
+        "[1] ثم Error",
+        "[1, 1] ثم [1, 1, 1]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 57,
+      "text": "[سؤال 57] ما نوع الاستثناء الذي سيرفعه الكود التالي؟\n\ndef divide(a, b):\n    try:\n        return a / b\n    except:\n        raise\n\nprint(divide(5, 0))",
+      "options": [
+        "ZeroDivisionError",
+        "NameError",
+        "TypeError",
+        "لا يحدث استثناء"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 58,
+      "text": "[سؤال 58] ما ناتج تنفيذ الكود التالي؟\n\na = [1, 2, 3]\nb = a\na += [4, 5]\n\nprint(a)\nprint(b)",
+      "options": [
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3]",
+        "[1, 2, 3, 4, 5] ثم [1, 2, 3, 4, 5]",
+        "[1, 2, 3, 4, 5] ثم Error",
+        "[4, 5] ثم [1, 2, 3]"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    },
+    {
+      "id": 59,
+      "text": "[سؤال 59] ما نتيجة هذا الكود؟\n\nx = (i*i for i in range(3))\nprint(sum(x) + sum(x))",
+      "options": [
+        "5",
+        "9",
+        "0",
+        "18"
+      ],
+      "correctAnswer": 0,
+      "category": "Python Core"
+    },
+    {
+      "id": 60,
+      "text": "[سؤال 60] ما نوع البيانات الناتجة من تنفيذ التعبير التالي؟\n\nx = {1, 2, 3} & {2, 3, 4}",
+      "options": [
+        "list",
+        "set",
+        "tuple",
+        "dict"
+      ],
+      "correctAnswer": 1,
+      "category": "Python Core"
+    }
+  ]
+}
