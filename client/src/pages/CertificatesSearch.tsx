@@ -252,7 +252,54 @@ export default function CertificatesSearch() {
           </CardHeader>
           <CardContent>
             <div className="bg-white p-4 rounded-lg shadow-inner">
-              <div id="certificate-template" className="relative bg-gradient-to-br from-blue-900 to-blue-950 border-4 border-blue-600/30 p-10 mx-auto text-center rounded-lg" style={{ minHeight: '700px', maxWidth: '1000px' }}>
+              <div id="certificate-template" className="relative bg-gradient-to-br from-blue-900 to-blue-950 border-8 border-double border-gold/30 p-10 mx-auto text-center" style={{ minHeight: '800px', maxWidth: '1100px' }}>
+                {/* Official Security Seal */}
+                <div className="absolute top-8 right-8 w-32 h-32">
+                  <div className="relative w-full h-full">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 opacity-80"></div>
+                    <div className="absolute inset-2 rounded-full border-2 border-yellow-200 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-white text-xs font-bold">OFFICIAL</div>
+                        <div className="text-white text-[8px]">VERIFIED</div>
+                        <div className="text-white text-[6px] mt-1">PRO COURSE</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* QR Code */}
+                <div className="absolute top-8 left-8 w-24 h-24 bg-white p-2 rounded-lg shadow-lg">
+                  <div className="w-full h-full border-2 border-blue-900 grid grid-cols-6 grid-rows-6 gap-0.5">
+                    {Array.from({ length: 36 }).map((_, i) => (
+                      <div key={i} className={`${Math.random() > 0.5 ? 'bg-blue-900' : 'bg-transparent'}`}></div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Enhanced Security Pattern */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="w-full h-full" style={{
+                    backgroundImage: `
+                      repeating-linear-gradient(45deg, 
+                        rgba(255,255,255,0.1) 0px, 
+                        rgba(255,255,255,0.1) 2px,
+                        transparent 2px, 
+                        transparent 8px
+                      ),
+                      repeating-linear-gradient(-45deg,
+                        rgba(255,255,255,0.1) 0px,
+                        rgba(255,255,255,0.1) 2px,
+                        transparent 2px,
+                        transparent 8px
+                      )
+                    `
+                  }}></div>
+                </div>
+
+                {/* Serial Number */}
+                <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-[10px] text-blue-200/60 font-mono tracking-widest">
+                  SERIAL: {selectedCert?.certificateNumber}-SEC-{Math.random().toString(36).substring(7).toUpperCase()}
+                </div>
                 {/* Elegant Border Frame */}
                 <div className="absolute inset-0 border-[1px] border-blue-400/20 m-4"></div>
                 <div className="absolute inset-0 border-[2px] border-blue-400/10 m-8"></div>
