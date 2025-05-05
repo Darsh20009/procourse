@@ -118,11 +118,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
     next();
   };
 
-  // Exam routes
+  // Exam routes - filtered by user type/role
   app.get("/api/exams/available", requireAuth, async (req: Request, res: Response) => {
     try {
-      const exams = await storage.getAvailableExams();
-      return res.status(200).json(exams);
+      const user = req.session.user;
+      if (!user) {
+        return res.status(401).json({ message: "Authentication required" });
+      }
+      
+      // Get all available exams
+      const allExams = await storage.getAvailableExams();
+      
+      // Filter exams based on user ID or role
+      // This implementation assumes specific exams for specific users
+      // For example, ORACLE APEX exams only for Yusuf (ID: 2277131963)
+      let filteredExams = allExams;
+      
+      if (user.id === '2277131963') { // Yusuf
+        // Show Oracle APEX exam to Yusuf
+        filteredExams = allExams.filter(exam => 
+          exam.title.toLowerCase().includes('oracle') || 
+          exam.title.toLowerCase().includes('apex'));
+      } else if (user.id === '1234567890') { // Test user
+        // Show all exams to test user
+        filteredExams = allExams;
+      } else {
+        // Default users get a subset of exams
+        filteredExams = allExams.filter(exam => 
+          !exam.title.toLowerCase().includes('special'));
+      }
+      
+      console.log(`Filtered exams for user ${user.id}:`, filteredExams);
+      return res.status(200).json(filteredExams);
     } catch (error) {
       console.error("Error fetching exams:", error);
       return res.status(500).json({ message: "Server error" });
@@ -131,14 +158,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.get("/api/exams/current", requireAuth, async (req: Request, res: Response) => {
     try {
-      // Get the first available exam for simplicity
-      // In a real app, you might want to get a specific exam by ID
-      const exams = await storage.getAvailableExams();
-      if (exams.length === 0) {
+      const user = req.session.user;
+      if (!user) {
+        return res.status(401).json({ message: "Authentication required" });
+      }
+
+      // Get all available exams
+      const allExams = await storage.getAvailableExams();
+      if (allExams.length === 0) {
         return res.status(404).json({ message: "No exams available" });
       }
       
-      const exam = await storage.getExamById(exams[0].id);
+      // Filter exams based on user ID
+      let targetExam;
+      
+      if (user.id === '2277131963') { // Yusuf - Oracle APEX exam
+        targetExam = allExams.find(exam => 
+          exam.title.toLowerCase().includes('oracle') ||
+          exam.title.toLowerCase().includes('apex')
+        );
+      } else {
+        // Default to first exam for other users
+        targetExam = allExams[0];
+      }
+      
+      if (!targetExam) {
+        targetExam = allExams[0]; // Fallback to first exam if no match
+      }
+      
+      // Get the full exam with questions
+      const exam = await storage.getExamById(targetExam.id);
+      console.log(`Selected exam for user ${user.id}:`, targetExam.title);
+      
       return res.status(200).json(exam);
     } catch (error) {
       console.error("Error fetching current exam:", error);

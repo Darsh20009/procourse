@@ -45,14 +45,25 @@ export default function Certificates() {
     if (!certificateElement) return;
 
     try {
+      // Show loading toast
+      toast({
+        title: "Preparing download",
+        description: "Generating your certificate PDF, please wait...",
+      });
+      
+      // Improved rendering settings
       const canvas = await html2canvas(certificateElement, {
-        scale: 2,
+        scale: 3, // Higher scale for better quality
         logging: false,
         useCORS: true,
-        backgroundColor: "#0F172A", // Match the certificate background color
+        backgroundColor: "#111827", // Match the certificate background color
+        allowTaint: true,
+        foreignObjectRendering: false,
       });
       
       const imgData = canvas.toDataURL("image/png");
+      
+      // Create PDF with proper dimensions
       const pdf = new jsPDF({
         orientation: "portrait",
         unit: "mm",
@@ -60,19 +71,32 @@ export default function Certificates() {
       });
       
       // Calculate positioning to center the image
-      const imgWidth = 200;
-      const imgHeight = 200;
+      const imgWidth = 180; // Slightly smaller than the page for better margins
+      const imgHeight = 180;
       const xPosition = (210 - imgWidth) / 2;
       const yPosition = (210 - imgHeight) / 2;
       
+      // Add background
+      pdf.setFillColor(17, 24, 39); // #111827
+      pdf.rect(0, 0, 210, 210, 'F');
+      
+      // Add the certificate image
       pdf.addImage(imgData, "PNG", xPosition, yPosition, imgWidth, imgHeight);
-      pdf.save(`Certificate-${certificateId}.pdf`);
+      
+      // Generate a meaningful filename
+      const cert = certificates?.find(c => c.id === certificateId);
+      const filename = cert ? 
+        `${cert.userName}-${cert.examTitle}-Certificate.pdf` : 
+        `Certificate-${certificateId}.pdf`;
+      
+      pdf.save(filename);
       
       toast({
         title: "Certificate downloaded",
         description: "Your certificate has been downloaded successfully.",
       });
     } catch (error) {
+      console.error("Certificate download error:", error);
       toast({
         title: "Download error",
         description: "Could not download certificate. Please try again.",
@@ -142,30 +166,35 @@ export default function Certificates() {
                   <div className="flex flex-col md:flex-row">
                     <div className="w-full md:w-1/3 p-4 flex justify-center items-center bg-primary-light">
                       <div id={`certificate-${cert.id}`} className="certificate rounded-lg overflow-hidden shadow-lg max-w-xs">
-                        <div className="bg-primary-dark border border-gray-700 p-6 flex flex-col items-center justify-center text-center aspect-square">
+                        <div className="bg-[#111827] border border-gray-700 p-6 flex flex-col items-center justify-center text-center aspect-square">
                           <div className="flex items-center mb-2">
                             <div className="w-6 h-6 bg-gray-400 flex items-center justify-center mr-1">
-                              <span className="text-primary text-xs font-bold">Q</span>
+                              <span className="text-[#111827] text-xs font-bold">Q</span>
                             </div>
                             <div className="text-gray-400 text-sm font-bold">PRO COURSE</div>
                           </div>
-                          <div className="text-gray-300 text-xl font-bold mb-3">CERTIFICATE</div>
+                          <div className="text-gray-300 text-2xl font-bold mb-3">CERTIFICATE</div>
                           <p className="text-gray-400 text-xs mb-2">This is to certify that</p>
-                          <div className="text-white text-lg font-bold mb-2">{cert.userName}</div>
+                          <div className="text-white text-xl font-bold mb-2">{cert.userName}</div>
                           <p className="text-gray-400 text-xs mb-1">has successfully completed the programming certification in</p>
-                          <div className="text-white text-lg font-bold mb-3">{cert.examTitle}</div>
-                          <div className="flex justify-between w-full text-xs text-gray-500">
-                            <div>
+                          <div className="text-white text-xl font-bold mb-3">{cert.examTitle}</div>
+                          <div className="flex justify-between w-full text-xs text-gray-500 mt-2">
+                            <div className="text-left">
                               <div>Certificate number</div>
                               <div>{cert.certificateNumber}</div>
                               <div>{new Date(cert.issueDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
                             </div>
                             <div className="flex items-end">
-                              <div className="ml-2 flex flex-col items-center">
-                                <div className="text-xs">Certified</div>
-                                <div className="rounded-full border border-gray-600 p-1 text-xs">ISO 9001:2015</div>
+                              <div className="flex flex-col items-center">
+                                <div className="text-[10px]">Certified</div>
+                                <div className="rounded-full border border-gray-600 p-1 text-[8px]">ISO 9001:2015</div>
                               </div>
                             </div>
+                          </div>
+                          <div className="mt-2 text-gray-400 text-xs">
+                            <div>Robert Smith</div>
+                            <hr className="w-20 mx-auto border-gray-600 my-1" />
+                            <div>Signature</div>
                           </div>
                         </div>
                       </div>

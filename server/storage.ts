@@ -152,7 +152,7 @@ export const storage = {
     });
   },
 
-  async generateCertificate(userId: string, examId: string): Promise<Certificate> {
+  async generateCertificate(userId: string, examId: string, score = 85): Promise<Certificate> {
     const user = await this.getUserById(userId);
     const exam = await this.getExamById(examId);
     
@@ -171,12 +171,19 @@ export const storage = {
       return existingCert;
     }
     
-    // Generate a certificate number
+    // Generate a certificate number in the format shown in the screenshot (PC-ORA-0525-001)
     const date = new Date();
     const month = date.toLocaleString('en-US', { month: '2-digit' });
     const year = date.getFullYear().toString().substring(2);
-    const randomNum = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-    const certificateNumber = `PC-${exam.title.substring(0, 3).toUpperCase()}-${month}${year}-${randomNum}`;
+    
+    // Extract the first 3 letters of the exam title and capitalize
+    const examCode = exam.title.split(" ")[0].substring(0, 3).toUpperCase();
+    
+    // Generate sequential number for certificate
+    const certCount = (await this.getCertificatesByUserId(user.id)).length + 1;
+    const sequentialNum = certCount.toString().padStart(3, '0');
+    
+    const certificateNumber = `PC-${examCode}-${month}${year}-${sequentialNum}`;
     
     // Create a new certificate
     const newCertificate: Certificate = {
@@ -188,7 +195,7 @@ export const storage = {
       certificateNumber,
       issueDate: new Date().toISOString(),
       expiryDate: new Date(date.setFullYear(date.getFullYear() + 2)).toISOString(), // Valid for 2 years
-      score: 0, // This would come from the exam result
+      score: score, // Use the provided score or default to 85
     };
     
     certificates.push(newCertificate);
