@@ -7,6 +7,7 @@ import SimpleLogin from "@/pages/SimpleLogin";
 import Register from "@/pages/Register";
 import Exam from "@/pages/Exam";
 import Certificates from "@/pages/Certificates";
+import CertificatesSearch from "@/pages/CertificatesSearch";
 import SimpleDashboard from "@/pages/SimpleDashboard";
 import NotFound from "@/pages/not-found";
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/dashboard" component={SimpleDashboard} />
           <Route path="/exam" component={Exam} />
           <Route path="/certificates" component={Certificates} />
+          <Route path="/certificate-search" component={CertificatesSearch} />
           <Route component={NotFound} />
         </Switch>
       </main>
