@@ -183,37 +183,24 @@ export const storage = {
       return [];
     }
 
-    const allExams = await this.getAllExams();
+    // Map preferredField to exam files
+    const examMapping: { [key: string]: string } = {
+      'oracle_apex': ORACLE_EXAM_FILE,
+      'java': JAVA_EXAM_FILE,
+      'javascript': JAVASCRIPT_EXAM_FILE,
+      'python': PYTHON_EXAM_FILE,
+      'php': PHP_EXAM_FILE,
+      'cpp': CPP_EXAM_FILE
+    };
 
-    // Filter exams based on user's preferredField
-    return allExams.filter(exam => {
-      // If user has a specific exam assignment, only show that
-      if (user.assignedExamId) {
-        return exam.id === user.assignedExamId;
-      }
+    // Get exam based on user's preferred field
+    if (user.preferredField && examMapping[user.preferredField]) {
+      const exam = await readJsonObject<Exam>(examMapping[user.preferredField]);
+      return exam ? [exam] : [];
+    }
 
-      // Map preferredField to exam IDs
-      const examMapping: { [key: string]: string[] } = {
-        'oracle_apex': ['exam-001'],
-        'java': ['exam-004'],
-        'javascript': ['exam-003'], 
-        'python': ['exam-010'],
-        'php': ['exam-007'],
-        'cpp': ['exam-005'],
-        'sql': ['exam-009'],
-        'matlab': ['exam-008'],
-        'csharp': ['exam-006'],
-        'html_css': ['exam-002']
-      };
-
-      if (!user.preferredField) {
-        return [];
-      }
-
-      // Get allowed exam IDs for user's preferred field
-      const allowedExamIds = examMapping[user.preferredField] || [];
-      return allExams.filter(exam => allowedExamIds.includes(exam.id));
-    });
+    // If no preferred field or not found, return an empty array
+    return [];
   },
 
   async getAvailableExams(): Promise<Omit<Exam, "questions">[]> {

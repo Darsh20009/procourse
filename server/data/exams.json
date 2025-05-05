@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "id": "exam-001",
+    "title": "ORACLE APEX",
+    "description": "Certification exam for Oracle APEX application development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "ما هو Oracle APEX؟",
+        "options": [
+          "أداة تطوير تطبيقات الويب منخفضة الكود",
+          "قاعدة بيانات",
+          "لغة برمجة",
+          "نظام تشغيل"
+        ],
+        "correctAnswer": 0,
+        "category": "أساسيات"
+      }
+    ]
+  }
+]
