@@ -252,7 +252,32 @@ export default function CertificatesSearch() {
           </CardHeader>
           <CardContent>
             <div className="bg-white p-4 rounded-lg shadow-inner">
-              <div id="certificate-template" className="relative bg-gradient-to-br from-blue-50 to-white border-[12px] border-double border-blue-700/40 p-10 mx-auto text-center" style={{ minHeight: '600px', maxWidth: '800px' }}>
+              <div id="certificate-template" className="relative bg-gradient-to-br from-blue-900 to-blue-950 border-4 border-blue-600/30 p-10 mx-auto text-center rounded-lg" style={{ minHeight: '700px', maxWidth: '1000px' }}>
+                {/* Elegant Border Frame */}
+                <div className="absolute inset-0 border-[1px] border-blue-400/20 m-4"></div>
+                <div className="absolute inset-0 border-[2px] border-blue-400/10 m-8"></div>
+                
+                {/* Modern Geometric Patterns */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(147, 197, 253, 0.2) 1px, transparent 0)`,
+                    backgroundSize: '20px 20px'
+                  }}></div>
+                </div>
+
+                {/* Dynamic Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-radial from-blue-800/50 via-transparent to-blue-900/50 opacity-20"></div>
+                
+                {/* Animated Holographic Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-blue-400/10 opacity-30"
+                     style={{animation: 'gradient 8s ease infinite'}}></div>
+                
+                {/* Pro Course Watermark */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
+                  <div className="text-white text-[200px] font-bold transform rotate-[-30deg]" style={{fontFamily: 'Arial Black'}}>
+                    PRO COURSE
+                  </div>
+                </div>
                 {/* Background Pattern */}
                 <div className="absolute inset-0 z-0 opacity-10">
                   <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
