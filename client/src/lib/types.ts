@@ -2,6 +2,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
+  password: string;
   preferredField?: string; // المجال المفضل للاختبار
 }
 

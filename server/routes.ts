@@ -30,12 +30,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Auth routes
   app.post("/api/auth/login", async (req: Request, res: Response) => {
-    const { email, userId } = req.body;
+    const { email, password } = req.body;
     
-    console.log("Login attempt:", { email, userId });
+    console.log("Login attempt:", { email });
 
     try {
-      const user = await storage.getUserByEmailAndId(email, userId);
+      const user = await storage.validateUserCredentials(email, password);
       console.log("Login user found:", user);
       
       if (!user) {
@@ -56,12 +56,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Alias login - also support /api/login path
   app.post("/api/login", async (req: Request, res: Response) => {
-    const { email, userId } = req.body;
+    const { email, password } = req.body;
     
-    console.log("Login attempt (alternate endpoint):", { email, userId });
+    console.log("Login attempt (alternate endpoint):", { email });
 
     try {
-      const user = await storage.getUserByEmailAndId(email, userId);
+      const user = await storage.validateUserCredentials(email, password);
       console.log("Login user found:", user);
       
       if (!user) {
@@ -111,31 +111,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // User registration endpoint
   app.post("/api/register", async (req: Request, res: Response) => {
-    const { name, email, preferredField } = req.body;
+    const { name, email, password, preferredField } = req.body;
     
-    if (!name || !email) {
-      return res.status(400).json({ message: "Name and email are required" });
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Name, email and password are required" });
+    }
+    
+    if (password.length < 6) {
+      return res.status(400).json({ message: "Password must be at least 6 characters long" });
     }
     
     try {
-      // Check if user with this email already exists
-      const users = await storage.getAllUsers();
-      const existingUser = users.find(user => user.email === email);
-      
-      if (existingUser) {
-        return res.status(400).json({ message: "Email already registered" });
-      }
-      
-      // Create new user with preferred field
+      // Create new user with preferred field and password
       const newUser = await storage.createUser({
         name, 
         email,
+        password,
         preferredField: preferredField
       });
       
-      return res.status(201).json(newUser);
+      // Remove password from response
+      const userResponse = {
+        id: newUser.id,
+        name: newUser.name,
+        email: newUser.email,
+        preferredField: newUser.preferredField
+      };
+      
+      return res.status(201).json(userResponse);
     } catch (error) {
       console.error("User registration error:", error);
+      if (error instanceof Error && error.message === "البريد الإلكتروني مسجل بالفعل") {
+        return res.status(400).json({ message: "Email already registered" });
+      }
       return res.status(500).json({ message: "Server error during registration" });
     }
   });

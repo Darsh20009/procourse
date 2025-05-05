@@ -83,9 +83,39 @@ export const storage = {
   },
   
   async validateUserCredentials(email: string, password: string): Promise<User | null> {
-    const users = await this.getAllUsers();
-    const user = users.find(user => user.email === email && user.password === password) || null;
-    return user;
+    try {
+      const users = await this.getAllUsers();
+      
+      // Find users by email
+      const user = users.find(user => user.email === email);
+      
+      if (!user) {
+        return null;
+      }
+      
+      // For existing users that might not have a password field yet
+      if (!user.password) {
+        // Handle existing test accounts (example@test.com and yusuf@example.com)
+        if ((email === 'test@example.com' && password === 'password123') ||
+            (email === 'yusuf@example.com' && password === 'password123')) {
+          // Add password to these users
+          user.password = password;
+          await writeJsonFile(USERS_FILE, users);
+          return user;
+        }
+        return null;
+      }
+      
+      // Check if password matches
+      if (user.password === password) {
+        return user;
+      }
+      
+      return null;
+    } catch (error) {
+      console.error("Error validating credentials:", error);
+      return null;
+    }
   },
 
   async createUser(userData: { name: string; email: string; password: string; preferredField?: string }): Promise<User> {
