@@ -194,7 +194,11 @@ export const storage = {
         'javascript': ['exam-javascript'], 
         'python': ['exam-python'],
         'php': ['exam-php'],
-        'cpp': ['exam-cpp']
+        'cpp': ['exam-cpp'],
+        'sql': ['exam-009'],
+        'matlab': ['exam-008'],
+        'csharp': ['exam-006'],
+        'html_css': ['exam-002']
       };
 
       // For legacy exams
