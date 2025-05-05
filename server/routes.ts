@@ -196,12 +196,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const fullExams = await storage.getAvailableExamsForUser(user.id);
         const availableExams = fullExams.map(({ questions, ...rest }) => rest);
         
+        console.log(`Available exams for user with preferredField=${user.preferredField}:`, availableExams);
+        
         if (availableExams.length === 0) {
           return res.status(404).json({ message: "No exams available" });
         }
         
-        // Default to first available exam
-        targetExamId = availableExams[0].id;
+        // For Oracle APEX users, prioritize Oracle APEX exam
+        if (user.preferredField === 'oracle_apex') {
+          const oracleExam = availableExams.find(exam => 
+            exam.title.toLowerCase().includes('oracle') || 
+            exam.title.toLowerCase().includes('apex')
+          );
+          
+          if (oracleExam) {
+            console.log("Using Oracle APEX exam for Oracle user:", oracleExam.title);
+            targetExamId = oracleExam.id;
+          } else {
+            // Default to first available exam if no Oracle exam found
+            targetExamId = availableExams[0].id;
+          }
+        } else {
+          // Default to first available exam for other users
+          targetExamId = availableExams[0].id;
+        }
       }
       
       // Get the full exam with questions

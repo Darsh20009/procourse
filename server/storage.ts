@@ -249,12 +249,24 @@ export const storage = {
           if (cppExam) result.push(cppExam);
           break;
           
-        case 'oracle':
+        case 'oracle_apex':
           // Oracle developers only need APEX and related exams
-          result = allExams.filter(exam => 
+          const oracleExams = allExams.filter(exam => 
             exam.title.toLowerCase().includes('oracle') || 
             exam.title.toLowerCase().includes('apex')
           );
+          console.log("Oracle APEX exams filtered:", oracleExams);
+          // Make sure we have exams and add them to result
+          if (oracleExams.length > 0) {
+            result = oracleExams;
+          } else {
+            // If no Oracle exams found, add the first exam with ID exam-001 as fallback
+            const fallbackExam = allExams.find(exam => exam.id === 'exam-001');
+            if (fallbackExam) {
+              console.log("Using fallback Oracle APEX exam");
+              result = [fallbackExam];
+            }
+          }
           break;
           
         default:
