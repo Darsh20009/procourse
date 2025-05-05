@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,7 +14,6 @@ export default function Login() {
   const [_, setLocation] = useLocation();
   const { login, user } = useAuth();
   
-  // Redirect if already logged in
   useEffect(() => {
     if (user) {
       console.log("User already logged in, redirecting to dashboard");
@@ -36,6 +36,10 @@ export default function Login() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleRegister = () => {
+    window.location.href = 'https://pro-courses.odoo.com/tqdym-l-lkhtbr';
   };
 
   return (
@@ -76,9 +80,10 @@ export default function Login() {
               {isSubmitting ? "جاري تسجيل الدخول..." : "تسجيل الدخول"}
             </Button>
 
-            {/* Test credentials */}
-            <div className="mt-4 text-center text-sm text-gray-500">
-              <p>للتجربة: yusuf@example.com / 2277131963</p>
+            <div className="mt-4 text-center">
+              <Button variant="link" type="button" onClick={handleRegister}>
+                للتسجيل في الاختبار اضغط هنا
+              </Button>
             </div>
           </form>
         </CardContent>

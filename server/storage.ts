@@ -83,18 +83,18 @@ export const storage = {
     const users = await this.getAllUsers();
     return users.find(user => user.email === email) || null;
   },
-  
+
   async validateUserCredentials(email: string, password: string): Promise<User | null> {
     try {
       const users = await this.getAllUsers();
-      
+
       // Find users by email
       const user = users.find(user => user.email === email);
-      
+
       if (!user) {
         return null;
       }
-      
+
       // For existing users that might not have a password field yet
       if (!user.password) {
         // Handle existing test accounts (example@test.com and yusuf@example.com)
@@ -107,12 +107,12 @@ export const storage = {
         }
         return null;
       }
-      
+
       // Check if password matches
       if (user.password === password) {
         return user;
       }
-      
+
       return null;
     } catch (error) {
       console.error("Error validating credentials:", error);
@@ -122,13 +122,13 @@ export const storage = {
 
   async createUser(userData: { name: string; email: string; password: string; preferredField?: string }): Promise<User> {
     const users = await this.getAllUsers();
-    
+
     // Check if user with the same email already exists
     const existingUser = users.find(user => user.email === userData.email);
     if (existingUser) {
       throw new Error("البريد الإلكتروني مسجل بالفعل");
     }
-    
+
     const newUser: User = { 
       id: crypto.randomUUID(),
       name: userData.name,
@@ -153,11 +153,11 @@ export const storage = {
   async getPythonExam(): Promise<Exam | null> {
     return await readJsonObject<Exam>(PYTHON_EXAM_FILE);
   },
-  
+
   async getPHPExam(): Promise<Exam | null> {
     return await readJsonObject<Exam>(PHP_EXAM_FILE);
   },
-  
+
   async getCPPExam(): Promise<Exam | null> {
     return await readJsonObject<Exam>(CPP_EXAM_FILE);
   },
@@ -166,119 +166,41 @@ export const storage = {
   async getAllExams(): Promise<Exam[]> {
     // Get the standard exams
     const standardExams = await readJsonFile<Exam>(EXAMS_FILE);
-    
+
     // Return all exams, not filtering Oracle APEX specifically
     return standardExams;
   },
 
   // This method gets all available exams based on the user ID and preferred field
   async getAvailableExamsForUser(userId: string): Promise<Exam[]> {
-    // Get the user to check their preferred field
     const user = await this.getUserById(userId);
+    if (!user) {
+      return [];
+    }
+
     const allExams = await this.getAllExams();
-    let result: Exam[] = [];
-    
-    // Special case for Yusuf (ID: 2277131963), show all programming language exams
-    if (userId === '2277131963') {
-      // Include all standard exams
-      result = [...allExams];
-      
-      // Include all specialized programming exams
-      const javaExam = await this.getJavaExam();
-      const javascriptExam = await this.getJavaScriptExam();
-      const pythonExam = await this.getPythonExam();
-      const phpExam = await this.getPHPExam();
-      const cppExam = await this.getCPPExam();
-      
-      if (javaExam) result.push(javaExam);
-      if (javascriptExam) result.push(javascriptExam);
-      if (pythonExam) result.push(pythonExam);
-      if (phpExam) result.push(phpExam);
-      if (cppExam) result.push(cppExam);
-      
-      return result;
-    }
-    
-    // For other users, only show exams relevant to their preferred field
-    if (user && user.preferredField) {
-      // Filter standard exams based on relevant technologies for the user's field
-      switch (user.preferredField) {
-        case 'java':
-          // Java developers might use Node.js for tooling but not React or APEX
-          result = allExams.filter(exam => 
-            exam.title.toLowerCase().includes('node') || 
-            !['oracle apex', 'react'].some(tech => exam.title.toLowerCase().includes(tech))
-          );
-          const javaExam = await this.getJavaExam();
-          if (javaExam) result.push(javaExam);
-          break;
-          
-        case 'javascript':
-          // JavaScript developers would use Node.js and React
-          result = allExams.filter(exam => 
-            exam.title.toLowerCase().includes('node') || 
-            exam.title.toLowerCase().includes('react') ||
-            !['oracle apex'].some(tech => exam.title.toLowerCase().includes(tech))
-          );
-          const javascriptExam = await this.getJavaScriptExam();
-          if (javascriptExam) result.push(javascriptExam);
-          break;
-          
-        case 'python':
-          // Python developers don't typically use React or APEX
-          result = allExams.filter(exam => 
-            !['oracle apex', 'react'].some(tech => exam.title.toLowerCase().includes(tech))
-          );
-          const pythonExam = await this.getPythonExam();
-          if (pythonExam) result.push(pythonExam);
-          break;
-          
-        case 'php':
-          // PHP developers might use Node.js for tooling but not APEX
-          result = allExams.filter(exam => 
-            !['oracle apex'].some(tech => exam.title.toLowerCase().includes(tech))
-          );
-          const phpExam = await this.getPHPExam();
-          if (phpExam) result.push(phpExam);
-          break;
-          
-        case 'cpp':
-          // C++ developers typically don't use web technologies
-          result = [];
-          const cppExam = await this.getCPPExam();
-          if (cppExam) result.push(cppExam);
-          break;
-          
-        case 'oracle_apex':
-          // Oracle developers only need APEX and related exams
-          const oracleExams = allExams.filter(exam => 
-            exam.title.toLowerCase().includes('oracle') || 
-            exam.title.toLowerCase().includes('apex')
-          );
-          console.log("Oracle APEX exams filtered:", oracleExams);
-          // Make sure we have exams and add them to result
-          if (oracleExams.length > 0) {
-            result = oracleExams;
-          } else {
-            // If no Oracle exams found, add the first exam with ID exam-001 as fallback
-            const fallbackExam = allExams.find(exam => exam.id === 'exam-001');
-            if (fallbackExam) {
-              console.log("Using fallback Oracle APEX exam");
-              result = [fallbackExam];
-            }
-          }
-          break;
-          
-        default:
-          // For other fields, include general programming exams but not specialized ones
-          result = allExams.filter(exam => !exam.title.toLowerCase().includes('oracle apex'));
+
+    // Filter exams based on user's preferredField
+    // This can be customized based on your needs
+    return allExams.filter(exam => {
+      // If user has a specific exam assignment, only show that
+      if (user.assignedExamId) {
+        return exam.id === user.assignedExamId;
       }
-    } else {
-      // If no preferred field is set, show general exams excluding specialized ones
-      result = allExams.filter(exam => !exam.title.toLowerCase().includes('oracle apex'));
-    }
-    
-    return result;
+
+      // Otherwise show exams matching their preferred field
+      if (user.preferredField) {
+        if (user.preferredField === 'oracle_apex' && exam.id === 'exam-001') {
+          return true;
+        }
+        if (user.preferredField === 'python' && exam.id === 'exam-python') {
+          return true;
+        }
+        // Add more conditions for other exam types
+      }
+
+      return false;
+    });
   },
 
   async getAvailableExams(): Promise<Omit<Exam, "questions">[]> {
@@ -289,10 +211,10 @@ export const storage = {
   // Helper method to limit exam to 30 questions and duration to 30 minutes
   limitExamQuestionsAndTime(exam: Exam): Exam {
     if (!exam) return exam;
-    
+
     // Create a copy of the exam to avoid modifying the original
     const modifiedExam = { ...exam };
-    
+
     // If more than 30 questions, select only 30 randomly
     if (modifiedExam.questions && modifiedExam.questions.length > 30) {
       // Shuffle questions using Fisher-Yates algorithm
@@ -301,21 +223,21 @@ export const storage = {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
       }
-      
+
       // Take only the first 30 questions
       modifiedExam.questions = shuffledQuestions.slice(0, 30);
       modifiedExam.totalQuestions = 30;
     }
-    
+
     // Set duration to 30 minutes
     modifiedExam.duration = 30;
-    
+
     return modifiedExam;
   },
 
   async getExamById(examId: string): Promise<Exam | null> {
     let exam = null;
-    
+
     // Check standard exams first
     const exams = await this.getAllExams();
     const standardExam = exams.find(exam => exam.id === examId);
@@ -335,12 +257,12 @@ export const storage = {
         exam = await this.getCPPExam();
       }
     }
-    
+
     // Apply 30 question/30 minute limit for all exams
     if (exam) {
       return this.limitExamQuestionsAndTime(exam);
     }
-    
+
     return null;
   },
 
@@ -385,7 +307,7 @@ export const storage = {
 
     // In a real app, save the exam response
     // For simplicity, we're not persisting this data
-    
+
     return response;
   },
 
@@ -406,11 +328,11 @@ export const storage = {
 
   async searchCertificates(name?: string, userId?: string): Promise<Certificate[]> {
     const certificates = await this.getAllCertificates();
-    
+
     return certificates.filter(cert => {
       const nameMatch = !name || cert.userName.toLowerCase().includes(name.toLowerCase());
       const idMatch = !userId || cert.userId === userId;
-      
+
       return nameMatch && idMatch;
     });
   },
@@ -418,37 +340,37 @@ export const storage = {
   async generateCertificate(userId: string, examId: string, score = 85): Promise<Certificate> {
     const user = await this.getUserById(userId);
     const exam = await this.getExamById(examId);
-    
+
     if (!user || !exam) {
       throw new Error("User or exam not found");
     }
-    
+
     const certificates = await this.getAllCertificates();
-    
+
     // Check if certificate already exists
     const existingCert = certificates.find(
       cert => cert.userId === userId && cert.examId === examId
     );
-    
+
     if (existingCert) {
       return existingCert;
     }
-    
+
     // Generate a certificate number in the format specified (PRC-ORG-0123-*****)
     const date = new Date();
     const month = date.toLocaleString('en-US', { month: '2-digit' });
     const year = date.getFullYear().toString().substring(2);
-    
+
     // Extract the first 3 letters of the exam title and capitalize
     const examCode = exam.title.split(" ")[0].substring(0, 3).toUpperCase();
-    
+
     // Generate unique user-specific identifier (last 5 digits of user ID + sequential number)
     const userDigits = user.id.substring(Math.max(0, user.id.length - 5));
     const certCount = (await this.getCertificatesByUserId(user.id)).length + 1;
     const sequentialNum = certCount.toString().padStart(2, '0');
-    
+
     const certificateNumber = `PRC-${examCode}-${month}${year}-${userDigits}${sequentialNum}`;
-    
+
     // Create a new certificate - No expiry date as requested
     const newCertificate: Certificate = {
       id: crypto.randomUUID(),
@@ -460,10 +382,10 @@ export const storage = {
       issueDate: new Date().toISOString(),
       score: score, // Use the provided score or default to 85
     };
-    
+
     certificates.push(newCertificate);
     await writeJsonFile(CERTIFICATES_FILE, certificates);
-    
+
     return newCertificate;
   },
 
@@ -474,7 +396,7 @@ export const storage = {
     latestScore?: number;
   }> {
     const certificates = await this.getCertificatesByUserId(userId);
-    
+
     return {
       examsCompleted: certificates.length,
       certificatesEarned: certificates.length,
