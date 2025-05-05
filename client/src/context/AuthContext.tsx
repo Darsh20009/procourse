@@ -1,23 +1,31 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { useLocation } from "wouter";
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { User } from "../lib/types";
 
-interface AuthContextType {
+// Define User type
+type User = {
+  id: string;
+  email: string;
+  name: string;
+};
+
+// Define AuthContext type
+type AuthContextType = {
   user: User | null;
   isLoading: boolean;
   login: (email: string, userId: string) => Promise<boolean>;
   logout: () => Promise<boolean>;
-}
+};
 
+// Create context with default value
 const AuthContext = createContext<AuthContextType | null>(null);
 
-export function AuthProvider({ children }: { children: ReactNode }) {
+// Create a provider component
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
 
-  // Check if user is logged in when component mounts
+  // Check authentication status when component mounts
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -139,24 +147,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const value = {
+  // Create context value
+  const contextValue: AuthContextType = {
     user,
     isLoading,
     login,
     logout
   };
 
+  // Return provider with context value
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={contextValue}>
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
-export function useAuth() {
+// Create a custom hook to use the auth context
+export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext);
-  if (context === null) {
+  
+  if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
+  
   return context;
-}
+};

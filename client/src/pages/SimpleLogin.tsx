@@ -1,25 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useAuth } from "@/context/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 
-export default function Login() {
+export default function SimpleLogin() {
   const [email, setEmail] = useState("");
   const [userId, setUserId] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
   const [_, setLocation] = useLocation();
-  const { login, user } = useAuth();
-  
-  // Redirect if already logged in
-  useEffect(() => {
-    if (user) {
-      console.log("User already logged in, redirecting to dashboard");
-      setLocation("/dashboard");
-    }
-  }, [user, setLocation]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,12 +19,42 @@ export default function Login() {
     
     try {
       console.log("Attempting login with:", { email, userId });
-      const success = await login(email, userId);
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, userId }),
+        credentials: "include"
+      });
       
-      if (success) {
-        console.log("Login successful, redirecting to dashboard");
+      console.log("Login response status:", res.status);
+      
+      if (res.ok) {
+        const userData = await res.json();
+        console.log("Login successful:", userData);
+        
+        toast({
+          title: "تم تسجيل الدخول بنجاح",
+          description: "مرحبًا بك في منصة Pro Course!",
+        });
+        
         setLocation("/dashboard");
+      } else {
+        console.error("Login failed");
+        
+        toast({
+          title: "فشل تسجيل الدخول",
+          description: "بيانات الاعتماد غير صالحة. يرجى المحاولة مرة أخرى.",
+          variant: "destructive",
+        });
       }
+    } catch (error) {
+      console.error("Login error:", error);
+      
+      toast({
+        title: "خطأ في تسجيل الدخول",
+        description: "حدث خطأ أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }

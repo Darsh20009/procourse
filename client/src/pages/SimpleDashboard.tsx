@@ -1,10 +1,17 @@
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import TabNavigation from "@/components/TabNavigation";
-import { useAuth } from "@/context/AuthContext";
 import { useLocation } from "wouter";
 import { CalendarClock, CheckCircle, Award, BookOpen } from "lucide-react";
+import TabNavigation from "@/components/TabNavigation";
+
+// Simple User type
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
 
 interface ExamSummary {
   id: string;
@@ -14,25 +21,76 @@ interface ExamSummary {
   totalQuestions: number;
 }
 
-export default function Dashboard() {
-  const { user } = useAuth();
+export default function SimpleDashboard() {
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [_, setLocation] = useLocation();
   
-  const { data: availableExams, isLoading } = useQuery<ExamSummary[]>({
+  // Check auth status when component mounts
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        console.log("Checking auth status...");
+        const res = await fetch("/api/auth/check", {
+          credentials: "include",
+        });
+        
+        console.log("Auth check status:", res.status);
+        
+        if (res.ok) {
+          const userData = await res.json();
+          console.log("User authenticated:", userData);
+          setUser(userData);
+        } else {
+          console.log("User not authenticated, redirecting to login");
+          setUser(null);
+          setLocation("/");
+        }
+      } catch (error) {
+        console.error("Auth check error:", error);
+        setUser(null);
+        setLocation("/");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, [setLocation]);
+  
+  // Fetch available exams
+  const { data: availableExams, isLoading: isLoadingExams } = useQuery<ExamSummary[]>({
     queryKey: ['/api/exams/available'],
+    enabled: !!user, // Only fetch if user is logged in
   });
   
+  // Fetch user stats
   const { data: userStats } = useQuery<{
     examsCompleted: number;
     certificatesEarned: number;
     latestScore?: number;
   }>({
     queryKey: ['/api/user/stats'],
+    enabled: !!user, // Only fetch if user is logged in
   });
 
   const handleStartExam = () => {
     setLocation("/exam");
   };
+
+  // Show loading state while checking auth
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
+
+  // If user is not authenticated (should redirect anyway)
+  if (!user) {
+    return null;
+  }
 
   return (
     <div>
@@ -40,7 +98,7 @@ export default function Dashboard() {
       
       <div className="mb-8">
         <div className="bg-primary rounded-lg p-6 text-white">
-          <h1 className="text-2xl font-bold mb-2">Welcome, {user?.name || "Student"}</h1>
+          <h1 className="text-2xl font-bold mb-2">Welcome, {user.name}</h1>
           <p className="text-gray-300">Continue your certification journey with Pro Course</p>
         </div>
       </div>
@@ -88,7 +146,7 @@ export default function Dashboard() {
       <div className="mb-8">
         <h2 className="text-xl font-bold mb-4">Available Exams</h2>
         
-        {isLoading ? (
+        {isLoadingExams ? (
           <div className="animate-pulse space-y-4">
             <div className="h-20 bg-gray-200 rounded"></div>
             <div className="h-20 bg-gray-200 rounded"></div>
