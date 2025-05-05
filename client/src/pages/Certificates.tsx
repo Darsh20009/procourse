@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import TabNavigation from "@/components/TabNavigation";
 import { Certificate } from "@/lib/types";
 import { apiRequest } from "@/lib/queryClient";
-import { Download, Share2 } from "lucide-react";
+import { AlertTriangle, Download, Share2 } from "lucide-react";
 
 export default function Certificates() {
   const [searchName, setSearchName] = useState("");
@@ -83,15 +83,14 @@ export default function Certificates() {
       // Add the certificate image
       pdf.addImage(imgData, "PNG", xPosition, yPosition, imgWidth, imgHeight);
       
-      // Generate a meaningful filename that matches the certificate format
+      // Generate a meaningful filename that matches the certificate number
       const cert = certificates?.find(c => c.id === certificateId);
       let filename;
       
       if (cert) {
-        // Extract exam code (like ORA from ORACLE APEX)
-        const examCode = cert.examTitle.split(" ")[0].substring(0, 3).toUpperCase();
-        const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-        filename = `PC-${examCode}-Certificate-${cert.userName.replace(/\s/g, "_")}.pdf`;
+        // Use the certificate number format directly as the filename
+        // This ensures consistency between the certificate number and the downloaded file
+        filename = `${cert.certificateNumber}-${cert.userName.replace(/\s/g, "_")}.pdf`;
       } else {
         filename = `Certificate-${certificateId}.pdf`;
       }
@@ -195,9 +194,9 @@ export default function Certificates() {
                           {/* Certificate Details */}
                           <div className="flex justify-between w-full text-xs text-gray-500 mt-2">
                             <div className="text-left">
-                              <div>Certificate number</div>
-                              <div>{cert.certificateNumber}</div>
-                              <div>{new Date(cert.issueDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                              <div className="text-gray-400 text-[9px] mb-0.5">Certificate number</div>
+                              <div className="text-gray-300 text-xs mb-1 font-medium">{cert.certificateNumber}</div>
+                              <div className="text-gray-400 text-[9px]">{new Date(cert.issueDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
                             </div>
                             <div className="flex items-end">
                               <div className="flex flex-col items-center">
@@ -224,14 +223,14 @@ export default function Certificates() {
                         <span className="text-gray-500 text-sm">تاريخ الإصدار: {new Date(cert.issueDate).toLocaleDateString('ar-EG')}</span>
                       </div>
                       
-                      <div className="space-y-4 mb-6">
+                      <div className="space-y-4 mb-3">
                         <div>
                           <h5 className="text-sm font-medium text-gray-700">رقم الشهادة</h5>
                           <p className="text-gray-900">{cert.certificateNumber}</p>
                         </div>
                         <div>
                           <h5 className="text-sm font-medium text-gray-700">نوع الشهادة</h5>
-                          <p className="text-gray-900">شهادة برمجة</p>
+                          <p className="text-gray-900">شهادة اختبار {cert.examTitle}</p>
                         </div>
                         <div>
                           <h5 className="text-sm font-medium text-gray-700">الحالة</h5>
@@ -239,12 +238,22 @@ export default function Certificates() {
                         </div>
                       </div>
                       
-                      <div className="flex space-x-3">
+                      {/* Alert for certificate download */}
+                      <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-md text-amber-800 text-xs">
+                        <div className="flex items-start">
+                          <AlertTriangle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+                          <p>
+                            <strong>تنبيه هام:</strong> يرجى تنزيل الشهادة وحفظها. قد يتم حذف الشهادات من النظام بعد فترة للحفاظ على الخصوصية.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex space-x-3 rtl:space-x-reverse">
                         <Button
                           onClick={() => downloadCertificate(cert.id)}
                           className="bg-accent hover:bg-accent-dark"
                         >
-                          <Download className="mr-2 h-4 w-4" /> تنزيل
+                          <Download className="mr-2 h-4 w-4" /> تنزيل الشهادة
                         </Button>
                         <Button
                           variant="outline"

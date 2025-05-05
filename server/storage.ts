@@ -243,7 +243,7 @@ export const storage = {
       return existingCert;
     }
     
-    // Generate a certificate number in the format shown in the screenshot (PC-ORA-0525-001)
+    // Generate a certificate number in the format specified (PRC-ORG-0123-*****)
     const date = new Date();
     const month = date.toLocaleString('en-US', { month: '2-digit' });
     const year = date.getFullYear().toString().substring(2);
@@ -251,11 +251,12 @@ export const storage = {
     // Extract the first 3 letters of the exam title and capitalize
     const examCode = exam.title.split(" ")[0].substring(0, 3).toUpperCase();
     
-    // Generate sequential number for certificate
+    // Generate unique user-specific identifier (last 5 digits of user ID + sequential number)
+    const userDigits = user.id.substring(Math.max(0, user.id.length - 5));
     const certCount = (await this.getCertificatesByUserId(user.id)).length + 1;
-    const sequentialNum = certCount.toString().padStart(3, '0');
+    const sequentialNum = certCount.toString().padStart(2, '0');
     
-    const certificateNumber = `PC-${examCode}-${month}${year}-${sequentialNum}`;
+    const certificateNumber = `PRC-${examCode}-${month}${year}-${userDigits}${sequentialNum}`;
     
     // Create a new certificate
     const newCertificate: Certificate = {
