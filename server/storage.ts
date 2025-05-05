@@ -190,15 +190,15 @@ export const storage = {
       // Map preferredField to exam IDs
       const examMapping: { [key: string]: string[] } = {
         'oracle_apex': ['exam-001'],
-        'java': ['exam-java'],
-        'javascript': ['exam-javascript'], 
-        'python': ['exam-python'],
-        'php': ['exam-php'],
-        'cpp': ['exam-cpp'],
-        'sql': ['exam-sql'],
-        'matlab': ['exam-matlab'],
-        'csharp': ['exam-csharp'],
-        'html_css': ['exam-html']
+        'java': ['exam-004'],
+        'javascript': ['exam-003'], 
+        'python': ['exam-010'],
+        'php': ['exam-007'],
+        'cpp': ['exam-005'],
+        'sql': ['exam-009'],
+        'matlab': ['exam-008'],
+        'csharp': ['exam-006'],
+        'html_css': ['exam-002']
       };
 
       if (!user.preferredField) {
@@ -244,15 +244,39 @@ export const storage = {
   },
 
   async getExamById(examId: string): Promise<Exam | null> {
-    let exam = null;
     console.log("Looking for exam:", examId);
 
-    // Check standard exams first
-    const exams = await this.getAllExams();
-    const standardExam = exams.find(e => e.id === examId);
-    if (standardExam) {
-      exam = standardExam;
-    } else {
+    // Get exam based on ID
+    let exam = null;
+    
+    switch(examId) {
+      case 'exam-001':
+        exam = await readJsonObject<Exam>(ORACLE_EXAM_FILE);
+        break;
+      case 'exam-004':
+        exam = await readJsonObject<Exam>(JAVA_EXAM_FILE);
+        break;
+      case 'exam-003':
+        exam = await readJsonObject<Exam>(JAVASCRIPT_EXAM_FILE);
+        break;
+      case 'exam-010':
+        exam = await readJsonObject<Exam>(PYTHON_EXAM_FILE);
+        break;
+      case 'exam-007':
+        exam = await readJsonObject<Exam>(PHP_EXAM_FILE);
+        break;
+      case 'exam-005':
+        exam = await readJsonObject<Exam>(CPP_EXAM_FILE);
+        break;
+      default:
+        // Check standard exams
+        const exams = await this.getAllExams();
+        exam = exams.find(e => e.id === examId) || null;
+    }
+
+    if (!exam) {
+      return null;
+    }
       // Check special exams if not found
       if (examId === 'exam-java') {
         exam = await this.getJavaExam();
