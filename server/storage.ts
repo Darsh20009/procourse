@@ -15,6 +15,11 @@ const JAVASCRIPT_EXAM_FILE = path.join(DATA_DIR, "javascript_exam.json");
 const PYTHON_EXAM_FILE = path.join(DATA_DIR, "python_exam.json");
 const PHP_EXAM_FILE = path.join(DATA_DIR, "php_exam.json");
 const CPP_EXAM_FILE = path.join(DATA_DIR, "cpp_exam.json");
+const ORACLE_EXAM_FILE = path.join(DATA_DIR, "orcale-apex_exam.json");
+const HTML_EXAM_FILE = path.join(DATA_DIR, "html_exam.json");
+const SQL_EXAM_FILE = path.join(DATA_DIR, "sql_exam.json");
+const MATLAB_EXAM_FILE = path.join(DATA_DIR, "matlab_exam.json");
+const CSHARP_EXAM_FILE = path.join(DATA_DIR, "csharp_exam.json");
 
 // Ensure data directory exists
 async function ensureDataDirExists() {
