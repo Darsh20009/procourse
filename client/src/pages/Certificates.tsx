@@ -47,13 +47,13 @@ export default function Certificates() {
     try {
       // Show loading toast
       toast({
-        title: "Preparing download",
-        description: "Generating your certificate PDF, please wait...",
+        title: "جاري تحضير الشهادة",
+        description: "يتم إنشاء ملف PDF للشهادة، يرجى الانتظار...",
       });
       
-      // Improved rendering settings
+      // Enhanced rendering settings for higher quality output
       const canvas = await html2canvas(certificateElement, {
-        scale: 3, // Higher scale for better quality
+        scale: 4, // Higher scale for better quality
         logging: false,
         useCORS: true,
         backgroundColor: "#111827", // Match the certificate background color
@@ -61,45 +61,53 @@ export default function Certificates() {
         foreignObjectRendering: false,
       });
       
-      const imgData = canvas.toDataURL("image/png");
+      const imgData = canvas.toDataURL("image/png", 1.0);
       
-      // Create PDF with proper dimensions
+      // Create PDF with precise square dimensions
       const pdf = new jsPDF({
         orientation: "portrait",
         unit: "mm",
-        format: [210, 210], // Square format
+        format: [210, 210], // Square format exactly like the example
       });
       
-      // Calculate positioning to center the image
-      const imgWidth = 180; // Slightly smaller than the page for better margins
-      const imgHeight = 180;
-      const xPosition = (210 - imgWidth) / 2;
-      const yPosition = (210 - imgHeight) / 2;
-      
-      // Add background
+      // Add dark background to match the certificate style
       pdf.setFillColor(17, 24, 39); // #111827
       pdf.rect(0, 0, 210, 210, 'F');
+      
+      // Calculate positioning to perfectly center the image
+      const imgWidth = 170; // Slightly smaller than the page for better margins
+      const imgHeight = 170;
+      const xPosition = (210 - imgWidth) / 2;
+      const yPosition = (210 - imgHeight) / 2;
       
       // Add the certificate image
       pdf.addImage(imgData, "PNG", xPosition, yPosition, imgWidth, imgHeight);
       
-      // Generate a meaningful filename
+      // Generate a meaningful filename that matches the certificate format
       const cert = certificates?.find(c => c.id === certificateId);
-      const filename = cert ? 
-        `${cert.userName}-${cert.examTitle}-Certificate.pdf` : 
-        `Certificate-${certificateId}.pdf`;
+      let filename;
       
+      if (cert) {
+        // Extract exam code (like ORA from ORACLE APEX)
+        const examCode = cert.examTitle.split(" ")[0].substring(0, 3).toUpperCase();
+        const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+        filename = `PC-${examCode}-Certificate-${cert.userName.replace(/\s/g, "_")}.pdf`;
+      } else {
+        filename = `Certificate-${certificateId}.pdf`;
+      }
+      
+      // Save the PDF
       pdf.save(filename);
       
       toast({
-        title: "Certificate downloaded",
-        description: "Your certificate has been downloaded successfully.",
+        title: "تم تنزيل الشهادة",
+        description: "تم تنزيل الشهادة بنجاح.",
       });
     } catch (error) {
       console.error("Certificate download error:", error);
       toast({
-        title: "Download error",
-        description: "Could not download certificate. Please try again.",
+        title: "خطأ في التنزيل",
+        description: "تعذر تنزيل الشهادة. يرجى المحاولة مرة أخرى.",
         variant: "destructive",
       });
     }
@@ -119,34 +127,34 @@ export default function Certificates() {
       <TabNavigation />
       <Card>
         <CardHeader className="bg-primary px-6 py-4">
-          <h2 className="text-xl font-bold text-white">My Certificates</h2>
+          <h2 className="text-xl font-bold text-white">شهاداتي</h2>
         </CardHeader>
         
         <CardContent className="p-6">
           <div className="mb-8">
-            <h3 className="text-lg font-medium mb-4">Find Your Certificate</h3>
+            <h3 className="text-lg font-medium mb-4">البحث عن الشهادات</h3>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
-                <Label htmlFor="search-name" className="mb-1">Name or Email</Label>
+                <Label htmlFor="search-name" className="mb-1">الاسم أو البريد الإلكتروني</Label>
                 <Input 
                   id="search-name" 
                   value={searchName}
                   onChange={(e) => setSearchName(e.target.value)}
-                  placeholder="Enter name or email"
+                  placeholder="أدخل الاسم أو البريد الإلكتروني"
                 />
               </div>
               <div className="flex-1">
-                <Label htmlFor="search-id" className="mb-1">ID Number</Label>
+                <Label htmlFor="search-id" className="mb-1">رقم الهوية</Label>
                 <Input 
                   id="search-id" 
                   value={searchId}
                   onChange={(e) => setSearchId(e.target.value)}
-                  placeholder="Enter ID number"
+                  placeholder="أدخل رقم الهوية"
                 />
               </div>
               <div className="flex items-end">
                 <Button onClick={handleSearch} className="w-full md:w-auto">
-                  <i className="fas fa-search mr-2"></i> Search
+                  <i className="fas fa-search mr-2"></i> بحث
                 </Button>
               </div>
             </div>
@@ -155,29 +163,36 @@ export default function Certificates() {
           {isLoading ? (
             <div className="text-center p-8">
               <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent align-[-0.125em]"></div>
-              <p className="mt-4 text-gray-600">Loading certificates...</p>
+              <p className="mt-4 text-gray-600">جاري تحميل الشهادات...</p>
             </div>
           ) : certificates && certificates.length > 0 ? (
             <div>
-              <h3 className="text-lg font-medium mb-4">Your Certificates</h3>
+              <h3 className="text-lg font-medium mb-4">الشهادات الخاصة بك</h3>
               
               {certificates.map((cert) => (
                 <div key={cert.id} className="certificate-card bg-gray-50 rounded-lg border overflow-hidden mb-6 hover:shadow-md transition duration-200">
                   <div className="flex flex-col md:flex-row">
                     <div className="w-full md:w-1/3 p-4 flex justify-center items-center bg-primary-light">
-                      <div id={`certificate-${cert.id}`} className="certificate rounded-lg overflow-hidden shadow-lg max-w-xs">
-                        <div className="bg-[#111827] border border-gray-700 p-6 flex flex-col items-center justify-center text-center aspect-square">
-                          <div className="flex items-center mb-2">
-                            <div className="w-6 h-6 bg-gray-400 flex items-center justify-center mr-1">
-                              <span className="text-[#111827] text-xs font-bold">Q</span>
+                      <div id={`certificate-${cert.id}`} className="certificate rounded overflow-hidden shadow-lg max-w-xs">
+                        <div className="bg-[#111827] border border-gray-600 p-6 flex flex-col items-center justify-center text-center aspect-square">
+                          {/* PRO COURSE Logo */}
+                          <div className="flex items-center mb-4">
+                            <div className="w-7 h-7 bg-gray-400 flex items-center justify-center mr-1">
+                              <span className="text-[#111827] text-sm font-bold">Q</span>
                             </div>
-                            <div className="text-gray-400 text-sm font-bold">PRO COURSE</div>
+                            <div className="text-gray-400 text-sm font-bold tracking-wide">PRO COURSE</div>
                           </div>
-                          <div className="text-gray-300 text-2xl font-bold mb-3">CERTIFICATE</div>
+                          
+                          {/* CERTIFICATE Title */}
+                          <div className="text-gray-300 text-3xl font-bold mb-5 tracking-wider">CERTIFICATE</div>
+                          
+                          {/* Certificate Content */}
                           <p className="text-gray-400 text-xs mb-2">This is to certify that</p>
-                          <div className="text-white text-xl font-bold mb-2">{cert.userName}</div>
-                          <p className="text-gray-400 text-xs mb-1">has successfully completed the programming certification in</p>
-                          <div className="text-white text-xl font-bold mb-3">{cert.examTitle}</div>
+                          <div className="text-white text-2xl font-bold mb-2">{cert.userName}</div>
+                          <p className="text-gray-400 text-xs mb-1">has successfully completed the programming<br/>certification in</p>
+                          <div className="text-white text-2xl font-bold mb-6">{cert.examTitle}</div>
+                          
+                          {/* Certificate Details */}
                           <div className="flex justify-between w-full text-xs text-gray-500 mt-2">
                             <div className="text-left">
                               <div>Certificate number</div>
@@ -186,14 +201,16 @@ export default function Certificates() {
                             </div>
                             <div className="flex items-end">
                               <div className="flex flex-col items-center">
-                                <div className="text-[10px]">Certified</div>
-                                <div className="rounded-full border border-gray-600 p-1 text-[8px]">ISO 9001:2015</div>
+                                <div className="text-[10px] mb-1">Certified</div>
+                                <div className="rounded-full border border-gray-600 p-1 text-[8px] text-gray-300">ISO 9001:2015</div>
                               </div>
                             </div>
                           </div>
-                          <div className="mt-2 text-gray-400 text-xs">
+                          
+                          {/* Signature */}
+                          <div className="mt-4 text-gray-400 text-xs">
                             <div>Robert Smith</div>
-                            <hr className="w-20 mx-auto border-gray-600 my-1" />
+                            <hr className="w-24 mx-auto border-gray-600 my-1" />
                             <div>Signature</div>
                           </div>
                         </div>
@@ -201,24 +218,24 @@ export default function Certificates() {
                     </div>
                     
                     <div className="w-full md:w-2/3 p-6">
-                      <h4 className="text-lg font-bold mb-2">{cert.examTitle} Certification</h4>
+                      <h4 className="text-lg font-bold mb-2">شهادة {cert.examTitle}</h4>
                       <div className="flex items-center mb-4">
-                        <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium mr-2">Completed</span>
-                        <span className="text-gray-500 text-sm">Issued on: {new Date(cert.issueDate).toLocaleDateString()}</span>
+                        <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium mr-2">مكتملة</span>
+                        <span className="text-gray-500 text-sm">تاريخ الإصدار: {new Date(cert.issueDate).toLocaleDateString('ar-EG')}</span>
                       </div>
                       
                       <div className="space-y-4 mb-6">
                         <div>
-                          <h5 className="text-sm font-medium text-gray-700">Certificate ID</h5>
+                          <h5 className="text-sm font-medium text-gray-700">رقم الشهادة</h5>
                           <p className="text-gray-900">{cert.certificateNumber}</p>
                         </div>
                         <div>
-                          <h5 className="text-sm font-medium text-gray-700">Certification Type</h5>
-                          <p className="text-gray-900">Programming Certification</p>
+                          <h5 className="text-sm font-medium text-gray-700">نوع الشهادة</h5>
+                          <p className="text-gray-900">شهادة برمجة</p>
                         </div>
                         <div>
-                          <h5 className="text-sm font-medium text-gray-700">Status</h5>
-                          <p className="text-gray-900">Valid (expires {new Date(cert.expiryDate).toLocaleDateString()})</p>
+                          <h5 className="text-sm font-medium text-gray-700">الحالة</h5>
+                          <p className="text-gray-900">سارية (تنتهي في {new Date(cert.expiryDate).toLocaleDateString('ar-EG')})</p>
                         </div>
                       </div>
                       
@@ -227,13 +244,13 @@ export default function Certificates() {
                           onClick={() => downloadCertificate(cert.id)}
                           className="bg-accent hover:bg-accent-dark"
                         >
-                          <Download className="mr-2 h-4 w-4" /> Download
+                          <Download className="mr-2 h-4 w-4" /> تنزيل
                         </Button>
                         <Button
                           variant="outline"
                           onClick={() => shareCertificate(cert.id)}
                         >
-                          <Share2 className="mr-2 h-4 w-4" /> Share
+                          <Share2 className="mr-2 h-4 w-4" /> مشاركة
                         </Button>
                       </div>
                     </div>
@@ -243,8 +260,8 @@ export default function Certificates() {
             </div>
           ) : (
             <div className="bg-gray-50 rounded-lg p-8 text-center">
-              <div className="text-gray-500 mb-2">No certificates found</div>
-              <p className="text-sm text-gray-600">Complete an exam to earn your certificate</p>
+              <div className="text-gray-500 mb-2">لم يتم العثور على شهادات</div>
+              <p className="text-sm text-gray-600">أكمل اختبارًا للحصول على شهادتك</p>
             </div>
           )}
         </CardContent>

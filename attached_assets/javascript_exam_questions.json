@@ -1,0 +1,662 @@
+[
+  {
+    "id": 1,
+    "question": "[سؤال 1] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 2,
+    "question": "[سؤال 2] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 3,
+    "question": "[سؤال 3] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 4,
+    "question": "[سؤال 4] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 5,
+    "question": "[سؤال 5] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 6,
+    "question": "[سؤال 6] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 7,
+    "question": "[سؤال 7] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 8,
+    "question": "[سؤال 8] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 9,
+    "question": "[سؤال 9] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 10,
+    "question": "[سؤال 10] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 11,
+    "question": "[سؤال 11] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 12,
+    "question": "[سؤال 12] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 13,
+    "question": "[سؤال 13] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 14,
+    "question": "[سؤال 14] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 15,
+    "question": "[سؤال 15] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 16,
+    "question": "[سؤال 16] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 17,
+    "question": "[سؤال 17] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 18,
+    "question": "[سؤال 18] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 19,
+    "question": "[سؤال 19] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 20,
+    "question": "[سؤال 20] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 21,
+    "question": "[سؤال 21] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 22,
+    "question": "[سؤال 22] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 23,
+    "question": "[سؤال 23] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 24,
+    "question": "[سؤال 24] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 25,
+    "question": "[سؤال 25] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 26,
+    "question": "[سؤال 26] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 27,
+    "question": "[سؤال 27] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 28,
+    "question": "[سؤال 28] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 29,
+    "question": "[سؤال 29] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 30,
+    "question": "[سؤال 30] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 31,
+    "question": "[سؤال 31] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 32,
+    "question": "[سؤال 32] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 33,
+    "question": "[سؤال 33] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 34,
+    "question": "[سؤال 34] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 35,
+    "question": "[سؤال 35] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 36,
+    "question": "[سؤال 36] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 37,
+    "question": "[سؤال 37] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 38,
+    "question": "[سؤال 38] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 39,
+    "question": "[سؤال 39] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 40,
+    "question": "[سؤال 40] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 41,
+    "question": "[سؤال 41] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 42,
+    "question": "[سؤال 42] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 43,
+    "question": "[سؤال 43] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 44,
+    "question": "[سؤال 44] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 45,
+    "question": "[سؤال 45] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 46,
+    "question": "[سؤال 46] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 47,
+    "question": "[سؤال 47] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 48,
+    "question": "[سؤال 48] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 49,
+    "question": "[سؤال 49] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 50,
+    "question": "[سؤال 50] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 51,
+    "question": "[سؤال 51] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 52,
+    "question": "[سؤال 52] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 53,
+    "question": "[سؤال 53] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 54,
+    "question": "[سؤال 54] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 55,
+    "question": "[سؤال 55] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 56,
+    "question": "[سؤال 56] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 57,
+    "question": "[سؤال 57] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 58,
+    "question": "[سؤال 58] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 59,
+    "question": "[سؤال 59] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": 60,
+    "question": "[سؤال 60] ما ناتج تنفيذ الكود التالي في JavaScript؟",
+    "options": {
+      "A": "يطبع undefined",
+      "B": "يرجع NaN",
+      "C": "يطبع القيمة المطلوبة",
+      "D": "يرمي استثناء"
+    },
+    "correct_answer": "C"
+  }
+]
