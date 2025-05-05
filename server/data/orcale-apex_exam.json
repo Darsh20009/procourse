@@ -1,0 +1,370 @@
+{
+    "id": "exam-001",
+    "title": "ORACLE APEX",
+    "description": "Certification exam for Oracle APEX   application development",
+    "duration": 30,
+    "totalQuestions": 30,
+    "passingScore": 50,
+    "questions": [
+      {
+        "id": 1,
+        "text": "Which of the following is NOT a valid component type in Oracle APEX?",
+        "options": [
+          "Interactive Reports",
+          "Neural Networks",
+          "Forms",
+          "Charts"
+        ],
+        "correctAnswer": 1,
+        "category": "APEX Components"
+      },
+      {
+        "id": 2,
+        "text": "What is the maximum number of items you can include in a single APEX page?",
+        "options": [
+          "100",
+          "500",
+          "1000",
+          "No hard limit"
+        ],
+        "correctAnswer": 2,
+        "category": "APEX Limits"
+      },
+      {
+        "id": 3,
+        "text": "Which PL/SQL package is primarily used for APEX_APPLICATION operations?",
+        "options": [
+          "APEX_UTIL",
+          "APEX_PLSQL_JOB",
+          "APEX_APPLICATION",
+          "APEX_CUSTOM_AUTH"
+        ],
+        "correctAnswer": 0,
+        "category": "APEX APIs"
+      },
+      {
+        "id": 4,
+        "text": "What is the purpose of the APEX_DEBUG package?",
+        "options": [
+          "To fix runtime errors automatically",
+          "To log and analyze application execution",
+          "To debug PL/SQL code outside APEX",
+          "To optimize SQL queries"
+        ],
+        "correctAnswer": 1,
+        "category": "Debugging"
+      },
+      {
+        "id": 5,
+        "text": "Which of these is NOT a valid APEX authentication scheme type?",
+        "options": [
+          "Database Accounts",
+          "Social Sign-In",
+          "Biometric Authentication",
+          "Custom"
+        ],
+        "correctAnswer": 2,
+        "category": "Security"
+      },
+      {
+        "id": 6,
+        "text": "What does the APEX_UTIL.STRING_TO_TABLE function do?",
+        "options": [
+          "Converts a string to a temporary BLOB",
+          "Splits a delimited string into a PL/SQL array",
+          "Converts a string to a HTML table",
+          "Parses JSON string into relational data"
+        ],
+        "correctAnswer": 1,
+        "category": "APEX APIs"
+      },
+      {
+        "id": 7,
+        "text": "Which feature allows real-time updates to APEX applications without page refresh?",
+        "options": [
+          "Dynamic Actions",
+          "WebSocket Channel",
+          "APEX Polling",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Interactive Features"
+      },
+      {
+        "id": 8,
+        "text": "What is the purpose of the APEX_APPLICATION.G_F01 array?",
+        "options": [
+          "Stores session state values",
+          "Holds values from checkboxes",
+          "Contains application preferences",
+          "Stores uploaded files"
+        ],
+        "correctAnswer": 1,
+        "category": "APEX Internals"
+      },
+      {
+        "id": 9,
+        "text": "Which CSS class would you use to make a region collapsible in APEX?",
+        "options": [
+          "apex-collapsible",
+          "t-Region--collapsible",
+          "js-collapse",
+          "ui-accordion"
+        ],
+        "correctAnswer": 1,
+        "category": "UI Customization"
+      },
+      {
+        "id": 10,
+        "text": "What is the maximum number of concurrent users supported by Oracle APEX?",
+        "options": [
+          "500",
+          "1000",
+          "5000",
+          "No hard limit"
+        ],
+        "correctAnswer": 3,
+        "category": "APEX Limits"
+      },
+      {
+        "id": 11,
+        "text": "Which JavaScript API would you use to refresh an Interactive Grid?",
+        "options": [
+          "apex.region.refresh()",
+          "apex.widget.interactiveGrid.refresh()",
+          "apex.region('myIG').refresh()",
+          "apex.region('myIG').call('refresh')"
+        ],
+        "correctAnswer": 2,
+        "category": "JavaScript APIs"
+      },
+      {
+        "id": 12,
+        "text": "What is the purpose of the APEX_PLUGIN package?",
+        "options": [
+          "To extend APEX with custom functionality",
+          "To integrate third-party libraries",
+          "To create custom authentication schemes",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Plugins"
+      },
+      {
+        "id": 13,
+        "text": "Which of these is NOT a valid APEX workspace provisioning mode?",
+        "options": [
+          "Database Instance",
+          "Schema-Based",
+          "Cloud Service",
+          "Workspace-Flex"
+        ],
+        "correctAnswer": 2,
+        "category": "Administration"
+      },
+      {
+        "id": 14,
+        "text": "What is the purpose of the APEX_MAIL package?",
+        "options": [
+          "To configure email servers",
+          "To send and manage emails",
+          "To parse incoming emails",
+          "To integrate with Outlook"
+        ],
+        "correctAnswer": 1,
+        "category": "APEX APIs"
+      },
+      {
+        "id": 15,
+        "text": "Which APEX feature would you use to implement row-level security?",
+        "options": [
+          "Authorization Schemes",
+          "Virtual Private Database",
+          "Session State Protection",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Security"
+      },
+      {
+        "id": 16,
+        "text": "What does the APEX_JSON package primarily do?",
+        "options": [
+          "Converts relational data to JSON",
+          "Parses JSON in PL/SQL",
+          "Generates JSON for REST endpoints",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "APEX APIs"
+      },
+      {
+        "id": 17,
+        "text": "Which APEX feature allows you to track page performance metrics?",
+        "options": [
+          "Activity Reports",
+          "Debug Mode",
+          "APEX Advisor",
+          "Page Performance"
+        ],
+        "correctAnswer": 3,
+        "category": "Performance"
+      },
+      {
+        "id": 18,
+        "text": "What is the purpose of the APEX_INSTANCE_ADMIN package?",
+        "options": [
+          "To manage workspace users",
+          "To configure instance settings",
+          "To monitor performance",
+          "To create REST endpoints"
+        ],
+        "correctAnswer": 1,
+        "category": "Administration"
+      },
+      {
+        "id": 19,
+        "text": "Which of these is NOT a valid APEX theme style?",
+        "options": [
+          "Vita",
+          "Vista",
+          "Redwood",
+          "Universal Theme"
+        ],
+        "correctAnswer": 1,
+        "category": "Themes"
+      },
+      {
+        "id": 20,
+        "text": "What is the purpose of the APEX_IR package?",
+        "options": [
+          "To create Interactive Reports programmatically",
+          "To manage Interactive Report settings",
+          "To customize Interactive Report behavior",
+          "No such package exists"
+        ],
+        "correctAnswer": 3,
+        "category": "Interactive Reports"
+      },
+      {
+        "id": 21,
+        "text": "Which APEX feature would you use to implement a wizard interface?",
+        "options": [
+          "Tab Regions",
+          "Modal Dialogs",
+          "Multi-Page Forms",
+          "All of the above"
+        ],
+        "correctAnswer": 2,
+        "category": "UI Patterns"
+      },
+      {
+        "id": 22,
+        "text": "What is the purpose of the APEX_SESSION package?",
+        "options": [
+          "To manage user sessions",
+          "To create temporary tables",
+          "To attach debug information",
+          "To manage session state"
+        ],
+        "correctAnswer": 0,
+        "category": "APEX APIs"
+      },
+      {
+        "id": 23,
+        "text": "Which APEX feature provides out-of-the-box accessibility compliance?",
+        "options": [
+          "ARIA Attributes",
+          "Universal Theme",
+          "APEX Accessibility Checker",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Accessibility"
+      },
+      {
+        "id": 24,
+        "text": "What is the purpose of the APEX_ZIP package?",
+        "options": [
+          "To compress large files",
+          "To work with ZIP archives in PL/SQL",
+          "To integrate with cloud storage",
+          "To encrypt sensitive data"
+        ],
+        "correctAnswer": 1,
+        "category": "APEX APIs"
+      },
+      {
+        "id": 25,
+        "text": "Which APEX feature would you use to implement a master-detail form?",
+        "options": [
+          "Interactive Grid with detail view",
+          "Report with Form",
+          "Tabular Form",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "Forms"
+      },
+      {
+        "id": 26,
+        "text": "What is the purpose of the APEX_COLLECTION API?",
+        "options": [
+          "To manage temporary data collections",
+          "To group related pages",
+          "To organize application assets",
+          "To manage plugin collections"
+        ],
+        "correctAnswer": 0,
+        "category": "APEX APIs"
+      },
+      {
+        "id": 27,
+        "text": "Which APEX feature allows you to track user clicks on page elements?",
+        "options": [
+          "Click Tracking",
+          "Hotspot Analysis",
+          "Component Events",
+          "Page Click Logging"
+        ],
+        "correctAnswer": 0,
+        "category": "Analytics"
+      },
+      {
+        "id": 28,
+        "text": "What is the purpose of the APEX_UTIL.PREPARE_URL function?",
+        "options": [
+          "To validate URLs",
+          "To generate APEX URLs with proper session state",
+          "To shorten long URLs",
+          "To encode special characters in URLs"
+        ],
+        "correctAnswer": 1,
+        "category": "URL Handling"
+      },
+      {
+        "id": 29,
+        "text": "Which APEX feature would you use to implement a dark mode?",
+        "options": [
+          "Custom CSS",
+          "Theme Style Variation",
+          "User Preference",
+          "All of the above"
+        ],
+        "correctAnswer": 3,
+        "category": "UI Customization"
+      },
+      {
+        "id": 30,
+        "text": "What is the purpose of the APEX_DATA_PARSER package?",
+        "options": [
+          "To parse JSON data",
+          "To analyze SQL queries",
+          "To parse CSV, XLSX, XML, and JSON data",
+          "To parse debug logs"
+        ],
+        "correctAnswer": 2,
+        "category": "Data Loading"
+      }
+    ]
+}
