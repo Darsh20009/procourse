@@ -252,7 +252,32 @@ export default function CertificatesSearch() {
           </CardHeader>
           <CardContent>
             <div className="bg-white p-4 rounded-lg shadow-inner">
-              <div id="certificate-template" className="relative bg-gradient-to-br from-blue-50 to-white border-[12px] border-double border-blue-700/40 p-10 mx-auto text-center" style={{ minHeight: '600px', maxWidth: '800px' }}>
+              <div id="certificate-template" className="relative bg-gradient-to-br from-blue-900 to-blue-950 border-4 border-blue-600/30 p-10 mx-auto text-center rounded-lg" style={{ minHeight: '700px', maxWidth: '1000px' }}>
+                {/* Elegant Border Frame */}
+                <div className="absolute inset-0 border-[1px] border-blue-400/20 m-4"></div>
+                <div className="absolute inset-0 border-[2px] border-blue-400/10 m-8"></div>
+                
+                {/* Modern Geometric Patterns */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(147, 197, 253, 0.2) 1px, transparent 0)`,
+                    backgroundSize: '20px 20px'
+                  }}></div>
+                </div>
+
+                {/* Dynamic Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-radial from-blue-800/50 via-transparent to-blue-900/50 opacity-20"></div>
+                
+                {/* Animated Holographic Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-blue-400/10 opacity-30"
+                     style={{animation: 'gradient 8s ease infinite'}}></div>
+                
+                {/* Pro Course Watermark */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
+                  <div className="text-white text-[200px] font-bold transform rotate-[-30deg]" style={{fontFamily: 'Arial Black'}}>
+                    PRO COURSE
+                  </div>
+                </div>
                 {/* Background Pattern */}
                 <div className="absolute inset-0 z-0 opacity-10">
                   <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -350,35 +375,46 @@ export default function CertificatesSearch() {
                     }}></div>
                   </div>
 
+                  {/* Royal Watermark */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-5">
+                    <div className="w-96 h-96 rotate-45">
+                      <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <defs>
+                          <pattern id="royal" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M0 5 Q2.5 0, 5 5 T10 5" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+                          </pattern>
+                        </defs>
+                        <rect width="100" height="100" fill="url(#royal)" className="text-blue-900"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Geometric Accents */}
+                  <div className="absolute top-20 left-10 w-16 h-16">
+                    <svg viewBox="0 0 100 100" className="w-full h-full text-blue-200/30">
+                      <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="currentColor"/>
+                    </svg>
+                  </div>
+
+
                   {/* Security Thread */}
                   <div className="absolute left-20 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-200/20 via-blue-400/20 to-blue-200/20"></div>
 
                   {/* Content */}
                   <div className="relative">
-                    <p className="text-xl mb-6 text-blue-800 font-serif">This is to certify that</p>
-                    <h3 className="text-5xl font-bold text-blue-950 mb-6" 
-                        style={{ 
-                          fontFamily: 'Arial, sans-serif', 
-                          textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
-                          background: 'linear-gradient(45deg, #1e3a8a, #1e40af)',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent'
-                        }}>
+                    <p className="text-xl mb-6 text-blue-800 font-serif" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.1)'}}>
+                      This is to certify that
+                    </p>
+                    <h3 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-700" 
+                        style={{textShadow: '2px 2px 4px rgba(0,0,0,0.1)'}}>
                       {selectedCert.userName}
                     </h3>
-                    <p className="text-xl mb-6 text-blue-800 leading-relaxed">
-                      has successfully completed the 
-                      <span className="font-bold block text-2xl my-2" style={{
-                        background: 'linear-gradient(45deg, #1e40af, #3b82f6)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent'
-                      }}>
-                        {selectedCert.examTitle}
-                      </span>
-                      examination with excellence and achieved a score of{" "}
-                      <span className="font-bold text-blue-700 text-3xl" style={{
-                        textShadow: '1px 1px 2px rgba(0,0,0,0.1)'
-                      }}>
+                    <div className="h-0.5 w-32 mx-auto bg-gradient-to-r from-transparent via-blue-500 to-transparent mb-6"></div>
+                    <p className="text-xl mb-6 leading-relaxed">
+                      has successfully completed the
+                      <span className="block font-bold text-2xl my-2 text-blue-800">{selectedCert.examTitle}</span>
+                      examination with distinction and achieved a score of
+                      <span className="block text-3xl font-bold text-blue-900 mt-2" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.1)'}}>
                         {selectedCert.score}%
                       </span>
                     </p>
@@ -456,7 +492,7 @@ export default function CertificatesSearch() {
 
                   <div className="text-center">
                     <div className="mb-2">
-                      <img src="data:image/png;base64,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" alt="Signature" className="mx-auto h-14" />
+                      <img src="data:image/png;base64,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" alt="Signature" className="mx-auto h-14" />
                     </div>
                     <p className="font-semibold text-blue-900 text-sm">Educational Programs Director</p>
                     <p className="text-xs text-blue-600">Pro Course</p>
