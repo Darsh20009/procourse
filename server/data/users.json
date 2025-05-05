@@ -4,6 +4,7 @@
     "email": "yusuf@example.com",
     "name": "Yusuf Mohamed",
     "password": "password123"
+    "preferredField": "oracle_apex"
   },
   {
     "id": "1234567890",
